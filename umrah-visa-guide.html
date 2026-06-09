@@ -2652,10 +2652,7 @@
         <div class="card-label">Government fee</div>
         <div class="card-value" id="calc-gov">$XX</div>
       </div>
-      <div class="result-card">
-        <div class="card-label">Mandatory insurance</div>
-        <div class="card-value" id="calc-ins">$XX</div>
-      </div>
+
       <div class="result-card">
         <div class="card-label">Nusuk / processing fee</div>
         <div class="card-value" id="calc-proc">$XX</div>
@@ -3127,7 +3124,7 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
-          <p>The total includes three components: the government fee, mandatory health insurance, and the Nusuk processing fee. Exact amounts are confirmed on the Nusuk portal and change periodically. iVisa provides a full itemized breakdown with no hidden fees when you apply through us. Check our calculator above for estimates once fees are confirmed.</p>
+          <p>The total includes the government fee (which covers mandatory health insurance) and the Nusuk processing fee. Exact amounts are confirmed on the Nusuk portal and change periodically. iVisa provides a full itemized breakdown with no hidden fees when you apply through us. Check our calculator above for estimates once fees are confirmed.</p>
         </div>
       </div>
 
@@ -3409,7 +3406,6 @@
   // Calculator — fees shown as XX per disclaimer
   function updateCalc() {
     document.getElementById('calc-gov').textContent = '$XX';
-    document.getElementById('calc-ins').textContent = '$XX';
     document.getElementById('calc-proc').textContent = '$XX';
     document.getElementById('calc-total').textContent = '$XX';
   }
