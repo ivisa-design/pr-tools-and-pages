@@ -106,7 +106,7 @@
         "name": "Can I perform Umrah on a tourist visa?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, outside Hajj blackout (approx Apr 3–18 2026). Book your ritual permit via Nusuk after arrival. No mahram required."
+          "text": "Yes, outside Hajj blackout (approx March 15–May 31, 2026). Book your ritual permit via Nusuk after arrival. No mahram required."
         }
       },
       {
@@ -114,7 +114,7 @@
         "name": "Can women travel without a male guardian?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Women 18+ can travel independently since 2025. No special docs needed. Applies to both visa types."
+          "text": "Yes. Women 18+ can travel independently since 2021. No special docs needed. Applies to both visa types."
         }
       },
       {
@@ -122,7 +122,7 @@
         "name": "What's the difference between Umrah visa and tourist eVisa?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Umrah visa is Muslims only, includes health insurance, restricts to Makkah/Madinah. Tourist eVisa is open to all, multiple entries, all Saudi cities, cheaper — but no insurance and blocked from Makkah during Hajj season."
+          "text": "Umrah visa is Muslims only, includes health insurance, valid for Makkah and Madinah (plus other Saudi cities after completing Umrah via Nusuk Masar). Tourist eVisa is open to all, multiple entries, all Saudi cities, cheaper — but no insurance and blocked from Makkah during Hajj season."
         }
       },
       {
@@ -218,7 +218,7 @@
         "name": "When can't I apply for an Umrah visa?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "During the Hajj season blackout — approximately March 15 to May 31, 2026. Applications during this period will be refused. Ramadan (approx Feb 28–Mar 30) is peak season — visas still issued but expect delays and higher hotel prices."
+          "text": "During the Hajj season blackout — approximately March 15 to May 31, 2026. Applications during this period will be refused. Ramadan (approx Feb 17–Mar 18, 2027) is peak season — visas still issued but expect delays and higher hotel prices."
         }
       }
     ]
@@ -1902,8 +1902,8 @@
     <div class="particle" style="width:50px;height:50px;top:44%;left:50%;animation-delay:3s;animation-duration:11s;opacity:0.2;"></div>
   </div>
   <div class="container">
-    <h1>Your complete Umrah Visa guide</h1>
-    <p class="hero-subhead">Join over 2 million pilgrims heading to Makkah for the 2027 Umrah season. Discover exactly which visa you need, how much it costs, and the specific rules for your nationality.</p>
+    <h1>Your complete Umrah Visa guide 2026–2027</h1>
+    <p class="hero-subhead">Join over 2 million pilgrims heading to Makkah for the 2026–2027 Umrah season. Discover exactly which visa you need, how much it costs, and the specific rules for your nationality.</p>
 
     <!-- Eligibility Checker -->
     <div class="checker-box">
@@ -2626,7 +2626,7 @@
         <label for="calc-season">Travel season</label>
         <select id="calc-season" onchange="updateCalc()">
           <option value="regular">Regular season (Jun–Feb)</option>
-          <option value="ramadan">Ramadan peak (Feb 28–Mar 30)</option>
+          <option value="ramadan">Ramadan peak (Feb 17–Mar 18)</option>
         </select>
       </div>
     </div>
@@ -2762,7 +2762,7 @@
         <div class="split-cal-months">
           <div class="scm safe"><span class="scm-label">Jan</span></div>
           <div class="scm peak"><span class="scm-label">Feb</span><span class="scm-sub">Ramadan</span></div>
-          <div class="scm deadline"><span class="scm-label">Mar</span><span class="scm-sub">Season closes</span></div>
+          <div class="scm deadline"><span class="scm-label">Mar</span><span class="scm-sub">Season closes + Ramadan until ~18 Mar</span></div>
           <div class="scm depart"><span class="scm-label">Apr</span><span class="scm-sub">Depart by 7</span></div>
           <div class="scm block"><span class="scm-label">May</span><span class="scm-sub">Hajj prep</span></div>
           <div class="scm block"><span class="scm-label">Jun</span><span class="scm-sub">Hajj</span></div>
@@ -2985,7 +2985,7 @@
           </tr>
           <tr>
             <td>Cities accessible</td>
-            <td><span class="cross">✗</span> Makkah &amp; Madinah only</td>
+            <td><span class="check">✓</span> Makkah &amp; Madinah + other cities after Umrah (via Nusuk Masar)</td>
             <td><span class="check">✓</span> All Saudi cities</td>
           </tr>
           <tr>
@@ -3090,7 +3090,7 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
-          <p>The <strong>Umrah visa</strong> is for Muslims only. It includes mandatory health insurance, restricts travel to Makkah and Madinah, and is purpose-built for pilgrimage. The <strong>tourist eVisa</strong> is open to all nationalities, allows multiple entries, covers all Saudi cities, and is cheaper — but it doesn't include insurance and tourist eVisa holders are blocked from Makkah during Hajj season.</p>
+          <p>The <strong>Umrah visa</strong> is for Muslims only. It includes mandatory health insurance, covers Makkah and Madinah for Umrah, and allows travel to other Saudi cities after completing Umrah via Nusuk Masar. It's purpose-built for pilgrimage. The <strong>tourist eVisa</strong> is open to all nationalities, allows multiple entries, covers all Saudi cities, and is cheaper — but it doesn't include insurance and tourist eVisa holders are blocked from Makkah during Hajj season.</p>
         </div>
       </div>
 
@@ -3223,7 +3223,7 @@
           <li><a href="#guides">Eligibility by nationality</a></li>
           <li><a href="#comparison">Visa types compared</a></li>
           <li><a href="#calculator">Cost calculator</a></li>
-          <li><a href="#timeline">Processing times</a></li>
+          <li><a href="#processing-times">Processing times</a></li>
 
           <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -3403,7 +3403,7 @@
   // ── SMART NATIONALITY PRE-FILL ──
   // When a country is selected in the hero checker, also populate the calculator
   // dropdown and open the matching nationality guide accordion
-  var heroSelect = document.getElementById('nationality-select');
+  var heroSelect = document.getElementById('country-select');
   if (heroSelect) {
     heroSelect.addEventListener('change', function() {
       var val = this.value;
