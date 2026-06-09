@@ -194,7 +194,7 @@
         "name": "Can I extend my Umrah visa in Saudi Arabia?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Extensions aren't typically offered. The visa allows 90 days stay after arrival — sufficient for most trips. Plan within this window."
+          "text": "Extensions aren't typically offered. The Umrah visa is valid for 30 days from issue — you must enter and complete your pilgrimage within that window. Plan your travel dates before applying."
         }
       },
       {
@@ -1071,17 +1071,18 @@
 
     /* Visual calendar bar */
     /* ── Split 2026/2027 calendar ── */
-    .split-cal-container { margin-bottom: 36px; }
+    /* ── Timeline calendar ── */
+    .split-cal-container { margin-bottom: 40px; }
 
     .split-cal-row {
       display: flex;
       align-items: stretch;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       gap: 0;
     }
 
     .split-cal-year-label {
-      width: 58px;
+      width: 54px;
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -1099,13 +1100,11 @@
     .split-cal-months {
       flex: 1;
       display: grid;
+      grid-template-columns: repeat(12, 1fr);
       overflow: hidden;
-      height: 56px;
+      height: 72px;
       border-radius: 0 10px 10px 0;
     }
-
-    .split-cal-row:first-child .split-cal-months { grid-template-columns: repeat(12, 1fr); }
-    .split-cal-row:last-child  .split-cal-months { grid-template-columns: repeat(12, 1fr); }
 
     .scm {
       display: flex;
@@ -1117,7 +1116,8 @@
       font-weight: 700;
       color: #fff;
       position: relative;
-      gap: 3px;
+      gap: 4px;
+      padding: 4px 2px;
     }
 
     .scm.safe      { background: #2ea55a; }
@@ -1126,72 +1126,95 @@
     .scm.deadline  { background: #9b2020; }
     .scm.depart    { background: #6b1010; }
     .scm.empty     { background: #edf1f3; color: #b0bec5; }
-    .scm.past      { opacity: 0.45; }
-    .scm.now       { outline: 3px solid rgba(255,255,255,0.9); outline-offset: -3px; }
+    .scm.past      { opacity: 0.5; }
 
-    .scm-sub {
-      font-size: 8.5px;
-      font-weight: 600;
-      opacity: 0.9;
-      line-height: 1;
-      text-align: center;
-      padding: 0 2px;
-    }
-
-    .scm.now .scm-sub {
-      background: #fff;
-      color: var(--hero);
-      border-radius: 3px;
-      padding: 1px 4px;
+    .scm-label {
+      font-size: 12px;
       font-weight: 800;
-      opacity: 1;
+      line-height: 1;
+    }
+    .scm-sub {
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 1.2;
+      text-align: center;
+      padding: 0 3px;
+      opacity: 0.92;
     }
 
     .cal-legend {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
-      margin-top: 14px;
+      margin-top: 16px;
     }
 
     .cal-legend-item {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 12.5px;
+      gap: 7px;
+      font-size: 12px;
       color: var(--muted);
     }
 
     .cal-dot {
-      width: 13px;
-      height: 13px;
-      border-radius: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
       flex-shrink: 0;
     }
 
-    /* Key dates */
-    .key-dates-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
+    /* Key dates timeline */
+    .kd-timeline {
+      position: relative;
       margin-bottom: 40px;
+      padding-left: 28px;
     }
+    .kd-timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #2ea55a 0%, #2ea55a 20%, var(--warning) 40%, #c53030 65%, #6b1010 100%);
+      border-radius: 2px;
+    }
+    .kd-item {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .kd-item::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      top: 14px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px currentColor;
+    }
+    .kd-item.kd-green::before { color: #2ea55a; background: #2ea55a; }
+    .kd-item.kd-orange::before { color: var(--warning); background: var(--warning); }
+    .kd-item.kd-red::before { color: #c53030; background: #c53030; }
+    .kd-item.kd-darkred::before { color: #6b1010; background: #6b1010; }
 
     .kd-card {
       border-radius: 12px;
-      padding: 18px 20px;
+      padding: 16px 20px;
       border: 1px solid var(--border);
       background: #fff;
     }
-
+    .kd-card.kd-green  { border-left: 4px solid #2ea55a; background: #f4fbf7; }
     .kd-card.kd-orange { border-left: 4px solid var(--warning); background: #fffdf5; }
-    .kd-card.kd-red { border-left: 4px solid #c53030; background: #fff8f8; }
-    .kd-card.kd-green { border-left: 4px solid #2ea55a; background: #f4fbf7; }
+    .kd-card.kd-red    { border-left: 4px solid #c53030; background: #fff8f8; }
+    .kd-card.kd-darkred { border-left: 4px solid #6b1010; background: #fff5f5; }
 
     .kd-date {
       font-family: 'Manrope', sans-serif;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 4px;
       color: var(--text);
     }
@@ -1296,6 +1319,7 @@
       font-size: 14px;
       color: var(--text);
       line-height: 1.6;
+      margin-top: 28px;
       margin-bottom: 0;
     }
 
@@ -1563,17 +1587,17 @@
       margin-bottom: 40px;
     }
 
-    .footer-brand img { height: 52px; margin-bottom: 14px; display: block; }
+    .footer-brand img { height: 40px; margin-bottom: 6px; display: block; }
     .footer-brand .logo-fallback { color: #fff; font-size: 24px; font-family: 'Manrope', sans-serif; font-weight: 800; }
 
     .footer-tagline {
       font-family: 'Manrope', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      color: #48d878;
       opacity: 1;
-      margin-top: 10px;
-      line-height: 1.6;
+      margin-top: 2px;
+      line-height: 1.3;
     }
 
     .footer-col h4 {
@@ -1644,6 +1668,11 @@
       .checker-row button { width: 100%; }
 
       .need-btn { min-width: auto; }
+
+      #apply .container > div[style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      #apply div[style*="height:380px"] { height: 280px !important; }
     }
 
     @media (max-width: 480px) {
@@ -1923,7 +1952,7 @@
           <ul>
             <li>Muslims only</li>
             <li>Single entry</li>
-            <li>90 days stay after arrival</li>
+            <li>Must enter within 30 days of visa issue &amp; stay up to 30 days</li>
             <li>Available year-round (excl. Hajj blackout)</li>
             <li>Makkah &amp; Madinah only — other cities not permitted</li>
             <li>Umrah permitted — this visa is specifically for pilgrimage</li>
@@ -2112,8 +2141,12 @@
           <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);"><span style="color:var(--cta);font-weight:700;flex-shrink:0;">✓</span> One-way transport (compulsory)</li>
         </ul>
 
-        <div style="margin-top:20px;background:#fff3e0;border-left:3px solid var(--warning);border-radius:8px;padding:14px 16px;font-size:13px;color:var(--text);line-height:1.7;">
-          <strong>Processing &amp; validity:</strong> Once all documents are in order, processing is typically 5–10 working days. Visas are valid for 90 days from issuance, so you can apply up to 3 months in advance of your travel date.
+        <div style="margin-top:16px;background:#fff0f0;border-left:3px solid #c53030;border-radius:8px;padding:14px 16px;font-size:13px;color:var(--text);line-height:1.7;">
+          <strong>✈️ Direct flight required:</strong> As per Saudi immigration regulations, Umrah visa holders must travel on a direct flight to a Saudi Arabian airport. Connecting flights or stopovers to other countries before entering Saudi Arabia are not permitted on this visa. Ensure your ticket is a direct routing to KSA before applying.
+        </div>
+
+        <div style="margin-top:12px;background:#fff3e0;border-left:3px solid var(--warning);border-radius:8px;padding:14px 16px;font-size:13px;color:var(--text);line-height:1.7;">
+          <strong>Processing &amp; validity:</strong> Once all documents are in order, processing is typically 5–10 working days. The visa is valid for 30 days from issue — you must enter Saudi Arabia and complete your Umrah within that 30-day window.
         </div>
       </div>
 
@@ -2121,25 +2154,27 @@
       <div>
         <h3 style="font-size:19px;font-weight:700;margin-bottom:18px;color:var(--hero);">Key dates — 2026/2027 season</h3>
 
-        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
-          <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;">
-            <div style="font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Last date for Umrah visa issuance</div>
-            <div style="font-size:17px;font-weight:700;color:var(--hero);">9 March 2027</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px;">
+          <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 14px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.7px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;line-height:1.4;">Last date for visa issuance</div>
+            <div style="font-size:16px;font-weight:800;color:var(--hero);white-space:nowrap;">9 Mar 2027</div>
           </div>
-          <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;">
-            <div style="font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Last date for entry into Saudi Arabia</div>
-            <div style="font-size:17px;font-weight:700;color:var(--hero);">23 March 2027</div>
+          <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 14px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.7px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;line-height:1.4;">Last date to enter Saudi Arabia</div>
+            <div style="font-size:16px;font-weight:800;color:var(--hero);white-space:nowrap;">23 Mar 2027</div>
           </div>
-          <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;">
-            <div style="font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">All Umrah pilgrims must depart by</div>
-            <div style="font-size:17px;font-weight:700;color:#c53030;">7 April 2027</div>
+          <div style="background:#fff7f7;border:1px solid #f5c6c6;border-radius:10px;padding:14px 14px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.7px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;line-height:1.4;">All pilgrims must depart by</div>
+            <div style="font-size:16px;font-weight:800;color:#c53030;white-space:nowrap;">7 Apr 2027</div>
           </div>
         </div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:24px;line-height:1.6;">⚠️ The Umrah visa is valid for <strong>30 days from issue</strong>. Apply only once your travel dates are confirmed — don't apply early or your visa may expire before you travel.</p>
 
       </div>
 
     </div>
   </div>
+
 </section>
 
 <!-- ── NATIONALITY GUIDES ── -->
@@ -2148,30 +2183,22 @@
     <p class="section-label">By nationality</p>
     <h2 class="section-title">Nationality guides</h2>
 
-    <!-- IMAGE PLACEHOLDER ROW: 3 small images side by side — diverse pilgrims from different backgrounds -->
-    <!-- IMAGE ROW: Three portrait-format or landscape images showing pilgrims of different nationalities (South Asian, African, Western). Warm, inclusive, respectful photography. Each: 360×260px, WebP. -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px;">
-      <div class="img-placeholder" style="height:200px;margin-bottom:0;" role="img" aria-label="Image placeholder: South Asian pilgrim">
-        <div class="img-placeholder-inner" style="font-size:13px;">
-          IMAGE B1: South Asian pilgrim (India / Pakistan)
-          <span>360×260px | diverse pilgrim portrait</span>
-        </div>
+    <p style="font-size:16px; color:var(--muted); margin-bottom:16px; max-width:680px;">The Umrah visa is available exclusively to <strong>Muslims</strong>. The countries below are the most common Umrah applicant nationalities — but any Muslim, regardless of nationality, can apply. The route (Nusuk direct or agent-processed) depends on your passport.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px;">
+      <div style="background:#e8f8ee;border:1px solid #b5e4c9;border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;">
+        <div style="font-weight:700;color:var(--hero);margin-bottom:4px;">🕌 Umrah visa only</div>
+        <div style="color:var(--text);">India, Pakistan, Bangladesh, Indonesia, Nigeria &amp; similar nationalities. Must use the Umrah visa via agent — the Tourist eVisa route may not be available to these passports for pilgrimage.</div>
       </div>
-      <div class="img-placeholder" style="height:200px;margin-bottom:0;" role="img" aria-label="Image placeholder: African pilgrim">
-        <div class="img-placeholder-inner" style="font-size:13px;">
-          IMAGE B2: African / Middle Eastern pilgrim
-          <span>360×260px | diverse pilgrim portrait</span>
-        </div>
+      <div style="background:#f5f0fa;border:1px solid #d4c2e8;border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;">
+        <div style="font-weight:700;color:var(--hero);margin-bottom:4px;">🔄 Either visa works</div>
+        <div style="color:var(--text);">USA, UK, EU, Turkey, Canada, Australia, Malaysia &amp; similar. Muslim applicants from these countries can choose: <strong>Umrah visa</strong> (pilgrimage-specific, includes insurance) or <strong>Tourist eVisa</strong> (simpler, more flexible, no insurance).</div>
       </div>
-      <div class="img-placeholder" style="height:200px;margin-bottom:0;" role="img" aria-label="Image placeholder: Western pilgrim">
-        <div class="img-placeholder-inner" style="font-size:13px;">
-          IMAGE B3: Western / European pilgrim
-          <span>360×260px | diverse pilgrim portrait</span>
-        </div>
+      <div style="background:#f0f6fa;border:1px solid #c8dce6;border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;">
+        <div style="font-weight:700;color:var(--hero);margin-bottom:4px;">🌍 Not Muslim?</div>
+        <div style="color:var(--text);">Non-Muslim visitors can apply for the <strong>Saudi Tourist eVisa</strong>. Umrah visa is not available. <a href="https://ivisa.com/saudi-arabia-visa" target="_blank" rel="noopener" style="color:var(--hero);font-weight:600;">Check eligibility →</a></div>
       </div>
     </div>
-
-    <p style="font-size:16px; color:var(--muted); margin-bottom:10px; max-width:680px;">Rules vary significantly by passport. The countries below cover the most common traveler nationalities — but <strong>all nationalities are covered</strong>. Use the search to find your country.</p>
 
     <div class="search-wrap">
       <input type="text" id="guide-search" placeholder="Search by country name…" oninput="filterGuides()" />
@@ -2462,8 +2489,8 @@
         <tbody>
           <tr>
             <td>Who can apply</td>
-            <td>Muslims only</td>
-            <td>All nationalities</td>
+            <td>Must be Muslim — proof of faith required at application (religion, not nationality)</td>
+            <td>Any nationality eligible for the Saudi eVisa, regardless of religion — Muslims included</td>
           </tr>
           <tr>
             <td>Availability</td>
@@ -2472,17 +2499,17 @@
           </tr>
           <tr>
             <td>When to apply</td>
-            <td>Up to 90 days before travel — apply once you have your travel dates confirmed</td>
+            <td>Apply once you have confirmed travel dates — visa is valid for only 30 days from issue</td>
             <td>Up to 1 year before travel — apply any time</td>
           </tr>
           <tr>
             <td>Entry window</td>
-            <td>Must enter within 90 days of visa issue date</td>
+            <td>Must enter within 30 days of visa issue date</td>
             <td>Must enter within 1 year of issue date</td>
           </tr>
           <tr>
             <td>Stay per entry</td>
-            <td>Up to 90 days inside Saudi Arabia</td>
+            <td>Up to 30 days inside Saudi Arabia</td>
             <td>Up to 90 days continuous per visit</td>
           </tr>
           <tr>
@@ -2556,18 +2583,15 @@
     <p class="section-label">Costs &amp; fees</p>
     <h2 class="section-title">Cost calculator</h2>
 
-    <div class="calc-disclaimer">
-      <strong>Disclaimer:</strong> Exact government fees and insurance amounts are being confirmed — all amounts are shown as XX. Verify current fees on the official <a href="https://nusuk.sa" target="_blank" rel="noopener">Nusuk portal</a> before paying. When you apply with iVisa, we provide a full itemized breakdown before checkout — no hidden fees.
-    </div>
-
     <div class="calc-controls">
       <div class="calc-field">
         <label for="calc-nationality">Your nationality group</label>
         <select id="calc-nationality" onchange="updateCalc()">
-          <option value="evisa">USA / UK / EU / AU / MY (eVisa direct)</option>
-          <option value="agent">India / Pakistan / Bangladesh (via agent)</option>
-          <option value="gcc">UAE / GCC</option>
+          <option value="evisa">Nusuk eVisa route (USA, UK, EU, AU, CA, MY, most Western &amp; Asian countries)</option>
+          <option value="agent">Standard agent route (India, Pakistan, Bangladesh, Indonesia, Nigeria, Turkey, China, South Africa, Peru…)</option>
+          <option value="gcc">UAE &amp; GCC nationals</option>
         </select>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6;">Any Muslim from any country can apply for Umrah — the route just varies by passport. Not sure which group applies to you? <a href="https://ivisa.com/saudi-arabia-visa" target="_blank" rel="noopener" style="color:var(--hero);font-weight:600;">Check with iVisa →</a></p>
       </div>
       <div class="calc-field">
         <label for="calc-type">Visa type</label>
@@ -2636,14 +2660,10 @@
       <p class="proc-note">Timings start once all required documents are submitted and verified correctly. Incomplete applications reset the clock.</p>
       <div class="proc-two-col">
         <div class="proc-visa-block">
-          <div class="proc-visa-label">Umrah Visa</div>
+          <div class="proc-visa-label">Umrah Visa — Nusuk eVisa route</div>
           <div class="proc-row">
-            <span class="proc-flag">Nusuk direct (US, UK, EU, AU, GCC…)</span>
+            <span class="proc-flag" style="font-size:12px;">Saudi Arabia processes these electronically in near real-time via the Nusuk platform. Eligible: USA, UK, EU, AU, Canada, GCC, Malaysia &amp; 50+ countries.</span>
             <span class="proc-val">5 min – 24h</span>
-          </div>
-          <div class="proc-row">
-            <span class="proc-flag">Via agent (India, Pakistan, Bangladesh, Indonesia, Nigeria)</span>
-            <span class="proc-val">5–10 working days</span>
           </div>
           <div class="proc-row proc-row-warning">
             <span class="proc-flag">Add during Ramadan</span>
@@ -2651,19 +2671,30 @@
           </div>
         </div>
         <div class="proc-visa-block">
-          <div class="proc-visa-label">Tourist eVisa</div>
+          <div class="proc-visa-label">Umrah Visa — Standard route</div>
           <div class="proc-row">
-            <span class="proc-flag">All eligible nationalities</span>
-            <span class="proc-val">5 min – 24h</span>
+            <span class="proc-flag" style="font-size:12px;">Saudi Arabia requires these nationalities to process Umrah visas through the government's Masar system — this is why processing takes longer, regardless of which agent handles it. Applies to: India, Pakistan, Bangladesh, Indonesia, Nigeria, Turkey, China &amp; others.</span>
+            <span class="proc-val">5–10 working days</span>
           </div>
           <div class="proc-row proc-row-warning">
             <span class="proc-flag">Add during Ramadan</span>
-            <span class="proc-val">+1–2 days</span>
+            <span class="proc-val">+2–3 days</span>
           </div>
         </div>
       </div>
+      <div class="proc-visa-block" style="margin-top:16px;">
+        <div class="proc-visa-label">Tourist eVisa</div>
+        <div class="proc-row">
+          <span class="proc-flag">All eligible nationalities — processed electronically</span>
+          <span class="proc-val">5 min – 24h</span>
+        </div>
+        <div class="proc-row proc-row-warning">
+          <span class="proc-flag">Add during Ramadan</span>
+          <span class="proc-val">+1–2 days</span>
+        </div>
+      </div>
       <div class="timeline-tip">
-        <strong>Pro tip:</strong> Apply at least 2 weeks before travel, or 3–4 weeks during Ramadan. Don't book non-refundable flights until your visa is confirmed. Visas are valid for 90 days — so you can apply up to 3 months in advance.
+        <strong>Pro tip:</strong> Apply at least 2 weeks before travel, or 3–4 weeks during Ramadan. Don't book non-refundable flights until your visa is confirmed. The Umrah visa is valid for 30 days from issue — apply only once your travel dates are set.
       </div>
     </div>
   </div>
@@ -2679,22 +2710,17 @@
     <!-- Split 2026 / 2027 calendar -->
     <div class="split-cal-container">
 
-      <!-- 2026 row -->
+      <!-- 2026 row — starts from Jun (season opens) -->
       <div class="split-cal-row">
         <div class="split-cal-year-label">2026</div>
-        <div class="split-cal-months">
-          <div class="scm past safe"><span>Jan</span></div>
-          <div class="scm past peak"><span>Feb</span><span class="scm-sub">Ramadan</span></div>
-          <div class="scm past block"><span>Mar</span><span class="scm-sub">Blackout</span></div>
-          <div class="scm past block"><span>Apr</span><span class="scm-sub">Hajj</span></div>
-          <div class="scm past block"><span>May</span><span class="scm-sub">Blackout</span></div>
-          <div class="scm safe now"><span>Jun</span><span class="scm-sub">NOW</span></div>
-          <div class="scm safe"><span>Jul</span></div>
-          <div class="scm safe"><span>Aug</span></div>
-          <div class="scm safe"><span>Sep</span></div>
-          <div class="scm safe"><span>Oct</span></div>
-          <div class="scm safe"><span>Nov</span></div>
-          <div class="scm safe"><span>Dec</span></div>
+        <div class="split-cal-months" style="grid-template-columns: repeat(7, 1fr);">
+          <div class="scm safe"><span class="scm-label">Jun</span><span class="scm-sub">Season opens</span></div>
+          <div class="scm safe"><span class="scm-label">Jul</span></div>
+          <div class="scm safe"><span class="scm-label">Aug</span></div>
+          <div class="scm safe"><span class="scm-label">Sep</span></div>
+          <div class="scm safe"><span class="scm-label">Oct</span></div>
+          <div class="scm safe"><span class="scm-label">Nov</span></div>
+          <div class="scm safe"><span class="scm-label">Dec</span></div>
         </div>
       </div>
 
@@ -2702,58 +2728,78 @@
       <div class="split-cal-row">
         <div class="split-cal-year-label">2027</div>
         <div class="split-cal-months">
-          <div class="scm safe"><span>Jan</span><span class="scm-sub">Apply</span></div>
-          <div class="scm peak"><span>Feb</span><span class="scm-sub">Ramadan</span></div>
-          <div class="scm deadline"><span>Mar</span><span class="scm-sub">Last entry</span></div>
-          <div class="scm depart"><span>Apr</span><span class="scm-sub">Depart</span></div>
-          <div class="scm empty"><span>May</span></div>
-          <div class="scm empty"><span>Jun</span></div>
-          <div class="scm empty"><span>Jul</span></div>
-          <div class="scm empty"><span>Aug</span></div>
-          <div class="scm empty"><span>Sep</span></div>
-          <div class="scm empty"><span>Oct</span></div>
-          <div class="scm empty"><span>Nov</span></div>
-          <div class="scm empty"><span>Dec</span></div>
+          <div class="scm safe"><span class="scm-label">Jan</span></div>
+          <div class="scm peak"><span class="scm-label">Feb</span><span class="scm-sub">Ramadan</span></div>
+          <div class="scm deadline"><span class="scm-label">Mar</span><span class="scm-sub">Season closes</span></div>
+          <div class="scm depart"><span class="scm-label">Apr</span><span class="scm-sub">Depart by 7</span></div>
+          <div class="scm block"><span class="scm-label">May</span><span class="scm-sub">Hajj prep</span></div>
+          <div class="scm block"><span class="scm-label">Jun</span><span class="scm-sub">Hajj</span></div>
+          <div class="scm empty"><span class="scm-label">Jul</span></div>
+          <div class="scm empty"><span class="scm-label">Aug</span></div>
+          <div class="scm empty"><span class="scm-label">Sep</span></div>
+          <div class="scm empty"><span class="scm-label">Oct</span></div>
+          <div class="scm empty"><span class="scm-label">Nov</span></div>
+          <div class="scm empty"><span class="scm-label">Dec</span></div>
         </div>
       </div>
 
       <!-- Legend -->
       <div class="cal-legend">
-        <div class="cal-legend-item"><div class="cal-dot" style="background:#2ea55a;"></div> Safe window — best time to apply</div>
-        <div class="cal-legend-item"><div class="cal-dot" style="background:var(--warning);"></div> Ramadan peak — apply earlier, expect delays</div>
+        <div class="cal-legend-item"><div class="cal-dot" style="background:#2ea55a;"></div> Best window — apply now</div>
+        <div class="cal-legend-item"><div class="cal-dot" style="background:var(--warning);"></div> Ramadan — apply earlier, expect delays</div>
         <div class="cal-legend-item"><div class="cal-dot" style="background:#c53030;"></div> Hajj blackout — no Umrah visas issued</div>
-        <div class="cal-legend-item"><div class="cal-dot" style="background:#9b2020;"></div> Season closing — last visa Mar 9, last entry Mar 23</div>
-        <div class="cal-legend-item"><div class="cal-dot" style="background:#6b1010;"></div> Must depart Saudi Arabia by Apr 7, 2027</div>
+        <div class="cal-legend-item"><div class="cal-dot" style="background:#9b2020;"></div> Season closes — last visa Mar 9, last entry Mar 23</div>
+        <div class="cal-legend-item"><div class="cal-dot" style="background:#6b1010;"></div> Must depart by Apr 7, 2027</div>
+        <div class="cal-legend-item"><div class="cal-dot" style="background:#edf1f3;border:1px solid #ccc;"></div> Next season (dates TBC)</div>
       </div>
     </div>
 
-    <!-- Key dates -->
-    <p style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:12px;">Key dates — 2026/2027 season</p>
-    <div class="key-dates-grid">
-      <div class="kd-card kd-green">
-        <div class="kd-date">Jun 1, 2026 ✓ Open now</div>
-        <div class="kd-desc">Hajj blackout lifted. Umrah visas fully available again. Jun–Dec 2026 is the ideal window — best hotel rates, fastest processing, shorter queues.</div>
+    <!-- Key dates — vertical timeline -->
+    <p style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:20px;">Key dates — 2026/2027 season</p>
+    <div class="kd-timeline">
+
+      <div class="kd-item kd-green">
+        <div class="kd-card kd-green">
+          <div class="kd-date">Jun 1, 2026 — Season opens</div>
+          <div class="kd-desc">Hajj blackout lifted. Umrah visas fully available. Jun–Dec 2026 is the ideal window — best hotel rates, fastest processing, shorter queues.</div>
+        </div>
       </div>
-      <div class="kd-card kd-orange">
-        <div class="kd-date">~Feb 17, 2027 — Ramadan begins</div>
-        <div class="kd-desc">Applications still accepted during Ramadan, but expect 2–3 day delays. Hotels near the Haram sell out fast. Apply by January 2027 if you're traveling in Ramadan.</div>
+
+      <div class="kd-item kd-orange">
+        <div class="kd-card kd-orange">
+          <div class="kd-date">~Feb 17, 2027 — Ramadan begins</div>
+          <div class="kd-desc">Applications still accepted but expect 2–3 day delays. Hotels near the Haram sell out fast. Apply by January 2027 if you're traveling in Ramadan.</div>
+        </div>
       </div>
-      <div class="kd-card kd-red">
-        <div class="kd-date">Mar 9, 2027 — Last visa issuance</div>
-        <div class="kd-desc">Umrah visa applications close. No new visas issued after this date for the 2026/2027 season. Apply well before this deadline — don't leave it to the last week.</div>
+
+      <div class="kd-item kd-red">
+        <div class="kd-card kd-red">
+          <div class="kd-date">Mar 9, 2027 — Last visa issuance</div>
+          <div class="kd-desc">Umrah visa applications close. No new visas issued after this date. Apply well before this deadline — don't leave it to the last week.</div>
+        </div>
       </div>
-      <div class="kd-card kd-red">
-        <div class="kd-date">Mar 23, 2027 — Last entry date</div>
-        <div class="kd-desc">Final date to enter Saudi Arabia on an Umrah visa this season. Even if your visa is valid, you cannot enter after this date.</div>
+
+      <div class="kd-item kd-red">
+        <div class="kd-card kd-red">
+          <div class="kd-date">Mar 23, 2027 — Last entry date</div>
+          <div class="kd-desc">Final date to enter Saudi Arabia on an Umrah visa this season. Even with a valid visa, you cannot enter after this date.</div>
+        </div>
       </div>
-      <div class="kd-card kd-red">
-        <div class="kd-date">Apr 7, 2027 — All pilgrims must depart</div>
-        <div class="kd-desc">Mandatory departure deadline. All Umrah visa holders must leave Saudi Arabia by this date. Overstaying carries fines and a future travel ban.</div>
+
+      <div class="kd-item kd-darkred">
+        <div class="kd-card kd-darkred">
+          <div class="kd-date">Apr 7, 2027 — All pilgrims must depart</div>
+          <div class="kd-desc">Mandatory departure deadline. All Umrah visa holders must leave Saudi Arabia by this date. Overstaying carries fines and a future travel ban.</div>
+        </div>
       </div>
-      <div class="kd-card kd-orange">
-        <div class="kd-date">~Mar 15 – May 31, 2026 — Past blackout</div>
-        <div class="kd-desc">For reference: the 2026 Hajj blackout has passed. The same pattern will apply in 2027 for the following season.</div>
+
+      <div class="kd-item kd-red">
+        <div class="kd-card kd-red">
+          <div class="kd-date">~May–Jun 2027 — Hajj blackout begins</div>
+          <div class="kd-desc">No new Umrah visas issued during Hajj season. The 2027/2028 Umrah season is expected to open again around July 2027 once Hajj is complete.</div>
+        </div>
       </div>
+
     </div>
 
     <!-- IMAGE PLACEHOLDER 2 -->
@@ -2767,24 +2813,68 @@
   </div>
 </section>
 
-<!-- ── APPLY DIRECT VS IVISA ── -->
+<!-- ── APPLY WITH IVISA ── -->
 <section id="apply">
   <div class="container">
-    <p class="section-label">Your options</p>
 
-    <!-- iVisa logo + tagline row -->
-    <div class="apply-logo-row">
-      <img src="https://lh3.googleusercontent.com/d/1SMj3hG29v7LJJGWa10lDCTwEhwJQAcKP" alt="iVisa logo" />
-      <div class="apply-logo-sep"></div>
-      <div class="apply-logo-tag">The easier way to apply.<br><strong>Trusted by 5,000+ Umrah pilgrims monthly.</strong></div>
+    <!-- Logo — use transparent PNG version -->
+    <!-- NOTE FOR DEV TEAM: replace src below with a transparent-background PNG of the iVisa white logo -->
+    <div style="text-align:center;margin-bottom:16px;">
+      <img src="https://lh3.googleusercontent.com/d/1SMj3hG29v7LJJGWa10lDCTwEhwJQAcKP" alt="iVisa logo" style="height:40px;" />
     </div>
 
-    <h2 class="section-title">Apply directly vs. apply with iVisa</h2>
+    <h2 class="section-title" style="text-align:center;color:#fff;margin-bottom:12px;max-width:600px;margin-left:auto;margin-right:auto;">Let iVisa handle it for you<br>and apply with confidence</h2>
+    <p style="text-align:center;color:#fff;font-size:16px;max-width:560px;margin:0 auto 48px;line-height:1.7;">More than 2,000 pilgrims have trusted iVisa with their Umrah application. We've got your documents, your process, and your back.</p>
 
+    <!-- Two-column: photo collage + value card -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:56px;">
+
+      <!-- Left: photo collage -->
+      <div style="position:relative;height:430px;">
+        <!-- Large circle — iVisa team -->
+        <div style="position:absolute;top:0;left:10px;width:240px;height:240px;border-radius:50%;overflow:hidden;border:4px solid rgba(72,216,120,0.5);box-shadow:0 10px 36px rgba(0,0,0,0.3);">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#015c6a,#004752);display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(255,255,255,0.5);text-align:center;padding:16px;">
+            PHOTO A<br>iVisa team<br><span style="font-size:10px;opacity:0.7;">Replace with team photo</span>
+          </div>
+        </div>
+        <!-- Medium circle — happy customer -->
+        <div style="position:absolute;top:30px;right:0;width:190px;height:190px;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,0.15);box-shadow:0 8px 28px rgba(0,0,0,0.25);">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0b3947,#002d38);display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(255,255,255,0.5);text-align:center;padding:12px;">
+            PHOTO B<br>Happy customer<br><span style="font-size:10px;opacity:0.7;">Replace with customer photo</span>
+          </div>
+        </div>
+        <!-- Small circle — iVisa office -->
+        <div style="position:absolute;bottom:0;left:70px;width:160px;height:160px;border-radius:50%;overflow:hidden;border:4px solid rgba(72,216,120,0.3);box-shadow:0 6px 22px rgba(0,0,0,0.2);">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a4a5a,#003545);display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(255,255,255,0.5);text-align:center;padding:10px;">
+            PHOTO C<br>iVisa office<br><span style="font-size:9px;opacity:0.7;">Replace with office photo</span>
+          </div>
+        </div>
+        <!-- Decorative sparkles -->
+        <div style="position:absolute;top:220px;left:230px;color:#48d878;font-size:20px;opacity:0.7;">✦</div>
+        <div style="position:absolute;bottom:80px;right:30px;color:#48d878;font-size:13px;opacity:0.45;">✦</div>
+      </div>
+
+      <!-- Right: benefits card -->
+      <div class="apply-card recommended">
+        <div class="rec-badge">✓ Recommended</div>
+        <h3 style="color:#fff;">Apply with iVisa</h3>
+        <ul class="benefits-list">
+          <li>Expert review before submission — we catch errors so you don't lose time</li>
+          <li>Works for all nationalities, including India, Pakistan, and Bangladesh</li>
+          <li>Transparent pricing — itemized fees, no hidden charges</li>
+          <li>24/7 human support via chat, email, and phone</li>
+          <li>More than 2,000 pilgrims have applied with iVisa</li>
+          <li>If we make an error, we refund our processing fee in full</li>
+        </ul>
+        <a href="https://ivisa.com/saudi-arabia-umrah-visa" class="btn-cta" style="display:block;text-align:center;padding:14px;font-size:16px;">Start my Umrah application →</a>
+      </div>
+    </div>
+
+    <!-- Trust bar — 3 stats -->
     <div class="trust-bar">
       <div class="trust-stat">
-        <span class="stat-value">5,000+</span>
-        <span class="stat-label">Pilgrims approved monthly</span>
+        <span class="stat-value">2,000+</span>
+        <span class="stat-label">Pilgrims applied with iVisa</span>
       </div>
       <div class="trust-stat">
         <span class="stat-value">99%</span>
@@ -2794,61 +2884,15 @@
         <span class="stat-value">24/7</span>
         <span class="stat-label">Human support</span>
       </div>
-      <div class="trust-stat">
-        <span class="stat-value">100+</span>
-        <span class="stat-label">Nationalities served</span>
-      </div>
     </div>
 
-    <div class="apply-cards">
-      <div class="apply-card">
-        <h3>Apply directly on Nusuk</h3>
-        <div style="background:rgba(251,171,30,0.18);border:1px solid rgba(251,171,30,0.4);border-radius:8px;padding:10px 14px;font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:16px;line-height:1.5;">
-          ⚠️ <strong style="color:#fbdb6a;">Availability varies by season.</strong> Nusuk direct access opens at the start of each Umrah season and isn't always available immediately. Check nusuk.sa for current status before applying.
-        </div>
-        <div class="pros-cons pros">
-          <h4>Pros</h4>
-          <ul>
-            <li>No service fee</li>
-            <li>Fastest when available for eVisa-eligible nationalities</li>
-            <li>Direct Saudi government portal</li>
-          </ul>
-        </div>
-        <div class="pros-cons cons">
-          <h4>Cons</h4>
-          <ul>
-            <li>May not be open yet for this season</li>
-            <li>Interface can be confusing first time</li>
-            <li>No human support if something goes wrong</li>
-            <li>Not available for India, Pakistan, Bangladesh</li>
-            <li>No pre-submission review — errors cause delays</li>
-          </ul>
-        </div>
-      </div>
+  </div>
 
-      <div class="apply-card recommended">
-        <div class="rec-badge">✓ Recommended</div>
-        <h3>Apply with iVisa</h3>
-        <ul class="benefits-list">
-          <li>Expert review before submission — we catch errors so you don't lose time</li>
-          <li>Works for all nationalities, including India, Pakistan, and Bangladesh</li>
-          <li>Transparent pricing — itemized fees, no hidden charges</li>
-          <li>24/7 human support via chat, email, and phone</li>
-          <li>5,000+ pilgrims approved monthly — trusted at scale</li>
-          <li>If we make an error, we refund our processing fee in full</li>
-        </ul>
-        <a href="https://ivisa.com/saudi-arabia-umrah-visa" class="btn-cta" style="display:block; text-align:center; padding:14px; font-size:16px;">Start my Umrah application →</a>
-      </div>
-    </div>
-
-    <!-- IMAGE PLACEHOLDER 3 -->
-    <!-- IMAGE 3: Replace with a lifestyle photograph of pilgrims at an airport or preparing for Umrah before deployment. Recommended: 1200x500px, WebP. Alt text: "Pilgrims preparing for Umrah travel" -->
-    <div class="img-placeholder" style="border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.5);margin-top:40px;" role="img" aria-label="Image placeholder: Pilgrims preparing for Umrah travel">
-      <div class="img-placeholder-inner" style="color:rgba(255,255,255,0.5);">
-        IMAGE 3: Pilgrims / travel lifestyle — replace before deployment
-        <span>Recommended: 1200×500px, WebP | alt="Pilgrims preparing for Umrah travel"</span>
-      </div>
-    </div>
+  <!-- CTA band -->
+  <div style="background:rgba(0,0,0,0.25);padding:40px 24px;text-align:center;border-top:1px solid rgba(255,255,255,0.08);">
+    <p style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.55);margin-bottom:10px;">Ready to go?</p>
+    <h3 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:20px;">Got your documents? Apply today.</h3>
+    <a href="https://ivisa.com/saudi-arabia-umrah-visa" style="display:inline-block;background:#48d878;color:#004752;font-family:'Manrope',sans-serif;font-size:16px;font-weight:800;padding:14px 36px;border-radius:10px;text-decoration:none;letter-spacing:0.01em;">Apply to your visa today →</a>
   </div>
 </section>
 
@@ -2878,7 +2922,9 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
-          <p>Yes, outside the Hajj blackout (approx Apr 3–18 2026). You'll need to book a ritual permit via Nusuk after arrival in Saudi Arabia. No mahram required. This is a popular option for Muslim travelers who want to visit other Saudi cities alongside Makkah and Madinah.</p>
+          <p>Yes — the Saudi Ministry of Hajj and Umrah allows tourist visa holders to perform Umrah at any time of year, <strong>except during the Hajj season</strong> (when tourist visa holders are turned back at Makkah checkpoints). This applies to eVisas, visas on arrival, and visit visas for eligible nationalities.</p>
+          <p style="margin-top:12px;"><strong>Critical: you must register on Nusuk regardless of your visa type.</strong> Saudi authorities check the Nusuk app at checkpoints around the Grand Mosque. Without an active Nusuk permit, you can be removed from the area and fined — even with a valid visa.</p>
+          <p style="margin-top:12px;">The tourist eVisa gives you more flexibility than the Umrah visa: you can book your own flights, hotels, and transport independently (including the Haramain High-Speed Railway), and visit other Saudi cities like Jeddah and Riyadh on the same trip. The tourist visa is typically valid for 1 year with multiple entries, up to 90 days per stay. Note: a tourist visa cannot be used for Hajj — a dedicated Hajj permit is strictly required for that.</p>
         </div>
       </div>
 
@@ -2888,7 +2934,8 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
-          <p>Yes. Women aged 18 and over have been able to travel independently since 2025. No special documentation is needed — no mahram letter, no guardian consent form. This applies to both the Umrah visa and the tourist eVisa.</p>
+          <p>Yes. Saudi Arabia removed the mahram requirement for women aged 18 and over for Umrah purposes — the policy was introduced in 2021 and has been in place since. Women can apply for and travel on an Umrah or tourist visa independently, without a mahram letter or guardian consent form.</p>
+          <p style="margin-top:12px;">A few practical notes: some travel agents and tour operators (particularly in South Asia) may still request a mahram letter for their own compliance purposes — but this is not an official Saudi government requirement. Women traveling solo are advised to travel with a recognized Umrah group for practical support, though it's not legally required. The no-mahram rule applies to Umrah; Hajj has separate and stricter guidance that is reviewed each season by the Saudi Ministry of Hajj.</p>
         </div>
       </div>
 
@@ -2938,7 +2985,7 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
-          <p>For Nusuk-direct countries (US, UK, EU, AU, etc.): <strong>5 minutes to 24 hours</strong>. For agent-required countries (India, Pakistan, Bangladesh): <strong>3–5 business days</strong>. During Ramadan, add 2–3 extra days to any estimate. We recommend applying at least 2 weeks before travel for regular season, and 3–4 weeks if you're traveling during Ramadan.</p>
+          <p>Processing time depends on which Saudi government system handles your nationality. For Nusuk-direct countries (US, UK, EU, AU, GCC, etc.): <strong>5 minutes to 24 hours</strong>. For nationalities processed through the Masar agent system (India, Pakistan, Bangladesh, Indonesia, Nigeria, etc.): <strong>5–10 working days</strong> once all documents are correctly submitted. During Ramadan, add 2–3 extra days. We recommend applying at least 2 weeks before travel, or 3–4 weeks if you're traveling during Ramadan.</p>
         </div>
       </div>
 
@@ -2978,7 +3025,8 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
-          <p>Umrah visa holders: yes, up to 5 litres. Purchase via the Nusuk app at the airport — it's the official channel. Pack it in your checked luggage only. Tourist eVisa holders: it depends on your airline, so check with your carrier before you travel. Zamzam water can't be carried in hand luggage due to liquid restrictions on most flights.</p>
+          <p>Yes — all Umrah visa holders are entitled to one factory-sealed 5-litre bottle of Zamzam water, purchased from the official airport counter (not shops in Makkah or Madinah). Most major airlines treat this as a free separate piece, not counted against your baggage allowance. Cost is around 9–12 SAR at the airport.</p>
+          <p style="margin-top:12px;">Tourist eVisa holders can also purchase Zamzam water at the airport, but some airlines may charge a handling fee (around 15–30 SAR). You cannot fill your own bottle and carry it through security. Zamzam water cannot be carried in hand luggage — checked baggage only, in the sealed airport container. Check with your airline before travelling if you're on a budget or charter carrier.</p>
         </div>
       </div>
 
@@ -2988,7 +3036,8 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
-          <p>Extensions aren't typically offered for Umrah visas. The standard visa allows a 90-day stay after arrival, which is more than sufficient for the vast majority of pilgrimages. Plan your trip within this window. If you need more time in Saudi Arabia for other purposes, a tourist eVisa may be a better fit.</p>
+          <p>Extensions aren't offered for Umrah visas. The visa is valid for <strong>30 days from the issue date</strong> — you must enter Saudi Arabia and complete your pilgrimage within that window. Additionally, the seasonal departure deadline overrides personal visa validity: in the 2026/2027 season, all pilgrims must depart by April 7, 2027 regardless of when their visa was issued.</p>
+          <p style="margin-top:12px;">If you need more time in Saudi Arabia — for tourism, visiting family, or exploring other cities — a tourist eVisa is the better option. It's valid for 1 year with multiple entries and up to 90 days per stay.</p>
         </div>
       </div>
 
@@ -3082,7 +3131,7 @@
           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
         />
         <span class="logo-fallback" style="display:none;">iVisa</span>
-        <p class="footer-tagline">Unlock the world.</p>
+        <p class="footer-tagline">Unlock the world</p>
       </div>
 
       <div class="footer-col">
