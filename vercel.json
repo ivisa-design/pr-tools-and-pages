@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/umrah-visa-guide.html" }
+    { "source": "/", "destination": "/umrah-visa-guide.html" },
+    { "source": "/umrah-visa-guide", "destination": "/umrah-visa-guide.html" }
   ]
 }
