@@ -1905,6 +1905,47 @@
     .need-btn         { transition: transform 0.18s ease, background 0.18s ease; }
     .need-btn:hover   { transform: translateY(-2px); }
 
+    /* ── Required documents cards ── */
+    .req-docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+      gap: 12px;
+    }
+    .req-doc-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .req-doc-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,71,82,0.10);
+    }
+    .req-doc-icon {
+      font-size: 26px;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+    .req-doc-name {
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--hero);
+      line-height: 1.35;
+    }
+    .req-doc-note {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    @media (max-width: 480px) {
+      .req-docs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* ── SECTION LABEL POP ── */
     @keyframes labelPop {
       from { opacity: 0; transform: scale(0.75) translateY(6px); }
@@ -2303,21 +2344,72 @@
 
       <!-- Documents required -->
       <div>
-        <h3 style="font-size:19px;font-weight:700;margin-bottom:18px;color:var(--hero);">Required documents</h3>
-        <p style="font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.7;">Requirements for the 2026–2027 Umrah visa season.</p>
-        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;">
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);"><span style="color:var(--cta);font-weight:700;flex-shrink:0;">✓</span> Passport scan (valid at least 6 months)</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);"><span style="color:var(--cta);font-weight:700;flex-shrink:0;">✓</span> Digital photo (passport-style)</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);"><span style="color:var(--cta);font-weight:700;flex-shrink:0;">✓</span> Sharecode / residency permit (if applicable)</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);"><span style="color:var(--cta);font-weight:700;flex-shrink:0;">✓</span> Shahadah Certificate (proof of Islam — may be requested depending on nationality)</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);"><span style="color:var(--cta);font-weight:700;flex-shrink:0;">✓</span> Confirmed airline ticket</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);"><span style="color:var(--cta);font-weight:700;flex-shrink:0;">✓</span> Accurate BRN (Masar) for Makkah &amp; Madinah</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);"><span style="color:var(--cta);font-weight:700;flex-shrink:0;">✓</span> Voucher with all ground handling details</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);"><span style="color:var(--cta);font-weight:700;flex-shrink:0;">✓</span> Accurate arrival and departure details</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);"><span style="color:var(--cta);font-weight:700;flex-shrink:0;">✓</span> Full payment for Masar Umrah eVisa approval</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);"><span style="color:var(--cta);font-weight:700;flex-shrink:0;">✓</span> One-way transport (compulsory)</li>
-        </ul>
+        <h3 style="font-size:19px;font-weight:700;margin-bottom:6px;color:var(--hero);">Required documents</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.7;">For the 2026–2027 Umrah visa season.</p>
 
+        <div class="req-docs-grid">
+
+          <div class="req-doc-card">
+            <div class="req-doc-icon">🛂</div>
+            <div class="req-doc-name">Passport scan</div>
+            <div class="req-doc-note">Valid at least 6 months</div>
+          </div>
+
+          <div class="req-doc-card">
+            <div class="req-doc-icon">📸</div>
+            <div class="req-doc-name">Digital photo</div>
+            <div class="req-doc-note">Passport-style</div>
+          </div>
+
+          <div class="req-doc-card">
+            <div class="req-doc-icon">✈️</div>
+            <div class="req-doc-name">Airline ticket</div>
+            <div class="req-doc-note">Confirmed booking</div>
+          </div>
+
+          <div class="req-doc-card">
+            <div class="req-doc-icon">📜</div>
+            <div class="req-doc-name">Shahadah Certificate</div>
+            <div class="req-doc-note">Proof of Islam — may be required by nationality</div>
+          </div>
+
+          <div class="req-doc-card">
+            <div class="req-doc-icon">🪪</div>
+            <div class="req-doc-name">Sharecode / residency permit</div>
+            <div class="req-doc-note">If applicable</div>
+          </div>
+
+          <div class="req-doc-card">
+            <div class="req-doc-icon">🏨</div>
+            <div class="req-doc-name">BRN (Masar)</div>
+            <div class="req-doc-note">For Makkah &amp; Madinah</div>
+          </div>
+
+          <div class="req-doc-card">
+            <div class="req-doc-icon">📋</div>
+            <div class="req-doc-name">Ground handling voucher</div>
+            <div class="req-doc-note">All details included</div>
+          </div>
+
+          <div class="req-doc-card">
+            <div class="req-doc-icon">🛬</div>
+            <div class="req-doc-name">Arrival &amp; departure details</div>
+            <div class="req-doc-note">Accurate dates required</div>
+          </div>
+
+          <div class="req-doc-card">
+            <div class="req-doc-icon">💳</div>
+            <div class="req-doc-name">Full payment</div>
+            <div class="req-doc-note">Masar Umrah eVisa approval</div>
+          </div>
+
+          <div class="req-doc-card">
+            <div class="req-doc-icon">🚌</div>
+            <div class="req-doc-name">One-way transport</div>
+            <div class="req-doc-note">Compulsory</div>
+          </div>
+
+        </div>
       </div>
 
       <!-- Key dates + fee -->
