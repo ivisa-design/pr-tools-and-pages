@@ -705,55 +705,26 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-    }
-    .visa-card-image-inner {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
+      min-height: 340px;
     }
     .visa-img-placeholder {
       flex: 1;
-      min-height: 240px;
-      background: linear-gradient(160deg, #004752 0%, #006b7a 60%, #48d878 100%);
+      background: linear-gradient(160deg, #004752 0%, #006b7a 55%, #48d878 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 14px;
+      border-radius: 13px;
     }
-    .visa-img-icon { font-size: 52px; }
+    .visa-img-icon { font-size: 62px; }
     .visa-img-label {
       font-family: 'Manrope', sans-serif;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-    }
-    .visa-card-image-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border-top: 1px solid var(--border);
-    }
-    .visa-stat {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
-      border-bottom: 1px solid var(--border);
-    }
-    .visa-stat:last-child { border-bottom: none; }
-    .visa-stat-num {
-      font-family: 'Manrope', sans-serif;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--hero);
-    }
-    .visa-stat-label {
-      font-size: 12px;
-      color: var(--muted);
-      text-align: right;
     }
 
     @media (max-width: 768px) {
@@ -2234,26 +2205,10 @@
 
         <!-- Right: featured image card -->
         <div class="visa-card visa-card-image">
-          <div class="visa-card-image-inner">
-            <!-- PHOTO: Replace with a high-quality Makkah / Grand Mosque image before deployment. Recommended: 600×700px WebP. Alt: "Grand Mosque, Makkah" -->
-            <div class="visa-img-placeholder" role="img" aria-label="Makkah — Grand Mosque scene">
-              <span class="visa-img-icon">🕌</span>
-              <span class="visa-img-label">Makkah · Al-Masjid al-Haram</span>
-            </div>
-            <div class="visa-card-image-stats">
-              <div class="visa-stat">
-                <span class="visa-stat-num">2M+</span>
-                <span class="visa-stat-label">Pilgrims annually</span>
-              </div>
-              <div class="visa-stat">
-                <span class="visa-stat-num">99%</span>
-                <span class="visa-stat-label">iVisa approval rate</span>
-              </div>
-              <div class="visa-stat">
-                <span class="visa-stat-num">24/7</span>
-                <span class="visa-stat-label">Expert support</span>
-              </div>
-            </div>
+          <!-- PHOTO: Replace with a high-quality Makkah / Grand Mosque image before deployment. Recommended: 600×700px WebP. Alt: "Grand Mosque, Makkah" -->
+          <div class="visa-img-placeholder" role="img" aria-label="Makkah — Grand Mosque scene">
+            <span class="visa-img-icon">🕌</span>
+            <span class="visa-img-label">Makkah · Al-Masjid al-Haram</span>
           </div>
         </div>
 
