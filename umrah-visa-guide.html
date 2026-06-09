@@ -1905,45 +1905,105 @@
     .need-btn         { transition: transform 0.18s ease, background 0.18s ease; }
     .need-btn:hover   { transform: translateY(-2px); }
 
-    /* ── Required documents cards ── */
-    .req-docs-grid {
+    /* ── Requirements & Key Dates — glass layout ── */
+    .reqdocs-layout {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
-      gap: 12px;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
     }
-    .req-doc-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px 14px 14px;
+    .glass-box {
+      background: rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      padding: 32px 28px;
+    }
+    .glass-box-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .glass-box-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+    .req-bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      transition: box-shadow 0.2s, transform 0.2s;
+      gap: 11px;
     }
-    .req-doc-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,71,82,0.10);
+    .req-bullet-list li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.9);
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      line-height: 1.5;
     }
-    .req-doc-icon {
-      font-size: 26px;
-      line-height: 1;
-      margin-bottom: 2px;
+    .req-bullet-check {
+      color: var(--cta);
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
     }
-    .req-doc-name {
-      font-family: 'Manrope', sans-serif;
-      font-size: 13px;
+    .req-bullet-note { color: rgba(255,255,255,0.5); }
+    .kd-boxes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .kd-box {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 14px 12px;
+    }
+    .kd-box-red {
+      background: rgba(220,60,60,0.15);
+      border-color: rgba(220,60,60,0.35);
+    }
+    .kd-box-label {
+      font-size: 9px;
       font-weight: 700;
-      color: var(--hero);
-      line-height: 1.35;
-    }
-    .req-doc-note {
-      font-size: 11px;
-      color: var(--muted);
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 7px;
       line-height: 1.4;
     }
+    .kd-box-date {
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .kd-box-date-red { color: #ff8080; }
+    .kd-warning {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--warning);
+    }
+    .kd-warning strong { color: rgba(255,255,255,0.85); }
+    @media (max-width: 768px) {
+      .reqdocs-layout { grid-template-columns: 1fr; }
+    }
     @media (max-width: 480px) {
-      .req-docs-grid { grid-template-columns: repeat(2, 1fr); }
+      .kd-boxes { grid-template-columns: 1fr; }
     }
 
     /* ── SECTION LABEL POP ── */
@@ -2326,10 +2386,10 @@
 </section>
 
 <!-- ── REQUIREMENTS & KEY DATES ── -->
-<section id="requirements" style="padding:72px 24px; background: var(--light);">
+<section id="requirements" style="padding:72px 24px; background: linear-gradient(135deg, #003d47 0%, #005263 50%, #004752 100%); position:relative; overflow:hidden;">
   <div class="container">
-    <p class="section-label">What you'll need</p>
-    <h2 class="section-title">Documents &amp; key dates</h2>
+    <p class="section-label" style="color:rgba(255,255,255,0.65);">What you'll need</p>
+    <h2 class="section-title" style="color:#fff;">Documents &amp; key dates</h2>
 
     <!-- IMAGE PLACEHOLDER A: Full-width banner above requirements -->
     <!-- IMAGE A: Atmospheric shot — a pilgrim's hands holding a passport + boarding pass, or a close-up of documents laid out on a prayer mat. Warm, personal feel. Recommended: 1200×380px, WebP. Alt: "Pilgrim preparing Umrah travel documents" -->
@@ -2340,98 +2400,49 @@
       </div>
     </div>
 
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:32px; margin-bottom:48px;">
+    <div class="reqdocs-layout">
 
-      <!-- Documents required -->
-      <div>
-        <h3 style="font-size:19px;font-weight:700;margin-bottom:6px;color:var(--hero);">Required documents</h3>
-        <p style="font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.7;">For the 2026–2027 Umrah visa season.</p>
-
-        <div class="req-docs-grid">
-
-          <div class="req-doc-card">
-            <div class="req-doc-icon">🛂</div>
-            <div class="req-doc-name">Passport scan</div>
-            <div class="req-doc-note">Valid at least 6 months</div>
-          </div>
-
-          <div class="req-doc-card">
-            <div class="req-doc-icon">📸</div>
-            <div class="req-doc-name">Digital photo</div>
-            <div class="req-doc-note">Passport-style</div>
-          </div>
-
-          <div class="req-doc-card">
-            <div class="req-doc-icon">✈️</div>
-            <div class="req-doc-name">Airline ticket</div>
-            <div class="req-doc-note">Confirmed booking</div>
-          </div>
-
-          <div class="req-doc-card">
-            <div class="req-doc-icon">📜</div>
-            <div class="req-doc-name">Shahadah Certificate</div>
-            <div class="req-doc-note">Proof of Islam — may be required by nationality</div>
-          </div>
-
-          <div class="req-doc-card">
-            <div class="req-doc-icon">🪪</div>
-            <div class="req-doc-name">Sharecode / residency permit</div>
-            <div class="req-doc-note">If applicable</div>
-          </div>
-
-          <div class="req-doc-card">
-            <div class="req-doc-icon">🏨</div>
-            <div class="req-doc-name">BRN (Masar)</div>
-            <div class="req-doc-note">For Makkah &amp; Madinah</div>
-          </div>
-
-          <div class="req-doc-card">
-            <div class="req-doc-icon">📋</div>
-            <div class="req-doc-name">Ground handling voucher</div>
-            <div class="req-doc-note">All details included</div>
-          </div>
-
-          <div class="req-doc-card">
-            <div class="req-doc-icon">🛬</div>
-            <div class="req-doc-name">Arrival &amp; departure details</div>
-            <div class="req-doc-note">Accurate dates required</div>
-          </div>
-
-          <div class="req-doc-card">
-            <div class="req-doc-icon">💳</div>
-            <div class="req-doc-name">Full payment</div>
-            <div class="req-doc-note">Masar Umrah eVisa approval</div>
-          </div>
-
-          <div class="req-doc-card">
-            <div class="req-doc-icon">🚌</div>
-            <div class="req-doc-name">One-way transport</div>
-            <div class="req-doc-note">Compulsory</div>
-          </div>
-
-        </div>
+      <!-- ── LEFT GLASS BOX: Required documents ── -->
+      <div class="glass-box">
+        <h3 class="glass-box-title">Required documents</h3>
+        <p class="glass-box-sub">For the 2026–2027 Umrah visa season.</p>
+        <ul class="req-bullet-list">
+          <li><span class="req-bullet-check">✓</span> Passport scan <span class="req-bullet-note">— valid at least 6 months</span></li>
+          <li><span class="req-bullet-check">✓</span> Digital photo <span class="req-bullet-note">— passport-style</span></li>
+          <li><span class="req-bullet-check">✓</span> Sharecode / residency permit <span class="req-bullet-note">— if applicable</span></li>
+          <li><span class="req-bullet-check">✓</span> Shahadah Certificate <span class="req-bullet-note">— proof of Islam, may be required by nationality</span></li>
+          <li><span class="req-bullet-check">✓</span> Confirmed airline ticket</li>
+          <li><span class="req-bullet-check">✓</span> Accurate BRN (Masar) <span class="req-bullet-note">— for Makkah &amp; Madinah</span></li>
+          <li><span class="req-bullet-check">✓</span> Ground handling voucher <span class="req-bullet-note">— all details included</span></li>
+          <li><span class="req-bullet-check">✓</span> Arrival &amp; departure details <span class="req-bullet-note">— accurate dates required</span></li>
+          <li><span class="req-bullet-check">✓</span> Full payment for Masar Umrah eVisa approval</li>
+          <li><span class="req-bullet-check">✓</span> One-way transport <span class="req-bullet-note">— compulsory</span></li>
+        </ul>
       </div>
 
-      <!-- Key dates + fee -->
-      <div>
-        <h3 style="font-size:19px;font-weight:700;margin-bottom:18px;color:var(--hero);">Key dates — 2026/2027 season</h3>
+      <!-- ── RIGHT GLASS BOX: Key dates ── -->
+      <div class="glass-box">
+        <h3 class="glass-box-title">Key dates — 2026/2027 season</h3>
+        <p class="glass-box-sub">Plan your application around these deadlines.</p>
 
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px;">
-          <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 14px;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:0.7px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;line-height:1.4;">Last date for visa issuance</div>
-            <div style="font-size:16px;font-weight:800;color:var(--hero);white-space:nowrap;">9 Mar 2027</div>
+        <div class="kd-boxes">
+          <div class="kd-box">
+            <div class="kd-box-label">Last date for visa issuance</div>
+            <div class="kd-box-date">9 Mar 2027</div>
           </div>
-          <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 14px;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:0.7px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;line-height:1.4;">Last date to enter Saudi Arabia</div>
-            <div style="font-size:16px;font-weight:800;color:var(--hero);white-space:nowrap;">23 Mar 2027</div>
+          <div class="kd-box">
+            <div class="kd-box-label">Last date to enter Saudi Arabia</div>
+            <div class="kd-box-date">23 Mar 2027</div>
           </div>
-          <div style="background:#fff7f7;border:1px solid #f5c6c6;border-radius:10px;padding:14px 14px;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:0.7px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;line-height:1.4;">Umrah visa holders depart by</div>
-            <div style="font-size:16px;font-weight:800;color:#c53030;white-space:nowrap;">7 Apr 2027</div>
+          <div class="kd-box kd-box-red">
+            <div class="kd-box-label">Umrah visa holders depart by</div>
+            <div class="kd-box-date kd-box-date-red">7 Apr 2027</div>
           </div>
         </div>
-        <p style="font-size:12px;color:var(--muted);margin-bottom:24px;line-height:1.6;">⚠️ The Umrah visa is valid for <strong>30 days from issue</strong>, but the Apr 7 departure deadline overrides individual validity — apply only once your travel dates are confirmed. Tourist eVisa holders are not subject to these seasonal dates.</p>
 
+        <div class="kd-warning">
+          ⚠️ The Umrah visa is valid for <strong>30 days from issue</strong>, but the Apr 7 departure deadline overrides individual validity — apply only once your travel dates are confirmed. Tourist eVisa holders are not subject to these seasonal dates.
+        </div>
       </div>
 
     </div>
