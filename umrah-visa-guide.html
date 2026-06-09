@@ -1780,6 +1780,86 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ── PHOTO CIRCLE ANIMATIONS ── */
+    @keyframes circleIn {
+      from { opacity: 0; transform: scale(0.5); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes floatBob1 {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+    @keyframes floatBob2 {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-7px); }
+    }
+    @keyframes floatBob3 {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-5px); }
+    }
+    .apply-circle { opacity: 0; }
+    .apply-circle.c-in-1 {
+      animation: circleIn 0.65s cubic-bezier(0.34,1.56,0.64,1) forwards,
+                 floatBob1 5s ease-in-out 0.65s infinite;
+    }
+    .apply-circle.c-in-2 {
+      animation: circleIn 0.65s 0.18s cubic-bezier(0.34,1.56,0.64,1) forwards,
+                 floatBob2 4.5s ease-in-out 0.83s infinite;
+    }
+    .apply-circle.c-in-3 {
+      animation: circleIn 0.65s 0.34s cubic-bezier(0.34,1.56,0.64,1) forwards,
+                 floatBob3 6s ease-in-out 0.99s infinite;
+    }
+
+    /* ── CTA BUTTON GLOW PULSE ── */
+    @keyframes ctaGlow {
+      0%,100% { box-shadow: 0 4px 18px rgba(72,216,120,0.25); }
+      50%      { box-shadow: 0 6px 32px rgba(72,216,120,0.65); }
+    }
+    .btn-cta { animation: ctaGlow 2.6s ease-in-out infinite; }
+
+    /* ── TIMELINE DOT PULSE ── */
+    @keyframes dotPulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(72,216,120,0.45); }
+      60%      { box-shadow: 0 0 0 7px rgba(72,216,120,0); }
+    }
+    .kd-item.kd-green::before { animation: dotPulse 2.8s ease-in-out infinite; }
+
+    /* ── CARD HOVER LIFT ── */
+    .apply-card, .visa-card {
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .apply-card:hover { transform: translateY(-5px); }
+    .visa-card:hover  { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,71,82,0.14); }
+    .need-btn         { transition: transform 0.18s ease, background 0.18s ease; }
+    .need-btn:hover   { transform: translateY(-2px); }
+
+    /* ── SECTION LABEL POP ── */
+    @keyframes labelPop {
+      from { opacity: 0; transform: scale(0.75) translateY(6px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .section-label.visible { animation: labelPop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; }
+
+    /* ── NEEDS GRID STAGGER ── */
+    .needs-grid .need-row {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .needs-grid.stagger-visible .need-row:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0s; }
+    .needs-grid.stagger-visible .need-row:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:0.1s; }
+    .needs-grid.stagger-visible .need-row:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.2s; }
+    .needs-grid.stagger-visible .need-row:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:0.3s; }
+
+    /* ── STAT VALUE SCALE POP ── */
+    @keyframes statPop {
+      0%   { transform: scale(0.7); opacity: 0; }
+      70%  { transform: scale(1.08); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .stat-value.stat-animated { animation: statPop 0.55s cubic-bezier(0.34,1.56,0.64,1) both; }
   </style>
 </head>
 <body>
@@ -1831,51 +1911,51 @@
       <div class="checker-row">
         <select id="country-select" aria-label="Select your country">
           <option value="">Select your nationality…</option>
-          <option value="US">🇺🇸 United States</option>
-          <option value="GB">🇬🇧 United Kingdom</option>
-          <option value="CA">🇨🇦 Canada</option>
-          <option value="AU">🇦🇺 Australia</option>
-          <option value="NZ">🇳🇿 New Zealand</option>
-          <option value="DE">🇩🇪 Germany</option>
-          <option value="FR">🇫🇷 France</option>
-          <option value="IT">🇮🇹 Italy</option>
-          <option value="ES">🇪🇸 Spain</option>
-          <option value="PT">🇵🇹 Portugal</option>
-          <option value="NL">🇳🇱 Netherlands</option>
-          <option value="BE">🇧🇪 Belgium</option>
-          <option value="SE">🇸🇪 Sweden</option>
-          <option value="NO">🇳🇴 Norway</option>
-          <option value="DK">🇩🇰 Denmark</option>
-          <option value="FI">🇫🇮 Finland</option>
-          <option value="CH">🇨🇭 Switzerland</option>
-          <option value="AT">🇦🇹 Austria</option>
-          <option value="PL">🇵🇱 Poland</option>
-          <option value="GR">🇬🇷 Greece</option>
-          <option value="MY">🇲🇾 Malaysia</option>
-          <option value="SG">🇸🇬 Singapore</option>
-          <option value="JP">🇯🇵 Japan</option>
-          <option value="KR">🇰🇷 South Korea</option>
-          <option value="TR">🇹🇷 Turkey</option>
-          <option value="EG">🇪🇬 Egypt</option>
-          <option value="MA">🇲🇦 Morocco</option>
-          <option value="TN">🇹🇳 Tunisia</option>
-          <option value="JO">🇯🇴 Jordan</option>
-          <option value="ZA">🇿🇦 South Africa</option>
-          <option value="PH">🇵🇭 Philippines</option>
-          <option value="TH">🇹🇭 Thailand</option>
-          <option value="ID">🇮🇩 Indonesia</option>
-          <option value="BR">🇧🇷 Brazil</option>
-          <option value="MX">🇲🇽 Mexico</option>
-          <option value="RU">🇷🇺 Russia</option>
-          <option value="IN">🇮🇳 India</option>
-          <option value="PK">🇵🇰 Pakistan</option>
-          <option value="BD">🇧🇩 Bangladesh</option>
-          <option value="AE">🇦🇪 United Arab Emirates</option>
-          <option value="KW">🇰🇼 Kuwait</option>
-          <option value="BH">🇧🇭 Bahrain</option>
-          <option value="OM">🇴🇲 Oman</option>
-          <option value="QA">🇶🇦 Qatar</option>
-          <option value="SA">🇸🇦 Saudi Arabia</option>
+          <option value="US">United States</option>
+          <option value="GB">United Kingdom</option>
+          <option value="CA">Canada</option>
+          <option value="AU">Australia</option>
+          <option value="NZ">New Zealand</option>
+          <option value="DE">Germany</option>
+          <option value="FR">France</option>
+          <option value="IT">Italy</option>
+          <option value="ES">Spain</option>
+          <option value="PT">Portugal</option>
+          <option value="NL">Netherlands</option>
+          <option value="BE">Belgium</option>
+          <option value="SE">Sweden</option>
+          <option value="NO">Norway</option>
+          <option value="DK">Denmark</option>
+          <option value="FI">Finland</option>
+          <option value="CH">Switzerland</option>
+          <option value="AT">Austria</option>
+          <option value="PL">Poland</option>
+          <option value="GR">Greece</option>
+          <option value="MY">Malaysia</option>
+          <option value="SG">Singapore</option>
+          <option value="JP">Japan</option>
+          <option value="KR">South Korea</option>
+          <option value="TR">Turkey</option>
+          <option value="EG">Egypt</option>
+          <option value="MA">Morocco</option>
+          <option value="TN">Tunisia</option>
+          <option value="JO">Jordan</option>
+          <option value="ZA">South Africa</option>
+          <option value="PH">Philippines</option>
+          <option value="TH">Thailand</option>
+          <option value="ID">Indonesia</option>
+          <option value="BR">Brazil</option>
+          <option value="MX">Mexico</option>
+          <option value="RU">Russia</option>
+          <option value="IN">India</option>
+          <option value="PK">Pakistan</option>
+          <option value="BD">Bangladesh</option>
+          <option value="AE">United Arab Emirates</option>
+          <option value="KW">Kuwait</option>
+          <option value="BH">Bahrain</option>
+          <option value="OM">Oman</option>
+          <option value="QA">Qatar</option>
+          <option value="SA">Saudi Arabia</option>
         </select>
         <button onclick="checkEligibility()">Check now</button>
       </div>
@@ -1901,7 +1981,7 @@
       <div class="needs-grid">
         <div class="need-row">
           <a href="#guides" class="need-btn">Explore requirements</a>
-          <p class="need-desc">Understand which documents you need, timelines, and what can get your application rejected.</p>
+          <p class="need-desc">What documents you need, timelines, and what to avoid.</p>
         </div>
         <div class="need-row">
           <a href="#calculator" class="need-btn">Calculate cost</a>
@@ -2471,112 +2551,6 @@
   </div>
 </section>
 
-<!-- ── VISA COMPARISON TABLE ── -->
-<section id="comparison">
-  <div class="container">
-    <p class="section-label">Visa types</p>
-    <h2 class="section-title">Compare your options</h2>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Umrah Visa <span class="th-badge">For pilgrimage</span></th>
-            <th>Tourist eVisa</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Who can apply</td>
-            <td>Must be Muslim — proof of faith required at application (religion, not nationality)</td>
-            <td>Any nationality eligible for the Saudi eVisa, regardless of religion — Muslims included</td>
-          </tr>
-          <tr>
-            <td>Availability</td>
-            <td>Year-round (excl. Hajj blackout)</td>
-            <td>Year-round</td>
-          </tr>
-          <tr>
-            <td>When to apply</td>
-            <td>Apply once you have confirmed travel dates — visa is valid for only 30 days from issue</td>
-            <td>Up to 1 year before travel — apply any time</td>
-          </tr>
-          <tr>
-            <td>Entry window</td>
-            <td>Must enter within 30 days of visa issue date</td>
-            <td>Must enter within 1 year of issue date</td>
-          </tr>
-          <tr>
-            <td>Stay per entry</td>
-            <td>Up to 30 days inside Saudi Arabia</td>
-            <td>Up to 90 days continuous per visit</td>
-          </tr>
-          <tr>
-            <td>Entries</td>
-            <td>Single entry</td>
-            <td>Multiple entries</td>
-          </tr>
-          <tr>
-            <td>Cost</td>
-            <td>TBD (govt fee + insurance + service fee)</td>
-            <td>TBD (visa fee only — no insurance)</td>
-          </tr>
-          <tr>
-            <td>Can perform Umrah</td>
-            <td><span class="check">✓</span> Yes — this visa is for Umrah</td>
-            <td><span class="check">✓</span> Yes, but only outside Hajj blackout</td>
-          </tr>
-          <tr>
-            <td>Cities accessible</td>
-            <td><span class="cross">✗</span> Makkah &amp; Madinah only</td>
-            <td><span class="check">✓</span> All Saudi cities</td>
-          </tr>
-          <tr>
-            <td>Health insurance</td>
-            <td><span class="check">✓</span> Mandatory &amp; included</td>
-            <td><span class="cross">✗</span> Not included — get separately</td>
-          </tr>
-          <tr>
-            <td>Zamzam water (5L)</td>
-            <td><span class="check">✓</span> Official allowance</td>
-            <td><span class="partial">~</span> Airline-dependent — check before travel</td>
-          </tr>
-          <tr>
-            <td>Mahram required</td>
-            <td><span class="cross">✗</span> No — women 18+ travel independently</td>
-            <td><span class="cross">✗</span> No</td>
-          </tr>
-          <tr>
-            <td>Processing time</td>
-            <td>5 min – 10 business days (by nationality)</td>
-            <td>5 min – 24 hours</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="callout callout-warning">
-      <div class="callout-icon">⚠️</div>
-      <div><strong>Hajj blackout 2026:</strong> Tourist visa holders cannot enter Makkah during the Hajj season blackout — approximately April 3–18, 2026. If you're planning Umrah during this window, you need an Umrah visa, not a tourist eVisa. Applications for Umrah visas are also paused during this period.</div>
-    </div>
-
-    <div class="callout callout-green">
-      <div class="callout-icon">💧</div>
-      <div><strong>Zamzam water policy:</strong> Umrah visa holders can take up to 5 litres of Zamzam water home. Purchase via the Nusuk app at the airport (official channel only) and pack it in your checked luggage. Tourist eVisa holders should confirm with their airline before travel — policies vary by carrier.</div>
-    </div>
-
-    <!-- IMAGE PLACEHOLDER 1 -->
-    <!-- IMAGE 1: Replace with a high-quality photograph of Al-Masjid al-Haram (Grand Mosque) in Makkah before deployment. Recommended size: 1200x500px, WebP format. Alt text: "Grand Mosque aerial view, Makkah" -->
-    <div class="img-placeholder" style="margin-top:36px;" role="img" aria-label="Image placeholder: Grand Mosque scene">
-      <div class="img-placeholder-inner">
-        IMAGE 1: Grand Mosque scene — replace src before deployment
-        <span>Recommended: 1200×500px, WebP | alt="Grand Mosque aerial view, Makkah"</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ── COST CALCULATOR ── -->
 <section id="calculator">
   <div class="container">
@@ -2832,19 +2806,19 @@
       <!-- Left: photo collage -->
       <div style="position:relative;height:430px;">
         <!-- Large circle — iVisa team -->
-        <div style="position:absolute;top:0;left:10px;width:240px;height:240px;border-radius:50%;overflow:hidden;border:4px solid rgba(72,216,120,0.5);box-shadow:0 10px 36px rgba(0,0,0,0.3);">
+        <div class="apply-circle apply-circle-1" style="position:absolute;top:0;left:10px;width:240px;height:240px;border-radius:50%;overflow:hidden;border:4px solid rgba(72,216,120,0.5);box-shadow:0 10px 36px rgba(0,0,0,0.3);">
           <div style="width:100%;height:100%;background:linear-gradient(135deg,#015c6a,#004752);display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(255,255,255,0.5);text-align:center;padding:16px;">
             PHOTO A<br>iVisa team<br><span style="font-size:10px;opacity:0.7;">Replace with team photo</span>
           </div>
         </div>
         <!-- Medium circle — happy customer -->
-        <div style="position:absolute;top:30px;right:0;width:190px;height:190px;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,0.15);box-shadow:0 8px 28px rgba(0,0,0,0.25);">
+        <div class="apply-circle apply-circle-2" style="position:absolute;top:30px;right:0;width:190px;height:190px;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,0.15);box-shadow:0 8px 28px rgba(0,0,0,0.25);">
           <div style="width:100%;height:100%;background:linear-gradient(135deg,#0b3947,#002d38);display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(255,255,255,0.5);text-align:center;padding:12px;">
             PHOTO B<br>Happy customer<br><span style="font-size:10px;opacity:0.7;">Replace with customer photo</span>
           </div>
         </div>
         <!-- Small circle — iVisa office -->
-        <div style="position:absolute;bottom:0;left:70px;width:160px;height:160px;border-radius:50%;overflow:hidden;border:4px solid rgba(72,216,120,0.3);box-shadow:0 6px 22px rgba(0,0,0,0.2);">
+        <div class="apply-circle apply-circle-3" style="position:absolute;bottom:0;left:70px;width:160px;height:160px;border-radius:50%;overflow:hidden;border:4px solid rgba(72,216,120,0.3);box-shadow:0 6px 22px rgba(0,0,0,0.2);">
           <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a4a5a,#003545);display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(255,255,255,0.5);text-align:center;padding:10px;">
             PHOTO C<br>iVisa office<br><span style="font-size:9px;opacity:0.7;">Replace with office photo</span>
           </div>
@@ -2873,11 +2847,11 @@
     <!-- Trust bar — 3 stats -->
     <div class="trust-bar">
       <div class="trust-stat">
-        <span class="stat-value">2,000+</span>
+        <span class="stat-value count-up" data-target="2000" data-suffix="+">2,000+</span>
         <span class="stat-label">Pilgrims applied with iVisa</span>
       </div>
       <div class="trust-stat">
-        <span class="stat-value">99%</span>
+        <span class="stat-value count-up" data-target="99" data-suffix="%">99%</span>
         <span class="stat-label">Approval rate</span>
       </div>
       <div class="trust-stat">
@@ -2893,6 +2867,107 @@
     <p style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.55);margin-bottom:10px;">Ready to go?</p>
     <h3 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:20px;">Got your documents? Apply today.</h3>
     <a href="https://ivisa.com/saudi-arabia-umrah-visa" style="display:inline-block;background:#48d878;color:#004752;font-family:'Manrope',sans-serif;font-size:16px;font-weight:800;padding:14px 36px;border-radius:10px;text-decoration:none;letter-spacing:0.01em;">Apply to your visa today →</a>
+  </div>
+</section>
+
+<!-- ── VISA COMPARISON TABLE ── -->
+<section id="comparison">
+  <div class="container">
+    <p class="section-label">Visa types</p>
+    <h2 class="section-title">Compare your options</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Umrah Visa <span class="th-badge">For pilgrimage</span></th>
+            <th>Tourist eVisa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Who can apply</td>
+            <td>Must be Muslim — proof of faith required at application (religion, not nationality)</td>
+            <td>Any nationality eligible for the Saudi eVisa, regardless of religion — Muslims included</td>
+          </tr>
+          <tr>
+            <td>Availability</td>
+            <td>Year-round (excl. Hajj blackout)</td>
+            <td>Year-round</td>
+          </tr>
+          <tr>
+            <td>When to apply</td>
+            <td>Apply once you have confirmed travel dates — visa is valid for only 30 days from issue</td>
+            <td>Up to 1 year before travel — apply any time</td>
+          </tr>
+          <tr>
+            <td>Entry window</td>
+            <td>Must enter within 30 days of visa issue date</td>
+            <td>Must enter within 1 year of issue date</td>
+          </tr>
+          <tr>
+            <td>Stay per entry</td>
+            <td>Up to 30 days inside Saudi Arabia</td>
+            <td>Up to 90 days continuous per visit</td>
+          </tr>
+          <tr>
+            <td>Entries</td>
+            <td>Single entry</td>
+            <td>Multiple entries</td>
+          </tr>
+          <tr>
+            <td>Cost</td>
+            <td>TBD (govt fee + insurance + service fee)</td>
+            <td>TBD (visa fee only — no insurance)</td>
+          </tr>
+          <tr>
+            <td>Can perform Umrah</td>
+            <td><span class="check">✓</span> Yes — this visa is for Umrah</td>
+            <td><span class="check">✓</span> Yes, but only outside Hajj blackout</td>
+          </tr>
+          <tr>
+            <td>Cities accessible</td>
+            <td><span class="cross">✗</span> Makkah &amp; Madinah only</td>
+            <td><span class="check">✓</span> All Saudi cities</td>
+          </tr>
+          <tr>
+            <td>Health insurance</td>
+            <td><span class="check">✓</span> Mandatory &amp; included</td>
+            <td><span class="cross">✗</span> Not included — get separately</td>
+          </tr>
+          <tr>
+            <td>Zamzam water (5L)</td>
+            <td><span class="check">✓</span> Official allowance</td>
+            <td><span class="partial">~</span> Airline-dependent — check before travel</td>
+          </tr>
+          <tr>
+            <td>Mahram required</td>
+            <td><span class="cross">✗</span> No — women 18+ travel independently</td>
+            <td><span class="cross">✗</span> No</td>
+          </tr>
+          <tr>
+            <td>Processing time</td>
+            <td>5 min – 10 business days (by nationality)</td>
+            <td>5 min – 24 hours</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-green">
+      <div class="callout-icon">💧</div>
+      <div><strong>Zamzam water policy:</strong> Umrah visa holders can take up to 5 litres of Zamzam water home. Purchase via the Nusuk app at the airport (official channel only) and pack it in your checked luggage. Tourist eVisa holders should confirm with their airline before travel — policies vary by carrier.</div>
+    </div>
+
+    <!-- IMAGE PLACEHOLDER 1 -->
+    <!-- IMAGE 1: Replace with a high-quality photograph of Al-Masjid al-Haram (Grand Mosque) in Makkah before deployment. Recommended size: 1200x500px, WebP format. Alt text: "Grand Mosque aerial view, Makkah" -->
+    <div class="img-placeholder" style="margin-top:36px;" role="img" aria-label="Image placeholder: Grand Mosque scene">
+      <div class="img-placeholder-inner">
+        IMAGE 1: Grand Mosque scene — replace src before deployment
+        <span>Recommended: 1200×500px, WebP | alt="Grand Mosque aerial view, Makkah"</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -3420,7 +3495,7 @@
 
   // ── SCROLL REVEAL ANIMATIONS ──
   (function() {
-    var revealEls = document.querySelectorAll('section, .visa-card, .apply-card, .timeline-step, .accordion-item');
+    var revealEls = document.querySelectorAll('section, .visa-card, .apply-card, .timeline-step, .accordion-item, .section-label, .callout, .proc-visa-block, .kd-item, .trust-stat');
     revealEls.forEach(function(el) { el.classList.add('reveal'); });
 
     var observer = new IntersectionObserver(function(entries) {
@@ -3433,6 +3508,75 @@
     }, { threshold: 0.08 });
 
     revealEls.forEach(function(el) { observer.observe(el); });
+  })();
+
+  // ── PHOTO CIRCLES — STAGGERED ENTRANCE + FLOAT ──
+  (function() {
+    var collage = document.querySelector('#apply .apply-circle');
+    if (!collage) return;
+    var parent = collage.closest('[style*="position:relative"]') || collage.parentElement;
+
+    var circleObs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        var c1 = document.querySelector('.apply-circle-1');
+        var c2 = document.querySelector('.apply-circle-2');
+        var c3 = document.querySelector('.apply-circle-3');
+        if (c1) c1.classList.add('c-in-1');
+        if (c2) c2.classList.add('c-in-2');
+        if (c3) c3.classList.add('c-in-3');
+        circleObs.disconnect();
+      }
+    }, { threshold: 0.2 });
+
+    circleObs.observe(parent);
+  })();
+
+  // ── STAT COUNT-UP ANIMATION ──
+  (function() {
+    function animateCount(el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      var duration = 1400;
+      var start = null;
+      el.classList.add('stat-animated');
+
+      function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+      function step(timestamp) {
+        if (!start) start = timestamp;
+        var progress = Math.min((timestamp - start) / duration, 1);
+        var current = Math.floor(easeOut(progress) * target);
+        el.textContent = (target >= 1000 ? current.toLocaleString() : current) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = (target >= 1000 ? target.toLocaleString() : target) + suffix;
+      }
+      requestAnimationFrame(step);
+    }
+
+    var countEls = document.querySelectorAll('.count-up');
+    var countObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    countEls.forEach(function(el) { countObs.observe(el); });
+  })();
+
+  // ── NEEDS GRID STAGGER ──
+  (function() {
+    var grid = document.querySelector('.needs-grid');
+    if (!grid) return;
+    var gridObs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        grid.classList.add('stagger-visible');
+        gridObs.disconnect();
+      }
+    }, { threshold: 0.15 });
+    gridObs.observe(grid);
   })();
 </script>
 
