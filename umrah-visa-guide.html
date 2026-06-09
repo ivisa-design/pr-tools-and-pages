@@ -539,20 +539,21 @@
       align-items: center;
       justify-content: center;
       background: var(--cta);
-      color: #000;
+      color: #000 !important;
       font-family: 'Manrope', sans-serif;
       font-weight: 800;
-      font-size: 14px;
-      padding: 13px 24px;
+      font-size: 15px;
+      padding: 13px 28px;
       border-radius: 50px;
+      min-width: 168px;
       white-space: nowrap;
       cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s;
+      text-decoration: none !important;
+      transition: background 0.2s, transform 0.1s;
       flex-shrink: 0;
       text-align: center;
     }
-    .need-btn:hover { background: #38c868; text-decoration: none; }
+    .need-btn:hover { background: #38c868; transform: translateY(-1px); text-decoration: none; }
 
     .need-desc {
       font-size: 14px;
@@ -2151,7 +2152,7 @@
       <h3>What do you need to know?</h3>
       <div class="needs-grid">
         <div class="need-row">
-          <a href="#guides" class="need-btn">Explore requirements</a>
+          <a href="#guides" class="need-btn">Requirements</a>
           <p class="need-desc">What documents you need, timelines, and what to avoid.</p>
         </div>
         <div class="need-row">
@@ -2159,11 +2160,11 @@
           <p class="need-desc">Get a full breakdown of government fees, insurance, and service costs — no surprises.</p>
         </div>
         <div class="need-row">
-          <a href="#processing-times" class="need-btn">Check processing time</a>
+          <a href="#processing-times" class="need-btn">Check timelines</a>
           <p class="need-desc">See realistic timelines for visa delivery by nationality and season.</p>
         </div>
         <div class="need-row">
-          <a href="#comparison" class="need-btn">Visa types explained</a>
+          <a href="#comparison" class="need-btn">Visa types</a>
           <p class="need-desc">Umrah visa vs tourist eVisa — which one fits your situation and when to apply.</p>
         </div>
       </div>
