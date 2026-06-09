@@ -535,29 +535,34 @@
     .need-row:hover { background: rgba(255,255,255,0.12); }
 
     .need-btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: var(--cta);
       color: var(--hero);
       font-family: 'Manrope', sans-serif;
       font-weight: 700;
-      font-size: 11px;
-      padding: 6px 12px;
-      border-radius: 6px;
+      font-size: 13px;
+      padding: 10px 0;
+      border-radius: 8px;
       white-space: nowrap;
       cursor: pointer;
       text-decoration: none;
       transition: background 0.2s;
       flex-shrink: 0;
+      width: 200px;
+      text-align: center;
     }
     .need-btn:hover { background: #38c868; text-decoration: none; }
 
     .need-desc {
-      font-size: 12px;
+      font-size: 14px;
       opacity: 0.85;
-      line-height: 1.5;
+      line-height: 1.4;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      flex: 1;
     }
 
     /* ── QUICK NAVIGATOR ── */
