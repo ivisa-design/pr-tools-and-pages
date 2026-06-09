@@ -281,7 +281,7 @@
       height: 64px;
     }
 
-    .logo img { height: 52px; display: block; }
+    .logo img { height: 54px; display: block; }
     .logo-fallback {
       font-family: 'Manrope', sans-serif;
       font-size: 22px;
@@ -2267,22 +2267,38 @@
     <p style="font-size:16px; color:var(--muted); margin-bottom:16px; max-width:680px;">The Umrah visa is available exclusively to <strong>Muslims</strong>. The countries below are the most common Umrah applicant nationalities — but any Muslim, regardless of nationality, can apply. The route (Nusuk direct or agent-processed) depends on your passport.</p>
 
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px;">
-      <div style="background:#e8f8ee;border:1px solid #b5e4c9;border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;">
-        <div style="font-weight:700;color:var(--hero);margin-bottom:4px;">🕌 Umrah visa only</div>
-        <div style="color:var(--text);">India, Pakistan, Bangladesh, Indonesia, Nigeria &amp; similar nationalities. Must use the Umrah visa via agent — the Tourist eVisa route may not be available to these passports for pilgrimage.</div>
+      <div style="background:#e8f8ee;border:1px solid #b5e4c9;border-radius:10px;overflow:hidden;">
+        <button onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.style.display=this.getAttribute('aria-expanded')==='true'?'block':'none';" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:var(--hero);">
+          <span>🕌 Umrah visa only</span><span style="font-size:11px;font-weight:600;color:#2ea55a;white-space:nowrap;">See more ↓</span>
+        </button>
+        <div style="display:none;padding:0 16px 12px;font-size:13px;line-height:1.6;color:var(--text);">India, Pakistan, Bangladesh, Indonesia, Nigeria &amp; similar nationalities. Must use the Umrah visa via agent — the Tourist eVisa route may not be available to these passports for pilgrimage.</div>
       </div>
-      <div style="background:#f5f0fa;border:1px solid #d4c2e8;border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;">
-        <div style="font-weight:700;color:var(--hero);margin-bottom:4px;">🔄 Either visa works</div>
-        <div style="color:var(--text);">USA, UK, EU, Turkey, Canada, Australia, Malaysia &amp; similar. Muslim applicants from these countries can choose: <strong>Umrah visa</strong> (pilgrimage-specific, includes insurance) or <strong>Tourist eVisa</strong> (simpler, more flexible, no insurance).</div>
+      <div style="background:#f5f0fa;border:1px solid #d4c2e8;border-radius:10px;overflow:hidden;">
+        <button onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.style.display=this.getAttribute('aria-expanded')==='true'?'block':'none';" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:var(--hero);">
+          <span>🔄 Either visa works</span><span style="font-size:11px;font-weight:600;color:#7c5cbf;white-space:nowrap;">See more ↓</span>
+        </button>
+        <div style="display:none;padding:0 16px 12px;font-size:13px;line-height:1.6;color:var(--text);">USA, UK, EU, Turkey, Canada, Australia, Malaysia &amp; similar. Muslim applicants from these countries can choose: <strong>Umrah visa</strong> (pilgrimage-specific, includes insurance) or <strong>Tourist eVisa</strong> (simpler, more flexible, no insurance).</div>
       </div>
-      <div style="background:#f0f6fa;border:1px solid #c8dce6;border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;">
-        <div style="font-weight:700;color:var(--hero);margin-bottom:4px;">🌍 Not Muslim?</div>
-        <div style="color:var(--text);">Non-Muslim visitors can apply for the <strong>Saudi Tourist eVisa</strong>. Umrah visa is not available. <a href="https://ivisa.com/saudi-arabia-visa" target="_blank" rel="noopener" style="color:var(--hero);font-weight:600;">Check eligibility →</a></div>
+      <div style="background:#f0f6fa;border:1px solid #c8dce6;border-radius:10px;overflow:hidden;">
+        <button onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.style.display=this.getAttribute('aria-expanded')==='true'?'block':'none';" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:var(--hero);">
+          <span>🌍 Not Muslim?</span><span style="font-size:11px;font-weight:600;color:#4a7a9b;white-space:nowrap;">See more ↓</span>
+        </button>
+        <div style="display:none;padding:0 16px 12px;font-size:13px;line-height:1.6;color:var(--text);">Non-Muslim visitors can apply for the <strong>Saudi Tourist eVisa</strong>. Umrah visa is not available. <a href="https://ivisa.com/saudi-arabia-visa" target="_blank" rel="noopener" style="color:var(--hero);font-weight:600;">Check eligibility →</a></div>
       </div>
     </div>
 
     <div class="search-wrap">
       <input type="text" id="guide-search" placeholder="Search by country name…" oninput="filterGuides()" />
+    </div>
+
+    <div id="guides-no-result" style="display:none;background:#f0f4ff;border:1px solid #c5d4f0;border-radius:10px;padding:18px 20px;font-size:14px;line-height:1.7;color:var(--text);margin-bottom:16px;">
+      <strong style="color:var(--hero);">No specific guide for this country — but you can still apply.</strong><br>
+      Most nationalities worldwide are eligible for the Umrah visa or Saudi Tourist eVisa. The process depends on your passport:
+      <ul style="margin:10px 0 0 18px;padding:0;">
+        <li><strong>Umrah visa</strong> — available to Muslims of all nationalities. Most countries require a licensed travel agent. <a href="https://ivisa.com/saudi-arabia-umrah-visa" target="_blank" rel="noopener" style="color:var(--hero);font-weight:600;">Apply with iVisa →</a></li>
+        <li><strong>Saudi Tourist eVisa</strong> — available to 50+ nationalities (non-pilgrimage visits). <a href="https://ivisa.com/saudi-arabia-visa" target="_blank" rel="noopener" style="color:var(--hero);font-weight:600;">Check eligibility →</a></li>
+      </ul>
+      Not sure which applies to you? <a href="https://ivisa.com/saudi-arabia-umrah-visa" target="_blank" rel="noopener" style="color:var(--hero);font-weight:600;">Chat with our team →</a>
     </div>
 
     <div class="accordion-list" id="guides-list">
@@ -2852,7 +2868,7 @@
     <!-- Logo — use transparent PNG version -->
     <!-- NOTE FOR DEV TEAM: replace src below with a transparent-background PNG of the iVisa white logo -->
     <div style="text-align:center;margin-bottom:16px;">
-      <img src="https://lh3.googleusercontent.com/d/1SMj3hG29v7LJJGWa10lDCTwEhwJQAcKP" alt="iVisa logo" style="height:40px;mix-blend-mode:screen;" />
+      <img src="https://lh3.googleusercontent.com/d/1SMj3hG29v7LJJGWa10lDCTwEhwJQAcKP" alt="iVisa logo" style="height:40px;filter:brightness(0) invert(1);" />
     </div>
 
     <h2 class="section-title" style="text-align:center;color:#fff;margin-bottom:12px;max-width:600px;margin-left:auto;margin-right:auto;">Let iVisa handle it for you<br>and apply with confidence</h2>
@@ -3211,6 +3227,7 @@
         <img
           src="https://lh3.googleusercontent.com/d/1SMj3hG29v7LJJGWa10lDCTwEhwJQAcKP"
           alt="iVisa logo"
+          style="filter:brightness(0) invert(1);"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
         />
         <span class="logo-fallback" style="display:none;">iVisa</span>
@@ -3373,15 +3390,20 @@
   // Guide search — items with data-hidden="true" are hidden when search is empty
   function filterGuides() {
     var term = document.getElementById('guide-search').value.toLowerCase().trim();
+    var anyVisible = false;
     document.querySelectorAll('#guides-list .accordion-item').forEach(function(item) {
       var keywords = (item.getAttribute('data-country') || '').toLowerCase();
       var isHiddenByDefault = item.getAttribute('data-hidden') === 'true';
       if (term === '') {
         item.style.display = isHiddenByDefault ? 'none' : '';
       } else {
-        item.style.display = keywords.indexOf(term) > -1 ? '' : 'none';
+        var match = keywords.indexOf(term) > -1;
+        item.style.display = match ? '' : 'none';
+        if (match) anyVisible = true;
       }
     });
+    var noResult = document.getElementById('guides-no-result');
+    if (noResult) noResult.style.display = (term !== '' && !anyVisible) ? '' : 'none';
   }
 
   // Calculator — fees shown as XX per disclaimer
