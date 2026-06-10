@@ -2353,8 +2353,8 @@
           <div class="elig-body">
             <p>Saudi Arabia requires a meningococcal ACWY vaccine for all pilgrims. It must be administered at least 10 days before arrival and be within its validity window. You'll need a certificate as part of your application.</p>
             <div class="elig-actions">
-              <button class="elig-yes" onclick="setElig('elig-4','yes','elig-5')">Yes — I have my certificate ✓</button>
-              <button class="elig-no" onclick="setElig('elig-4','no','elig-5')">Not yet — I'll book it now</button>
+              <button class="elig-yes" onclick="setElig('elig-4','yes',null)">Yes — I have my certificate ✓</button>
+              <button class="elig-no" onclick="setElig('elig-4','no',null)">Not yet — I'll book it now</button>
             </div>
             <div class="elig-result elig-result-no" id="elig-4-no" style="display:none;">
               <strong>Book your vaccine ASAP.</strong> Contact a local travel clinic or GP. Allow at least 10 days after the jab before applying for your visa.
@@ -2362,27 +2362,6 @@
           </div>
         </div>
 
-        <div class="elig-item locked" id="elig-5">
-          <button class="elig-header" onclick="toggleElig('elig-5')">
-            <span class="elig-icon">●</span>
-            <span class="elig-question">Are you traveling during the Hajj blackout period?</span>
-            <span class="elig-chevron">›</span>
-          </button>
-          <div class="elig-body">
-            <p>Umrah visas are suspended during Hajj season — approximately <strong>March 15 to May 31, 2026</strong>. If your travel dates fall in this window, you won't be able to get an Umrah visa.</p>
-            <div class="elig-actions">
-              <button class="elig-yes" onclick="setElig('elig-5','yes',null)" style="background:#e53e3e;">Yes, I'm traveling during this period</button>
-              <button class="elig-no" onclick="setElig('elig-5','no',null)">No, my dates are outside this window ✓</button>
-            </div>
-            <div class="elig-result elig-result-no" id="elig-5-yes" style="display:none;">
-              <strong>Umrah visa not available during this window.</strong> Consider adjusting your travel dates to before March 15 or after June 1, 2026. Ramadan (late Feb–late Mar) is peak season but visas are still issued.
-            </div>
-            <div class="elig-result elig-result-yes" id="elig-5-no" style="display:none;">
-              <strong>You're good to go.</strong> Your travel dates are outside the blackout period. Scroll down to check costs, or apply with iVisa now.
-              <br><br><a href="https://ivisa.com/saudi-arabia-umrah-visa" style="color:var(--cta);">Start my application →</a>
-            </div>
-          </div>
-        </div>
 
       </div>
     </div>
