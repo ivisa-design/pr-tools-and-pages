@@ -1890,7 +1890,45 @@
     .need-btn         { transition: transform 0.18s ease, background 0.18s ease; }
     .need-btn:hover   { transform: translateY(-2px); }
 
-    /* ── Requirements & Key Dates — glass layout ── */
+    /* ── Requirements & Key Dates — timeline redesign ── */
+    .tl-section-inner { max-width: 860px; }
+    .tl-track { position: relative; margin: 0 0 44px; padding: 0 8px; }
+    .tl-bar-wrap { position: relative; margin: 38px 0 26px; height: 3px; }
+    .tl-bar { height: 3px; background: rgba(255,255,255,0.15); border-radius: 2px; width: 100%; }
+    .tl-fill { height: 3px; background: var(--cta); border-radius: 2px; position: absolute; left: 0; top: 0; width: 62%; }
+    .tl-nodes { display: flex; justify-content: space-between; position: absolute; top: -10px; left: 0; right: 0; }
+    .tl-node { position: relative; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+    .tl-dot { width: 22px; height: 22px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.3); background: #004752; transition: transform 0.2s, border-color 0.2s; flex-shrink: 0; }
+    .tl-dot.active { background: var(--cta); border-color: var(--cta); }
+    .tl-dot.warn { background: #f5c4b3; border-color: #f5c4b3; }
+    .tl-node:hover .tl-dot { transform: scale(1.3); border-color: #fff; }
+    .tl-node:hover .tl-tooltip { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+    .tl-month { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 10px; white-space: nowrap; text-align: center; }
+    .tl-month.active { color: var(--cta); font-weight: 600; }
+    .tl-month.warn { color: #f5c4b3; }
+    .tl-tooltip { position: absolute; bottom: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(4px); background: #fff; color: #1a2e35; border-radius: 10px; padding: 12px 14px; font-size: 12px; line-height: 1.6; width: 190px; opacity: 0; transition: opacity 0.18s, transform 0.18s; pointer-events: none; z-index: 20; box-shadow: 0 6px 20px rgba(0,0,0,0.18); }
+    .tl-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: #fff; }
+    .tl-tooltip strong { display: block; font-size: 13px; font-weight: 700; margin-bottom: 3px; color: #004752; }
+    .tl-tooltip.warn strong { color: #c0604a; }
+    .doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+    .doc-group { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.13); border-radius: 10px; overflow: hidden; cursor: pointer; transition: background 0.18s; }
+    .doc-group:hover { background: rgba(255,255,255,0.13); }
+    .doc-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; }
+    .doc-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(72,216,120,0.18); display: flex; align-items: center; justify-content: center; margin-right: 10px; flex-shrink: 0; font-size: 15px; }
+    .doc-title { font-size: 13px; font-weight: 700; color: #fff; }
+    .doc-count { font-size: 11px; color: rgba(255,255,255,0.42); margin-top: 1px; }
+    .doc-chev { font-size: 16px; color: rgba(255,255,255,0.35); transition: transform 0.2s; line-height: 1; }
+    .doc-group.open .doc-chev { transform: rotate(180deg); }
+    .doc-body { display: none; padding: 0 16px 14px; border-top: 1px solid rgba(255,255,255,0.09); }
+    .doc-group.open .doc-body { display: block; }
+    .doc-item { font-size: 12px; color: rgba(255,255,255,0.7); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 8px; align-items: baseline; }
+    .doc-item:last-child { border-bottom: none; }
+    .doc-check { color: var(--cta); font-size: 11px; flex-shrink: 0; }
+    .doc-note { color: rgba(255,255,255,0.38); font-size: 11px; }
+    .tl-warning { background: rgba(245,196,179,0.11); border: 1px solid rgba(245,196,179,0.28); border-radius: 8px; padding: 12px 16px; font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.65; margin-top: 4px; }
+    .tl-warning strong { color: #f5c4b3; }
+
+    /* ── Legacy classes kept for any references ── */
     .reqdocs-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -2443,7 +2481,6 @@
 
     </div>
   </div>
-
 </section>
 
 <!-- ── NATIONALITY GUIDES ── -->
@@ -2858,116 +2895,112 @@
     <h2>When can you travel — and when should you apply?</h2>
     <p class="section-subtitle">The Umrah season has fixed dates for travel AND for applications. Understanding both is critical — miss either window and you can't go.</p>
 
-    <!-- Season summary boxes -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;">
-      <div style="background:#e8f8ee;border:1.5px solid #2ea55a;border-radius:12px;padding:18px 20px;">
-        <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#2ea55a;margin-bottom:6px;">✈ Travel window (Umrah visa)</div>
-        <div style="font-size:18px;font-weight:800;color:#004752;">Jun 1, 2026 → Mar 23, 2027</div>
-        <div style="font-size:13px;color:var(--muted);margin-top:4px;line-height:1.5;">You can enter Saudi Arabia and perform Umrah on any date in this window. Enter by Mar 23 at the latest — and everyone must <strong>leave by Apr 7, 2027</strong>, even if your visa hasn't expired.</div>
-      </div>
-      <div style="background:#fff7f0;border:1.5px solid var(--warning);border-radius:12px;padding:18px 20px;">
-        <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#c47a00;margin-bottom:6px;">📋 Application window (Umrah visa)</div>
-        <div style="font-size:18px;font-weight:800;color:#004752;">Jun 1, 2026 → Mar 9, 2027</div>
-        <div style="font-size:13px;color:var(--muted);margin-top:4px;line-height:1.5;">Applications are accepted during this period. Don't wait until the last minute — apply at least 2 weeks before your travel date (3–4 weeks if traveling in Ramadan).</div>
-      </div>
-    </div>
-    <div style="background:#f0f4ff;border:1px solid #b0c0e0;border-radius:10px;padding:14px 18px;font-size:13px;color:var(--text);line-height:1.6;margin-bottom:32px;">
-      <strong>Tourist eVisa holders:</strong> No seasonal travel deadline. You're not restricted to these dates — you can visit Saudi Arabia any time of year and your stay is governed by your own visa terms (up to 90 days per entry). Makkah access is restricted during Hajj blackout (~May–Jun 2027) but the Apr 7 departure deadline does <strong>not apply to you</strong>.
-    </div>
+    <!-- Horizontal milestone timeline -->
+    <div class="tl-track" role="region" aria-label="2026–2027 Umrah season key milestones">
 
-    <!-- Split 2026 / 2027 calendar -->
-    <div class="split-cal-container">
-
-      <!-- 2026 row — starts from Jun (season opens) -->
-      <div class="split-cal-row">
-        <div class="split-cal-year-label">2026</div>
-        <div class="split-cal-months" style="grid-template-columns: repeat(7, 1fr);">
-          <div class="scm safe"><span class="scm-label">Jun</span><span class="scm-sub">Season opens</span></div>
-          <div class="scm safe"><span class="scm-label">Jul</span></div>
-          <div class="scm safe"><span class="scm-label">Aug</span></div>
-          <div class="scm safe"><span class="scm-label">Sep</span></div>
-          <div class="scm safe"><span class="scm-label">Oct</span></div>
-          <div class="scm safe"><span class="scm-label">Nov</span></div>
-          <div class="scm safe"><span class="scm-label">Dec</span></div>
+      <!-- Progress bar -->
+      <div class="tl-bar-wrap">
+        <div class="tl-bar">
+          <div class="tl-fill" id="tlFill"></div>
         </div>
       </div>
 
-      <!-- 2027 row -->
-      <div class="split-cal-row">
-        <div class="split-cal-year-label">2027</div>
-        <div class="split-cal-months">
-          <div class="scm safe"><span class="scm-label">Jan</span></div>
-          <div class="scm peak"><span class="scm-label">Feb</span><span class="scm-sub">Ramadan</span></div>
-          <div class="scm deadline"><span class="scm-label">Mar</span><span class="scm-sub">Season closes + Ramadan until ~18 Mar</span></div>
-          <div class="scm depart"><span class="scm-label">Apr</span><span class="scm-sub">Depart by 7</span></div>
-          <div class="scm block"><span class="scm-label">May</span><span class="scm-sub">Hajj prep</span></div>
-          <div class="scm block"><span class="scm-label">Jun</span><span class="scm-sub">Hajj</span></div>
-          <div class="scm empty"><span class="scm-label">Jul</span></div>
-          <div class="scm empty"><span class="scm-label">Aug</span></div>
-          <div class="scm empty"><span class="scm-label">Sep</span></div>
-          <div class="scm empty"><span class="scm-label">Oct</span></div>
-          <div class="scm empty"><span class="scm-label">Nov</span></div>
-          <div class="scm empty"><span class="scm-label">Dec</span></div>
+      <!-- Nodes -->
+      <div class="tl-nodes">
+
+        <!-- Node 1 — Season opens -->
+        <div class="tl-node tl-node--open" data-pos="0">
+          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-1">
+            <span class="sr-only">Jun 2026 — Season opens</span>
+          </button>
+          <div class="tl-label">Jun '26</div>
+          <div class="tl-sublabel">Season opens</div>
+          <div class="tl-tooltip" id="tl-tip-1" role="tooltip">
+            <div class="tl-tip-title">Jun 1, 2026 — Season opens</div>
+            <div class="tl-tip-body">Hajj blackout lifted. Umrah visas fully available. Jun–Dec 2026 is the ideal window — best hotel rates, fastest processing, shortest queues at the Haram.</div>
+            <div class="tl-tip-tag tl-tag--green">✓ Best time to apply</div>
+          </div>
         </div>
-      </div>
 
-      <!-- Legend -->
-      <div class="cal-legend">
-        <div class="cal-legend-item"><div class="cal-dot" style="background:#2ea55a;"></div> Best window — apply now</div>
-        <div class="cal-legend-item"><div class="cal-dot" style="background:var(--warning);"></div> Ramadan — apply earlier, expect delays</div>
-        <div class="cal-legend-item"><div class="cal-dot" style="background:#c53030;"></div> Hajj blackout — no Umrah visas issued</div>
-        <div class="cal-legend-item"><div class="cal-dot" style="background:#9b2020;"></div> Season closes — last visa Mar 9, last entry Mar 23</div>
-        <div class="cal-legend-item"><div class="cal-dot" style="background:#6b1010;"></div> Umrah visa: must depart by Apr 7, 2027</div>
-        <div class="cal-legend-item"><div class="cal-dot" style="background:#edf1f3;border:1px solid #ccc;"></div> Next season (dates TBC)</div>
-      </div>
-    </div>
-
-    <!-- Key dates — vertical timeline -->
-    <p style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:20px;">Key dates — 2026/2027 season</p>
-    <div class="kd-timeline">
-
-      <div class="kd-item kd-green">
-        <div class="kd-card kd-green">
-          <div class="kd-date">Jun 1, 2026 — Season opens</div>
-          <div class="kd-desc">Hajj blackout lifted. Umrah visas fully available. Jun–Dec 2026 is the ideal window — best hotel rates, fastest processing, shorter queues.</div>
+        <!-- Node 2 — Now (current) -->
+        <div class="tl-node tl-node--now" data-pos="10">
+          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-2">
+            <span class="sr-only">Now — You're here</span>
+          </button>
+          <div class="tl-label tl-label--now">Now</div>
+          <div class="tl-sublabel">Apply today</div>
+          <div class="tl-tooltip" id="tl-tip-2" role="tooltip">
+            <div class="tl-tip-title">June 2026 — You're here</div>
+            <div class="tl-tip-body">The season just opened. This is the optimal moment to apply — processing is fast, hotels have availability, and you have maximum flexibility to choose your travel dates.</div>
+            <div class="tl-tip-tag tl-tag--green">✓ Ideal application window</div>
+          </div>
         </div>
-      </div>
 
-      <div class="kd-item kd-orange">
-        <div class="kd-card kd-orange">
-          <div class="kd-date">~Feb 17, 2027 — Ramadan begins</div>
-          <div class="kd-desc">Applications still accepted but expect 2–3 day delays. Hotels near the Haram sell out fast. Apply by January 2027 if you're traveling in Ramadan.</div>
+        <!-- Node 3 — Ramadan -->
+        <div class="tl-node tl-node--caution" data-pos="52">
+          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-3">
+            <span class="sr-only">Feb 2027 — Ramadan begins</span>
+          </button>
+          <div class="tl-label">Feb '27</div>
+          <div class="tl-sublabel">Ramadan</div>
+          <div class="tl-tooltip" id="tl-tip-3" role="tooltip">
+            <div class="tl-tip-title">~Feb 17, 2027 — Ramadan begins</div>
+            <div class="tl-tip-body">Highest spiritual reward for Umrah — but also the busiest and most expensive period. Expect 2–3 day processing delays. Hotels near the Haram sell out months in advance. Apply by January 2027 if traveling in Ramadan.</div>
+            <div class="tl-tip-tag tl-tag--amber">⚠ Apply earlier — expect delays</div>
+          </div>
         </div>
-      </div>
 
-      <div class="kd-item kd-red">
-        <div class="kd-card kd-red">
-          <div class="kd-date">Mar 9, 2027 — Last visa issuance</div>
-          <div class="kd-desc">Umrah visa applications close. No new visas issued after this date. Apply well before this deadline — don't leave it to the last week.</div>
+        <!-- Node 4 — Last visa -->
+        <div class="tl-node tl-node--deadline" data-pos="72">
+          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-4">
+            <span class="sr-only">Mar 9, 2027 — Last visa issuance</span>
+          </button>
+          <div class="tl-label">9 Mar</div>
+          <div class="tl-sublabel">Last visa</div>
+          <div class="tl-tooltip" id="tl-tip-4" role="tooltip">
+            <div class="tl-tip-title">Mar 9, 2027 — Last visa issuance</div>
+            <div class="tl-tip-body">Applications close. No new Umrah visas issued after this date. Apply at least 2 weeks before this cutoff — don't leave it to the last week. Your visa must be in hand before travel.</div>
+            <div class="tl-tip-tag tl-tag--coral">⛔ Application deadline</div>
+          </div>
         </div>
-      </div>
 
-      <div class="kd-item kd-red">
-        <div class="kd-card kd-red">
-          <div class="kd-date">Mar 23, 2027 — Last entry date (Umrah visa)</div>
-          <div class="kd-desc">Final date to enter Saudi Arabia on an Umrah visa this season. If you enter on March 23, you have a maximum of 15 days inside the kingdom — the Apr 7 departure deadline is absolute and overrides your individual visa validity. You cannot extend or stay longer.</div>
+        <!-- Node 5 — Last entry -->
+        <div class="tl-node tl-node--deadline" data-pos="83">
+          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-5">
+            <span class="sr-only">Mar 23, 2027 — Last entry date</span>
+          </button>
+          <div class="tl-label">23 Mar</div>
+          <div class="tl-sublabel">Last entry</div>
+          <div class="tl-tooltip" id="tl-tip-5" role="tooltip">
+            <div class="tl-tip-title">Mar 23, 2027 — Last entry (Umrah visa)</div>
+            <div class="tl-tip-body">Final date to enter Saudi Arabia on an Umrah visa this season. Entering on Mar 23 gives you 15 days maximum — the Apr 7 departure deadline overrides your individual visa validity regardless of remaining days.</div>
+            <div class="tl-tip-tag tl-tag--coral">⛔ Entry deadline</div>
+          </div>
         </div>
-      </div>
 
-      <div class="kd-item kd-darkred">
-        <div class="kd-card kd-darkred">
-          <div class="kd-date">Apr 7, 2027 — Umrah visa holders must depart</div>
-          <div class="kd-desc">Mandatory departure deadline for Umrah visa holders only. Tourist eVisa holders are not subject to this date. Overstaying an Umrah visa carries fines of up to SAR 50,000, deportation, and a future entry ban.</div>
+        <!-- Node 6 — Must depart -->
+        <div class="tl-node tl-node--hard" data-pos="100">
+          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-6">
+            <span class="sr-only">Apr 7, 2027 — Must depart</span>
+          </button>
+          <div class="tl-label">7 Apr</div>
+          <div class="tl-sublabel">Must depart</div>
+          <div class="tl-tooltip" id="tl-tip-6" role="tooltip">
+            <div class="tl-tip-title">Apr 7, 2027 — Mandatory departure</div>
+            <div class="tl-tip-body">All Umrah visa holders must leave Saudi Arabia by this date — no exceptions. Overstaying carries fines up to SAR 50,000, deportation, and a future travel ban. Tourist eVisa holders are not subject to this date.</div>
+            <div class="tl-tip-tag tl-tag--coral">⛔ Hard departure cutoff</div>
+          </div>
         </div>
-      </div>
 
-      <div class="kd-item kd-red">
-        <div class="kd-card kd-red">
-          <div class="kd-date">~May–Jun 2027 — Hajj blackout begins</div>
-          <div class="kd-desc">No new Umrah visas issued during Hajj season. The 2027/2028 Umrah season is expected to open again around July 2027 once Hajj is complete.</div>
-        </div>
-      </div>
+      </div><!-- /tl-nodes -->
+    </div><!-- /tl-track -->
 
+    <!-- Tourist eVisa note -->
+    <div style="display:flex;align-items:flex-start;gap:12px;background:#f0f8ff;border:1px solid #b8d8e8;border-radius:12px;padding:16px 20px;margin-top:32px;">
+      <div style="font-size:20px;line-height:1;flex-shrink:0;">ℹ️</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.65;">
+        <strong style="color:var(--hero);">Tourist eVisa holders:</strong> These deadlines don't apply to you. You can visit Saudi Arabia any time of year and stay up to 90 days per entry. The Apr 7 departure cutoff is for Umrah visa holders only. Makkah access may be restricted during Hajj blackout (~May–Jun 2027).
+      </div>
     </div>
 
     <!-- IMAGE PLACEHOLDER 2 -->
@@ -2978,6 +3011,259 @@
         <span>Recommended: 1200×500px, WebP | alt="Aerial view of Al-Masjid al-Haram, Mecca"</span>
       </div>
     </div>
+
+    <style>
+      /* ── Timeline track ── */
+      .tl-track {
+        margin: 44px 0 8px;
+        padding: 0 20px 80px;
+        position: relative;
+      }
+      .tl-bar-wrap {
+        position: relative;
+        height: 6px;
+        background: #e0eaed;
+        border-radius: 3px;
+        margin: 0 0 0 0;
+      }
+      .tl-bar { width: 100%; height: 100%; position: relative; }
+      .tl-fill {
+        height: 100%;
+        width: 10%; /* updated by JS to reflect "now" position */
+        background: linear-gradient(90deg, #48d878 0%, #2ea55a 100%);
+        border-radius: 3px;
+        transition: width 1s ease;
+      }
+
+      /* ── Nodes row ── */
+      .tl-nodes {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-top: -9px; /* align dots to bar center */
+      }
+      .tl-node {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        flex: 0 0 auto;
+        cursor: pointer;
+      }
+
+      /* Dot button */
+      .tl-dot {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        border: 3px solid #c8d8de;
+        background: #eef3f5;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+        z-index: 2;
+        outline: none;
+      }
+      .tl-dot:focus-visible { box-shadow: 0 0 0 3px rgba(72,216,120,0.5); }
+
+      .tl-node--open .tl-dot,
+      .tl-node--now .tl-dot  {
+        background: #48d878;
+        border-color: #2ea55a;
+        box-shadow: 0 0 0 4px rgba(72,216,120,0.2);
+      }
+      .tl-node--now .tl-dot::after {
+        content: '';
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+        border: 2px solid rgba(72,216,120,0.5);
+        animation: tl-pulse 2s ease infinite;
+      }
+      @keyframes tl-pulse {
+        0%,100% { opacity: 1; transform: scale(1); }
+        50%      { opacity: 0; transform: scale(1.5); }
+      }
+      .tl-node--caution .tl-dot {
+        background: #fde8c0;
+        border-color: #fbab1e;
+      }
+      .tl-node--deadline .tl-dot {
+        background: #f5c4b3;
+        border-color: #e07050;
+      }
+      .tl-node--hard .tl-dot {
+        background: #f5c4b3;
+        border-color: #c04a2a;
+        box-shadow: 0 0 0 4px rgba(192,74,42,0.18);
+      }
+
+      /* Labels */
+      .tl-label {
+        font-family: 'Manrope', sans-serif;
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--text);
+        margin-top: 10px;
+        white-space: nowrap;
+      }
+      .tl-label--now { color: #2ea55a; }
+      .tl-sublabel {
+        font-size: 10px;
+        color: var(--muted);
+        margin-top: 2px;
+        white-space: nowrap;
+      }
+
+      /* Tooltip */
+      .tl-tooltip {
+        position: absolute;
+        bottom: calc(100% + 20px);
+        left: 50%;
+        transform: translateX(-50%) translateY(6px);
+        width: 260px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 14px 16px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s, transform 0.2s;
+        z-index: 20;
+        text-align: left;
+      }
+      .tl-tooltip::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 7px solid transparent;
+        border-top-color: #fff;
+      }
+      /* flip to below on first/last nodes to avoid overflow */
+      .tl-node:first-child .tl-tooltip { left: 0; transform: translateX(0) translateY(6px); }
+      .tl-node:first-child .tl-tooltip::after { left: 14%; }
+      .tl-node:last-child .tl-tooltip { left: auto; right: 0; transform: translateX(0) translateY(6px); }
+      .tl-node:last-child .tl-tooltip::after { left: auto; right: 14%; }
+
+      .tl-node:hover .tl-tooltip,
+      .tl-node.tl-active .tl-tooltip {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
+      .tl-node:first-child:hover .tl-tooltip,
+      .tl-node:first-child.tl-active .tl-tooltip { transform: translateX(0) translateY(0); }
+      .tl-node:last-child:hover .tl-tooltip,
+      .tl-node:last-child.tl-active .tl-tooltip { transform: translateX(0) translateY(0); }
+
+      .tl-node:hover .tl-dot,
+      .tl-node.tl-active .tl-dot { transform: scale(1.3); }
+
+      .tl-tip-title {
+        font-family: 'Manrope', sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+        color: #1a2e35;
+        margin-bottom: 6px;
+        line-height: 1.3;
+      }
+      .tl-tip-body {
+        font-size: 12px;
+        color: #4a6570;
+        line-height: 1.55;
+        margin-bottom: 8px;
+      }
+      .tl-tip-tag {
+        display: inline-block;
+        font-size: 10.5px;
+        font-weight: 700;
+        border-radius: 6px;
+        padding: 3px 8px;
+      }
+      .tl-tag--green { background: #e4f9ec; color: #2a7a44; }
+      .tl-tag--amber { background: #fff5e0; color: #a06500; }
+      .tl-tag--coral { background: #fdeae4; color: #b04020; }
+
+      /* Mobile: stack layout */
+      @media (max-width: 680px) {
+        .tl-track { padding: 0 0 16px; }
+        .tl-bar-wrap { display: none; }
+        .tl-nodes {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+          margin-top: 0;
+        }
+        .tl-node {
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 14px;
+          padding: 0 0 28px 0;
+          position: relative;
+        }
+        /* vertical connector line */
+        .tl-node::before {
+          content: '';
+          position: absolute;
+          left: 10px;
+          top: 22px;
+          bottom: 0;
+          width: 2px;
+          background: #d8e6ec;
+        }
+        .tl-node:last-child::before { display: none; }
+        .tl-dot { flex-shrink: 0; margin-top: 2px; }
+        .tl-label, .tl-sublabel { text-align: left; margin-top: 0; }
+        .tl-sublabel { margin-top: 1px; }
+        .tl-tooltip {
+          position: static;
+          transform: none !important;
+          width: 100%;
+          opacity: 1 !important;
+          pointer-events: auto;
+          box-shadow: none;
+          background: #f4f8fa;
+          border: 1px solid #dde9ee;
+          border-radius: 8px;
+          margin-top: 6px;
+        }
+        .tl-tooltip::after { display: none; }
+        .tl-tip-title { color: var(--text); }
+        .tl-tip-body { color: var(--muted); }
+        /* on mobile, show all tooltips inline — no hover needed */
+        .tl-node .tl-tooltip { display: none; }
+        .tl-node.tl-mobile-open .tl-tooltip { display: block; }
+      }
+
+      .sr-only {
+        position: absolute; width: 1px; height: 1px;
+        padding: 0; margin: -1px; overflow: hidden;
+        clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+      }
+    </style>
+
+    <script>
+      (function() {
+        // Animate fill bar on load
+        var fill = document.getElementById('tlFill');
+        if (fill) {
+          setTimeout(function() { fill.style.width = '10%'; }, 300);
+        }
+
+        // Mobile: tap to expand tooltip
+        if (window.innerWidth <= 680) {
+          document.querySelectorAll('.tl-node').forEach(function(node) {
+            node.querySelector('.tl-dot').addEventListener('click', function() {
+              var isOpen = node.classList.contains('tl-mobile-open');
+              document.querySelectorAll('.tl-node').forEach(function(n) { n.classList.remove('tl-mobile-open'); });
+              if (!isOpen) node.classList.add('tl-mobile-open');
+            });
+          });
+        }
+      })();
+    </script>
   </div>
 </section>
 
