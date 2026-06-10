@@ -2227,13 +2227,110 @@
   <div class="container">
     <h2 class="section-title">Start your Umrah journey</h2>
 
-    <div class="tabs-header" role="tablist">
-      <button class="tab-btn tab-btn-green active" role="tab" onclick="switchTab('tab-types', this)">Understand visa types</button>
-      <button class="tab-btn tab-btn-green" role="tab" onclick="switchTab('tab-eligible', this)">Am I eligible?</button>
-    </div>
+    <!-- Am I eligible? — shown directly, no tab -->
+    <p style="font-size:15px;color:var(--muted);margin-bottom:24px;max-width:600px;">Work through each question to understand your eligibility and application path.</p>
+    <div class="eligibility-checklist" id="eligibility-checklist-top">
 
-    <!-- Tab: Visa Types (now first) -->
-    <div class="tab-panel active" id="tab-types">
+      <div class="elig-item" id="elig-1">
+        <button class="elig-header" onclick="toggleElig('elig-1')">
+          <span class="elig-icon">●</span>
+          <span class="elig-question">Are you Muslim?</span>
+          <span class="elig-chevron">›</span>
+        </button>
+        <div class="elig-body">
+          <p>Umrah is exclusively for Muslims. Both the Umrah visa and the pilgrimage itself require the Islamic faith. If you're a convert, see the Muslim converts section on this page.</p>
+          <div class="elig-actions">
+            <button class="elig-yes" onclick="setElig('elig-1','yes','elig-2')">Yes ✓</button>
+            <button class="elig-no" onclick="setElig('elig-1','no',null)">No</button>
+          </div>
+          <div class="elig-result elig-result-no" id="elig-1-no" style="display:none;">
+            <strong>Umrah isn't for you</strong> — but you can still visit Saudi Arabia on a tourist eVisa and explore Madinah and non-restricted sites.
+          </div>
+        </div>
+      </div>
+
+      <div class="elig-item locked" id="elig-2">
+        <button class="elig-header" onclick="toggleElig('elig-2')">
+          <span class="elig-icon">●</span>
+          <span class="elig-question">Do you hold a valid passport (at least 6 months validity)?</span>
+          <span class="elig-chevron">›</span>
+        </button>
+        <div class="elig-body">
+          <p>Your passport must be valid for at least 6 months from your intended travel date. It must also have at least 2 blank pages for entry/exit stamps.</p>
+          <div class="elig-actions">
+            <button class="elig-yes" onclick="setElig('elig-2','yes','elig-3')">Yes ✓</button>
+            <button class="elig-no" onclick="setElig('elig-2','no',null)">No — need to renew</button>
+          </div>
+          <div class="elig-result elig-result-no" id="elig-2-no" style="display:none;">
+            <strong>Renew your passport first.</strong> Applications are rejected if validity is under 6 months. Allow 4–6 weeks for renewal, then return to apply.
+          </div>
+        </div>
+      </div>
+
+      <div class="elig-item locked" id="elig-3">
+        <button class="elig-header" onclick="toggleElig('elig-3')">
+          <span class="elig-icon">●</span>
+          <span class="elig-question">What's your nationality?</span>
+          <span class="elig-chevron">›</span>
+        </button>
+        <div class="elig-body">
+          <p>Your nationality determines whether you can apply directly on Nusuk or need a licensed travel agent.</p>
+          <div class="elig-nationality-options">
+            <button class="elig-nat-btn" onclick="setEligNat('direct')">🌍 US / UK / EU / AUS / NZ / Malaysia / Singapore / Turkey and 30+ others</button>
+            <button class="elig-nat-btn" onclick="setEligNat('agent')">🇮🇳 India / Pakistan / Bangladesh</button>
+            <button class="elig-nat-btn" onclick="setEligNat('gcc')">🇸🇦 GCC national (UAE, Kuwait, Bahrain, Oman, Qatar)</button>
+            <button class="elig-nat-btn" onclick="setEligNat('saudi')">🇸🇦 Saudi national</button>
+            <button class="elig-nat-btn" onclick="setEligNat('other')">❓ My nationality isn't listed above</button>
+          </div>
+          <div class="elig-result elig-result-yes" id="elig-3-direct" style="display:none;">
+            <strong>You're eligible for both visa types.</strong> The <strong>Umrah visa</strong> is for Muslims only — you'll need a valid passport, proof of faith (Shahadah), and a meningitis ACWY vaccine certificate. The <strong>tourist eVisa</strong> is open to all nationalities with no proof of faith required — but if you plan to perform Umrah on it, the meningitis vaccine is still mandatory.
+            <br><br><a href="https://ivisa.com/saudi-arabia-umrah-visa" style="color:#1a6b3a;font-weight:700;">Apply with iVisa →</a>
+          </div>
+          <div class="elig-result elig-result-warning" id="elig-3-agent" style="display:none;">
+            <strong>You're eligible for the Umrah visa via a licensed agent.</strong> Indian, Pakistani, and Bangladeshi nationals must apply through a MOIA-registered or Saudi-approved travel agent. iVisa is an approved partner. Processing: 5–10 working days once all documents are in order.
+            <br><br><a href="https://ivisa.com/saudi-arabia-umrah-visa" style="color:#1a6b3a;font-weight:700;">Apply with iVisa →</a>
+          </div>
+          <div class="elig-result elig-result-yes" id="elig-3-gcc" style="display:none;">
+            <strong>You're eligible for the Umrah visa with GCC privileges.</strong> Pre-booking windows are available and processing is fast. You can also apply for the Saudi tourist eVisa.
+          </div>
+          <div class="elig-result elig-result-yes" id="elig-3-saudi" style="display:none;">
+            <strong>No visa required.</strong> As a Saudi national, you have free access to the holy sites year-round. Register on the Nusuk platform to book your Umrah permit.
+          </div>
+          <div class="elig-result elig-result-warning" id="elig-3-other" style="display:none;">
+            <strong>Your eligibility depends on your specific nationality and residency status.</strong> If you hold a valid residency permit for the UK, EU, Canada, or USA, you may be eligible for the Saudi tourist eVisa even if your passport nationality isn't on the standard list — and that tourist visa permits Umrah outside Hajj season. <a href="https://ivisa.com/saudi-arabia-umrah-visa" style="color:var(--hero);">Contact iVisa to confirm your specific path →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="elig-item locked" id="elig-4">
+        <button class="elig-header" onclick="toggleElig('elig-4')">
+          <span class="elig-icon">●</span>
+          <span class="elig-question">Do you have proof of your meningitis vaccination?</span>
+          <span class="elig-chevron">›</span>
+        </button>
+        <div class="elig-body">
+          <p>Saudi Arabia requires a meningococcal ACWY vaccine for all pilgrims. It must be administered at least 10 days before arrival and be within its validity window. You'll need a certificate as part of your application.</p>
+          <div class="elig-actions">
+            <button class="elig-yes" onclick="setElig('elig-4','yes',null)">Yes — I have my certificate ✓</button>
+            <button class="elig-no" onclick="setElig('elig-4','no',null)">Not yet — I'll book it now</button>
+          </div>
+          <div class="elig-result elig-result-no" id="elig-4-no" style="display:none;">
+            <strong>Book your vaccine ASAP.</strong> Contact a local travel clinic or GP. Allow at least 10 days after the jab before applying for your visa.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── UNDERSTAND VISA TYPES ── -->
+<section id="visa-types-section" style="padding:72px 24px;background:#f9fafb;">
+  <div class="container">
+    <h2 class="section-title">Understand visa types</h2>
+
+    <!-- Visa Types content -->
+    <div id="tab-types">
 
       <div style="background:#e8f8ee;border-left:4px solid var(--cta);border-radius:10px;padding:14px 18px;margin-bottom:24px;font-size:14px;line-height:1.7;max-width:860px;">
         <strong>Important:</strong> Both the Umrah visa and the Saudi tourist eVisa permit travelers to perform Umrah (excluding Hajj season restrictions). For most visitors, the overall experience is very similar. Pilgrims should use the Umrah visa where possible — it's the correct route for religious pilgrimage. There's nothing preventing eligible travelers from using the tourist eVisa if they prefer broader Saudi access.
@@ -2284,113 +2381,10 @@
       </div>
     </div>
 
-    <!-- Tab: Am I eligible? (now second) -->
-    <div class="tab-panel" id="tab-eligible">
-      <p style="font-size:15px;color:var(--muted);margin-bottom:24px;max-width:600px;">Work through each question to understand your eligibility and application path.</p>
-      <div class="eligibility-checklist" id="eligibility-checklist">
-
-        <div class="elig-item" id="elig-1">
-          <button class="elig-header" onclick="toggleElig('elig-1')">
-            <span class="elig-icon">●</span>
-            <span class="elig-question">Are you Muslim?</span>
-            <span class="elig-chevron">›</span>
-          </button>
-          <div class="elig-body">
-            <p>Umrah is exclusively for Muslims. Both the Umrah visa and the pilgrimage itself require the Islamic faith. If you're a convert, see the Muslim converts section on this page.</p>
-            <div class="elig-actions">
-              <button class="elig-yes" onclick="setElig('elig-1','yes','elig-2')">Yes ✓</button>
-              <button class="elig-no" onclick="setElig('elig-1','no',null)">No</button>
-            </div>
-            <div class="elig-result elig-result-no" id="elig-1-no" style="display:none;">
-              <strong>Umrah isn't for you</strong> — but you can still visit Saudi Arabia on a tourist eVisa and explore Madinah and non-restricted sites.
-            </div>
-          </div>
-        </div>
-
-        <div class="elig-item locked" id="elig-2">
-          <button class="elig-header" onclick="toggleElig('elig-2')">
-            <span class="elig-icon">●</span>
-            <span class="elig-question">Do you hold a valid passport (at least 6 months validity)?</span>
-            <span class="elig-chevron">›</span>
-          </button>
-          <div class="elig-body">
-            <p>Your passport must be valid for at least 6 months from your intended travel date. It must also have at least 2 blank pages for entry/exit stamps.</p>
-            <div class="elig-actions">
-              <button class="elig-yes" onclick="setElig('elig-2','yes','elig-3')">Yes ✓</button>
-              <button class="elig-no" onclick="setElig('elig-2','no',null)">No — need to renew</button>
-            </div>
-            <div class="elig-result elig-result-no" id="elig-2-no" style="display:none;">
-              <strong>Renew your passport first.</strong> Applications are rejected if validity is under 6 months. Allow 4–6 weeks for renewal, then return to apply.
-            </div>
-          </div>
-        </div>
-
-        <div class="elig-item locked" id="elig-3">
-          <button class="elig-header" onclick="toggleElig('elig-3')">
-            <span class="elig-icon">●</span>
-            <span class="elig-question">What's your nationality?</span>
-            <span class="elig-chevron">›</span>
-          </button>
-          <div class="elig-body">
-            <p>Your nationality determines whether you can apply directly on Nusuk or need a licensed travel agent.</p>
-            <div class="elig-nationality-options">
-              <button class="elig-nat-btn" onclick="setEligNat('direct')">🌍 US / UK / EU / AUS / NZ / Malaysia / Singapore / Turkey and 30+ others</button>
-              <button class="elig-nat-btn" onclick="setEligNat('agent')">🇮🇳 India / Pakistan / Bangladesh</button>
-              <button class="elig-nat-btn" onclick="setEligNat('gcc')">🇸🇦 GCC national (UAE, Kuwait, Bahrain, Oman, Qatar)</button>
-              <button class="elig-nat-btn" onclick="setEligNat('saudi')">🇸🇦 Saudi national</button>
-              <button class="elig-nat-btn" onclick="setEligNat('other')">❓ My nationality isn't listed above</button>
-            </div>
-            <div class="elig-result elig-result-yes" id="elig-3-direct" style="display:none;">
-              <strong>You're eligible for both visa types.</strong> The <strong>Umrah visa</strong> is for Muslims only — you'll need a valid passport, proof of faith (Shahadah), and a meningitis ACWY vaccine certificate. The <strong>tourist eVisa</strong> is open to all nationalities with no proof of faith required — but if you plan to perform Umrah on it, the meningitis vaccine is still mandatory.
-              <br><br><a href="https://ivisa.com/saudi-arabia-umrah-visa" style="color:#1a6b3a;font-weight:700;">Apply with iVisa →</a>
-            </div>
-            <div class="elig-result elig-result-warning" id="elig-3-agent" style="display:none;">
-              <strong>You're eligible for the Umrah visa via a licensed agent.</strong> Indian, Pakistani, and Bangladeshi nationals must apply through a MOIA-registered or Saudi-approved travel agent. iVisa is an approved partner. Processing: 5–10 working days once all documents are in order.
-              <br><br><a href="https://ivisa.com/saudi-arabia-umrah-visa" style="color:#1a6b3a;font-weight:700;">Apply with iVisa →</a>
-            </div>
-            <div class="elig-result elig-result-yes" id="elig-3-gcc" style="display:none;">
-              <strong>You're eligible for the Umrah visa with GCC privileges.</strong> Pre-booking windows are available and processing is fast. You can also apply for the Saudi tourist eVisa.
-            </div>
-            <div class="elig-result elig-result-yes" id="elig-3-saudi" style="display:none;">
-              <strong>No visa required.</strong> As a Saudi national, you have free access to the holy sites year-round. Register on the Nusuk platform to book your Umrah permit.
-            </div>
-            <div class="elig-result elig-result-warning" id="elig-3-other" style="display:none;">
-              <strong>Your eligibility depends on your specific nationality and residency status.</strong> If you hold a valid residency permit for the UK, EU, Canada, or USA, you may be eligible for the Saudi tourist eVisa even if your passport nationality isn't on the standard list — and that tourist visa permits Umrah outside Hajj season. <a href="https://ivisa.com/saudi-arabia-umrah-visa" style="color:var(--hero);">Contact iVisa to confirm your specific path →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="elig-item locked" id="elig-4">
-          <button class="elig-header" onclick="toggleElig('elig-4')">
-            <span class="elig-icon">●</span>
-            <span class="elig-question">Do you have proof of your meningitis vaccination?</span>
-            <span class="elig-chevron">›</span>
-          </button>
-          <div class="elig-body">
-            <p>Saudi Arabia requires a meningococcal ACWY vaccine for all pilgrims. It must be administered at least 10 days before arrival and be within its validity window. You'll need a certificate as part of your application.</p>
-            <div class="elig-actions">
-              <button class="elig-yes" onclick="setElig('elig-4','yes',null)">Yes — I have my certificate ✓</button>
-              <button class="elig-no" onclick="setElig('elig-4','no',null)">Not yet — I'll book it now</button>
-            </div>
-            <div class="elig-result elig-result-no" id="elig-4-no" style="display:none;">
-              <strong>Book your vaccine ASAP.</strong> Contact a local travel clinic or GP. Allow at least 10 days after the jab before applying for your visa.
-            </div>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-
-    <!-- Tab 3 -->
-    <div class="tab-panel" id="tab-cost">
-      <p style="font-size:16px; margin-bottom:20px; max-width:600px; color:var(--muted);">Our cost calculator breaks down every fee — government charges, mandatory insurance, and processing costs. Scroll down to use it, or click below.</p>
-      <a href="#calculator" class="btn-cta" style="display:inline-block;">Open cost calculator →</a>
-    </div>
-
     <!-- Section CTA -->
     <div style="text-align:center; margin-top:40px;">
       <a href="https://ivisa.com/saudi-arabia-umrah-visa" class="btn-cta">Apply for my visa</a>
+      <p style="margin-top:16px;font-size:14px;color:var(--muted);">Still not sure? <a href="#comparison" style="color:var(--hero);text-decoration:underline;font-weight:600;">Check all the specifications here</a></p>
     </div>
 
   </div>
