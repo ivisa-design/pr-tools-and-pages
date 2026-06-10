@@ -2899,20 +2899,28 @@
     <!-- Horizontal milestone timeline -->
     <div class="tl-track" role="region" aria-label="2026–2027 Umrah season key milestones">
 
-      <!-- Progress bar -->
+      <!-- Progress bar + dynamic "today" marker -->
       <div class="tl-bar-wrap">
         <div class="tl-bar">
           <div class="tl-fill" id="tlFill"></div>
         </div>
+        <!-- Dynamic today pin — positioned by JS -->
+        <div id="tl-now-marker" style="display:none;position:absolute;top:-28px;transform:translateX(-50%);">
+          <div id="tl-now-label" style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:800;color:#2ea55a;background:#e4f9ec;border:1.5px solid #2ea55a;border-radius:20px;padding:2px 8px;white-space:nowrap;">Today</div>
+          <div style="width:2px;height:12px;background:#2ea55a;margin:0 auto;"></div>
+        </div>
       </div>
+
+      <!-- Hover hint -->
+      <p style="font-size:11px;color:var(--muted);text-align:right;margin:6px 0 2px;font-style:italic;">Hover each milestone for details</p>
 
       <!-- Nodes -->
       <div class="tl-nodes">
 
         <!-- Node 1 — Season opens -->
-        <div class="tl-node tl-node--open" data-pos="0">
-          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-1">
-            <span class="sr-only">Jun 2026 — Season opens</span>
+        <div class="tl-node tl-node--open">
+          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-1" title="Jun 1, 2026 — Season opens">
+            <span class="tl-dot-icon">i</span>
           </button>
           <div class="tl-label">Jun '26</div>
           <div class="tl-sublabel">Season opens</div>
@@ -2923,24 +2931,10 @@
           </div>
         </div>
 
-        <!-- Node 2 — Now (current) -->
-        <div class="tl-node tl-node--now" data-pos="10">
-          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-2">
-            <span class="sr-only">Now — You're here</span>
-          </button>
-          <div class="tl-label tl-label--now">Now</div>
-          <div class="tl-sublabel">Apply today</div>
-          <div class="tl-tooltip" id="tl-tip-2" role="tooltip">
-            <div class="tl-tip-title">June 2026 — You're here</div>
-            <div class="tl-tip-body">The season just opened. This is the optimal moment to apply — processing is fast, hotels have availability, and you have maximum flexibility to choose your travel dates.</div>
-            <div class="tl-tip-tag tl-tag--green">✓ Ideal application window</div>
-          </div>
-        </div>
-
-        <!-- Node 3 — Ramadan -->
-        <div class="tl-node tl-node--caution" data-pos="52">
-          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-3">
-            <span class="sr-only">Feb 2027 — Ramadan begins</span>
+        <!-- Node 2 — Ramadan -->
+        <div class="tl-node tl-node--caution">
+          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-3" title="~Feb 17, 2027 — Ramadan begins">
+            <span class="tl-dot-icon">i</span>
           </button>
           <div class="tl-label">Feb '27</div>
           <div class="tl-sublabel">Ramadan</div>
@@ -2951,10 +2945,10 @@
           </div>
         </div>
 
-        <!-- Node 4 — Last visa -->
-        <div class="tl-node tl-node--deadline" data-pos="72">
-          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-4">
-            <span class="sr-only">Mar 9, 2027 — Last visa issuance</span>
+        <!-- Node 3 — Last visa -->
+        <div class="tl-node tl-node--deadline">
+          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-4" title="Mar 9, 2027 — Last visa issuance">
+            <span class="tl-dot-icon">i</span>
           </button>
           <div class="tl-label">9 Mar</div>
           <div class="tl-sublabel">Last visa</div>
@@ -2965,10 +2959,10 @@
           </div>
         </div>
 
-        <!-- Node 5 — Last entry -->
-        <div class="tl-node tl-node--deadline" data-pos="83">
-          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-5">
-            <span class="sr-only">Mar 23, 2027 — Last entry date</span>
+        <!-- Node 4 — Last entry -->
+        <div class="tl-node tl-node--deadline">
+          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-5" title="Mar 23, 2027 — Last entry date">
+            <span class="tl-dot-icon">i</span>
           </button>
           <div class="tl-label">23 Mar</div>
           <div class="tl-sublabel">Last entry</div>
@@ -2979,10 +2973,10 @@
           </div>
         </div>
 
-        <!-- Node 6 — Must depart -->
-        <div class="tl-node tl-node--hard" data-pos="100">
-          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-6">
-            <span class="sr-only">Apr 7, 2027 — Must depart</span>
+        <!-- Node 5 — Must depart -->
+        <div class="tl-node tl-node--hard">
+          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-6" title="Apr 7, 2027 — Must depart">
+            <span class="tl-dot-icon">i</span>
           </button>
           <div class="tl-label">7 Apr</div>
           <div class="tl-sublabel">Must depart</div>
@@ -2996,8 +2990,8 @@
       </div><!-- /tl-nodes -->
     </div><!-- /tl-track -->
 
-    <!-- Tourist eVisa note -->
-    <div style="display:flex;align-items:flex-start;gap:12px;background:#f0f8ff;border:1px solid #b8d8e8;border-radius:12px;padding:16px 20px;margin-top:32px;">
+    <!-- Tourist eVisa note — tight to timeline -->
+    <div style="display:flex;align-items:flex-start;gap:12px;background:#f0f8ff;border:1px solid #b8d8e8;border-radius:12px;padding:16px 20px;margin-top:12px;">
       <div style="font-size:20px;line-height:1;flex-shrink:0;">ℹ️</div>
       <div style="font-size:13px;color:var(--text);line-height:1.65;">
         <strong style="color:var(--hero);">Tourist eVisa holders:</strong> These deadlines don't apply to you. You can visit Saudi Arabia any time of year and stay up to 90 days per entry. The Apr 7 departure cutoff is for Umrah visa holders only. Makkah access may be restricted during Hajj blackout (~May–Jun 2027).
@@ -3054,50 +3048,57 @@
 
       /* Dot button */
       .tl-dot {
-        width: 22px;
-        height: 22px;
+        width: 28px;
+        height: 28px;
         border-radius: 50%;
-        border: 3px solid #c8d8de;
+        border: 2.5px solid #c8d8de;
         background: #eef3f5;
         cursor: pointer;
         transition: transform 0.2s, box-shadow 0.2s;
         position: relative;
         z-index: 2;
         outline: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .tl-dot:focus-visible { box-shadow: 0 0 0 3px rgba(72,216,120,0.5); }
-
-      .tl-node--open .tl-dot,
-      .tl-node--now .tl-dot  {
+      .tl-dot-icon {
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        color: inherit;
+        pointer-events: none;
+        user-select: none;
+      }
+      /* Dot colors per type */
+      .tl-node--open .tl-dot {
         background: #48d878;
         border-color: #2ea55a;
-        box-shadow: 0 0 0 4px rgba(72,216,120,0.2);
+        box-shadow: 0 0 0 4px rgba(72,216,120,0.18);
       }
-      .tl-node--now .tl-dot::after {
-        content: '';
-        position: absolute;
-        inset: -6px;
-        border-radius: 50%;
-        border: 2px solid rgba(72,216,120,0.5);
-        animation: tl-pulse 2s ease infinite;
-      }
-      @keyframes tl-pulse {
-        0%,100% { opacity: 1; transform: scale(1); }
-        50%      { opacity: 0; transform: scale(1.5); }
-      }
+      .tl-node--open .tl-dot-icon { color: #fff; }
       .tl-node--caution .tl-dot {
         background: #fde8c0;
         border-color: #fbab1e;
       }
+      .tl-node--caution .tl-dot-icon { color: #a06500; }
       .tl-node--deadline .tl-dot {
         background: #f5c4b3;
         border-color: #e07050;
       }
+      .tl-node--deadline .tl-dot-icon { color: #b04020; }
       .tl-node--hard .tl-dot {
         background: #f5c4b3;
         border-color: #c04a2a;
-        box-shadow: 0 0 0 4px rgba(192,74,42,0.18);
+        box-shadow: 0 0 0 4px rgba(192,74,42,0.14);
       }
+      .tl-node--hard .tl-dot-icon { color: #8b2010; }
+      /* Hover: lift + glow */
+      .tl-node:hover .tl-dot,
+      .tl-node.tl-active .tl-dot { transform: scale(1.25); }
 
       /* Labels */
       .tl-label {
@@ -3108,7 +3109,6 @@
         margin-top: 10px;
         white-space: nowrap;
       }
-      .tl-label--now { color: #2ea55a; }
       .tl-sublabel {
         font-size: 10px;
         color: var(--muted);
@@ -3247,13 +3247,34 @@
 
     <script>
       (function() {
-        // Animate fill bar on load
+        // ── Dynamic "today" position on the timeline ──
+        // Season: Jun 1 2026 → Apr 7 2027
+        var seasonStart = new Date('2026-06-01');
+        var seasonEnd   = new Date('2027-04-07');
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        var totalMs   = seasonEnd - seasonStart;
+        var elapsedMs = today - seasonStart;
+        var pct = Math.max(0, Math.min(100, (elapsedMs / totalMs) * 100));
+
+        // Animate fill bar to today's position
         var fill = document.getElementById('tlFill');
         if (fill) {
-          setTimeout(function() { fill.style.width = '10%'; }, 300);
+          setTimeout(function() { fill.style.width = pct + '%'; }, 300);
         }
 
-        // Mobile: tap to expand tooltip
+        // Position "today" marker pin
+        var marker = document.getElementById('tl-now-marker');
+        var nowLabel = document.getElementById('tl-now-label');
+        if (marker && today >= seasonStart && today <= seasonEnd) {
+          var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+          nowLabel.textContent = 'Today · ' + months[today.getMonth()] + ' ' + today.getDate();
+          marker.style.left = pct + '%';
+          setTimeout(function() { marker.style.display = 'block'; }, 400);
+        }
+
+        // Mobile: tap dot to expand tooltip inline
         if (window.innerWidth <= 680) {
           document.querySelectorAll('.tl-node').forEach(function(node) {
             node.querySelector('.tl-dot').addEventListener('click', function() {
