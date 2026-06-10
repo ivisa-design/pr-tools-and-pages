@@ -1,5 +1,5 @@
 # iVisa PR Tools & Pages — Project Context File
-*Last updated: June 10, 2026 | For: Cowork (new session handoff)*
+*Last updated: June 10, 2026 (session 2) | For: Cowork (new session handoff)*
 
 ---
 
@@ -128,6 +128,49 @@ These are verified and must stay consistent across ALL sections of the page:
 
 All commits are on `main`. Changes in chronological order:
 
+**Session 2 — June 10, 2026 (full day):**
+
+**Calendar redesign:**
+- Replaced old timeline with a 4-column × 3-row centered CSS grid calendar (Jun 2026 – May 2027)
+- Pastel iVisa color palette: green `#cde9d8` (Open), yellow `#fef3cd` (Ramadan), coral `#fde0d8` (Depart/Deadline), blue `#dce6eb` (Hajj blackout), gray `#f0f4f6` (Closes)
+- Sep 2026 color fixed to green (was incorrectly coral)
+- Tooltips: switched from CSS `:hover` to JS `mouseenter`/`mouseleave` + click toggle with `e.stopPropagation()` for reliability
+- Click-to-open tooltips work on both desktop and mobile
+- Removed "Today" tag from Jun 2026 box
+- Removed "Best month to apply", "Best for families" recommendation badges from all tooltip cards
+- Added color legend below calendar
+
+**PR credibility signals (all new additions to `umrah-visa-guide.html`):**
+- **Last Updated stamp** — inline pill in hero section: "Updated June 10, 2026 · Verified against Saudi Ministry of Hajj & Umrah requirements"
+- **Stats bar** — new section between `#what-is-umrah` and `#navigator`: four stat boxes (13.5M pilgrims 2023, 30M Vision 2030 target, 60+ tourist eVisa countries, 2× growth since 2021). Each with source citation.
+- **Why Now callout** — "2026 Season Update" green callout with headline "The 2026–2027 season is the most accessible Umrah window in history"
+- **904,000 pilgrim record banner** — trophy 🏆 banner inside the Why Now callout. Verified via Saudi Press Agency (spa.gov.sa/en/N2522179). Set on Feb 21, 2026 (4 Ramadan 1447 AH), nearly double the 500K March 2025 record.
+- **Expert quote section** — between `#visa-types-section` and `#requirements`. Luis Enrique, Head of Fulfillment, iVisa. Quote about Tourist eVisa vs Umrah visa and why India/Pakistan have no choice. Green left-border card with avatar initials "LE".
+- **Verified source badges** — one in `#timeline` (nusuk.sa + haj.gov.sa, June 2026), one in `#requirements` (nusuk.sa)
+- **Expert contact line** — above CTA band: "Questions about Umrah visa requirements? Talk to our experts at help@ivisa.com · Media enquiries welcome at pr@ivisa.com" (both as mailto links, green color)
+
+**CTA band fix:**
+- Removed `background:rgba(0,0,0,0.25)` dark overlay box that was appearing over the CTA band inside the `#apply` section. Now just transparent with white text from the parent section background.
+
+**Download full guide button:**
+- Replaced "Apply now" button in the sticky header nav with "⬇ Download full guide"
+- Originally used `window.print()` → switched to `window.open('umrah-visa-guide-print.html', '_blank')` after print CSS approach failed
+- Added `@media print` CSS block before `</head>` (kept for browser print fallback, but primary PDF path is the print page)
+
+**New file: `umrah-visa-guide-print.html`:**
+- Standalone clean print/PDF version of the full guide
+- No animations, no interactive elements, no JS-dependent visibility
+- All content from main guide extracted and linearized: What is Umrah, 2026 Season context + stats, eligibility overview, visa types + full comparison table, expert quote, documents checklist, key dates, monthly availability table (all 12 months with full descriptions), costs + processing times table, nationality-by-nationality guide (all 8 country groups with pro tips and non-Umrah visit notes), iVisa benefits + trust stats, all 16 FAQs fully expanded
+- Auto-triggers `window.print()` when opened from the main guide
+- Screen view shows "Save / Print as PDF" button + "← Back to guide" button
+- A4 page optimized with `@page { size: A4; margin: 16mm 14mm; }`
+- iVisa brand colors preserved (teal headings, green accents, pastel callout boxes)
+
+**Git / deployment:**
+- Fixed stale `.git/index.lock` and `.git/HEAD.lock` files (Paula ran `rm` commands)
+- Committed: "Add PR credibility signals, expert quote, stats, print guide, Download button"
+- Pushed to `main` → auto-deployed to Vercel ✓
+
 **Early sessions:**
 - Removed emoji flags from `<select>` dropdown (Windows doesn't render them) — kept emoji in JS result display only
 - Moved "Visa types compare" section to below "Let iVisa handle it" section
@@ -197,14 +240,24 @@ All commits are on `main`. Changes in chronological order:
 
 ```
 /Users/Paulaivisa/Desktop/PR tools and pages/
-├── umrah-visa-guide.html     ← Main deliverable (~3,600+ lines)
-├── vercel.json               ← URL routing config
-├── README.md                 ← GitHub readme
+├── umrah-visa-guide.html       ← Main deliverable (~4,100+ lines, LIVE)
+├── umrah-visa-guide-print.html ← Clean PDF/print version (LIVE, opened by Download button)
+├── vercel.json                 ← URL routing config
+├── README.md                   ← GitHub readme
+├── PROJECT-CONTEXT.md          ← This file
 ├── Assets/
-│   ├── logo-positive.png     ← Header logo (white bg, base64 embedded in HTML)
-│   └──  ivisa-logo.png       ← Footer logo (dark bg, note: leading space in filename, base64 embedded)
-└── .git/                     ← Git repo (remote: github.com/ivisa-design/pr-tools-and-pages)
+│   ├── logo-positive.png       ← Header logo (white bg, base64 embedded in HTML)
+│   └──  ivisa-logo.png         ← Footer logo (dark bg, note: leading space in filename, base64 embedded)
+└── .git/                       ← Git repo (remote: github.com/ivisa-design/pr-tools-and-pages)
 ```
+
+### Git lock file fix (if needed)
+If `git commit` fails with "index.lock" or "HEAD.lock" errors:
+```bash
+rm -f "/Users/Paulaivisa/Desktop/PR tools and pages/.git/index.lock"
+rm -f "/Users/Paulaivisa/Desktop/PR tools and pages/.git/HEAD.lock"
+```
+Then retry the git add/commit/push commands.
 
 ---
 
