@@ -2157,51 +2157,52 @@
       <div class="checker-row">
         <select id="country-select" aria-label="Select your country">
           <option value="">Select your nationality…</option>
-          <option value="US">United States</option>
-          <option value="GB">United Kingdom</option>
-          <option value="CA">Canada</option>
           <option value="AU">Australia</option>
-          <option value="NZ">New Zealand</option>
-          <option value="DE">Germany</option>
-          <option value="FR">France</option>
-          <option value="IT">Italy</option>
-          <option value="ES">Spain</option>
-          <option value="PT">Portugal</option>
-          <option value="NL">Netherlands</option>
-          <option value="BE">Belgium</option>
-          <option value="SE">Sweden</option>
-          <option value="NO">Norway</option>
-          <option value="DK">Denmark</option>
-          <option value="FI">Finland</option>
-          <option value="CH">Switzerland</option>
           <option value="AT">Austria</option>
-          <option value="PL">Poland</option>
-          <option value="GR">Greece</option>
-          <option value="MY">Malaysia</option>
-          <option value="SG">Singapore</option>
-          <option value="JP">Japan</option>
-          <option value="KR">South Korea</option>
-          <option value="TR">Turkey</option>
-          <option value="EG">Egypt</option>
-          <option value="MA">Morocco</option>
-          <option value="TN">Tunisia</option>
-          <option value="JO">Jordan</option>
-          <option value="ZA">South Africa</option>
-          <option value="PH">Philippines</option>
-          <option value="TH">Thailand</option>
-          <option value="ID">Indonesia</option>
-          <option value="BR">Brazil</option>
-          <option value="MX">Mexico</option>
-          <option value="RU">Russia</option>
-          <option value="IN">India</option>
-          <option value="PK">Pakistan</option>
-          <option value="BD">Bangladesh</option>
-          <option value="AE">United Arab Emirates</option>
-          <option value="KW">Kuwait</option>
           <option value="BH">Bahrain</option>
+          <option value="BD">Bangladesh</option>
+          <option value="BE">Belgium</option>
+          <option value="BR">Brazil</option>
+          <option value="CA">Canada</option>
+          <option value="DK">Denmark</option>
+          <option value="EG">Egypt</option>
+          <option value="FI">Finland</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+          <option value="GR">Greece</option>
+          <option value="IN">India</option>
+          <option value="ID">Indonesia</option>
+          <option value="IT">Italy</option>
+          <option value="JP">Japan</option>
+          <option value="JO">Jordan</option>
+          <option value="KW">Kuwait</option>
+          <option value="MY">Malaysia</option>
+          <option value="MX">Mexico</option>
+          <option value="MA">Morocco</option>
+          <option value="NL">Netherlands</option>
+          <option value="NZ">New Zealand</option>
+          <option value="NO">Norway</option>
           <option value="OM">Oman</option>
+          <option value="PK">Pakistan</option>
+          <option value="PH">Philippines</option>
+          <option value="PL">Poland</option>
+          <option value="PT">Portugal</option>
           <option value="QA">Qatar</option>
+          <option value="RU">Russia</option>
           <option value="SA">Saudi Arabia</option>
+          <option value="SG">Singapore</option>
+          <option value="ZA">South Africa</option>
+          <option value="KR">South Korea</option>
+          <option value="ES">Spain</option>
+          <option value="SE">Sweden</option>
+          <option value="CH">Switzerland</option>
+          <option value="TH">Thailand</option>
+          <option value="TN">Tunisia</option>
+          <option value="TR">Turkey</option>
+          <option value="AE">United Arab Emirates</option>
+          <option value="GB">United Kingdom</option>
+          <option value="US">United States</option>
+          <option value="OTHER">Other countries</option>
         </select>
         <button onclick="checkEligibility()">Check now</button>
       </div>
@@ -3729,7 +3730,8 @@
     BH: ['🇧🇭', 'Bahrain'],
     OM: ['🇴🇲', 'Oman'],
     QA: ['🇶🇦', 'Qatar'],
-    SA: ['🇸🇦', 'Saudi Arabia']
+    SA: ['🇸🇦', 'Saudi Arabia'],
+    OTHER: ['🌍', 'Other countries']
   };
 
   var eligibilityMessages = {
@@ -3737,6 +3739,7 @@
     agent: "Your nationality is eligible for the Umrah visa via a licensed travel agent. Indian, Pakistani, and Bangladeshi nationals cannot self-apply — an approved agent like iVisa handles the process. Processing: 5–10 working days once all documents are in order.",
     gcc: "As a GCC national, you're eligible for the Umrah visa with priority access. Processing is fast and pre-booking windows are available.",
     saudi: "As a Saudi national, no visa is required to perform Umrah. Register on the Nusuk platform to book your Umrah permit.",
+    other: "Most Muslim-majority countries and a wide range of other nationalities are eligible for the Umrah visa or the Saudi tourist eVisa. Eligibility and the application route (self-apply vs. licensed agent) vary by nationality. Some nationalities also qualify if they hold residency in the UK, EU, Canada, or USA. Contact iVisa for a precise check — our team can confirm your route and handle your application end to end.",
     default: "Your eligibility depends on your specific nationality and any residency permits you hold. If you have residency in the UK, EU, Canada, or USA, you may be eligible for the tourist eVisa which also permits Umrah. Contact iVisa for a precise eligibility check."
   };
 
@@ -3751,7 +3754,8 @@
     var explanation = document.getElementById('result-explanation');
 
     var group = 'default';
-    if (countryData.evisa.indexOf(code) > -1) group = 'evisa';
+    if (code === 'OTHER') group = 'other';
+    else if (countryData.evisa.indexOf(code) > -1) group = 'evisa';
     else if (countryData.agent.indexOf(code) > -1) group = 'agent';
     else if (countryData.gcc.indexOf(code) > -1) group = 'gcc';
     else if (countryData.saudi.indexOf(code) > -1) group = 'saudi';
