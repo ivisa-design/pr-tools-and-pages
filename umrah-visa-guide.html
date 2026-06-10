@@ -2902,101 +2902,227 @@
     <p class="section-subtitle">The Umrah season has fixed dates for travel AND for applications. Understanding both is critical — miss either window and you can't go.</p>
 
     <!-- Horizontal milestone timeline -->
-    <!-- Hover hint — above the track, no overlap risk -->
-    <p style="font-size:11px;color:var(--muted);margin:0 0 10px;font-style:italic;display:flex;align-items:center;gap:5px;">
-      <span style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;background:#e0eaed;font-family:Georgia,serif;font-style:italic;font-size:9px;font-weight:700;color:var(--muted);">i</span>
-      Hover each milestone for details
-    </p>
+    <!-- ── UMRAH AVAILABILITY CALENDAR ── -->
+    <p class="ucal-hint">📅 Hover each month box for dates, details &amp; recommendations</p>
 
-    <div class="tl-track" role="region" aria-label="2026–2027 Umrah season key milestones">
+    <div class="ucal-wrap" role="region" aria-label="2026–2027 Umrah season availability calendar">
 
-      <!-- Progress bar + dynamic "today" marker -->
-      <div class="tl-bar-wrap">
-        <div class="tl-bar">
-          <div class="tl-fill" id="tlFill"></div>
-        </div>
-        <!-- Dynamic today pin — positioned by JS -->
-        <div id="tl-now-marker" style="display:none;position:absolute;top:-28px;transform:translateX(-50%);">
-          <div id="tl-now-label" style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:800;color:#2ea55a;background:#e4f9ec;border:1.5px solid #2ea55a;border-radius:20px;padding:2px 8px;white-space:nowrap;">Today</div>
-          <div style="width:2px;height:12px;background:#2ea55a;margin:0 auto;"></div>
-        </div>
-      </div>
+      <!-- 2026 — Jun through Dec -->
+      <div class="ucal-row">
+        <div class="ucal-year-tag">2026</div>
+        <div class="ucal-grid ucal-grid-7">
 
-      <!-- Nodes -->
-      <div class="tl-nodes">
-
-        <!-- Node 1 — Season open window -->
-        <div class="tl-node tl-node--open">
-          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-1" title="Jun 2026 – Jan 2027 — Season open, best window to apply">
-            <span class="tl-dot-icon">i</span>
-          </button>
-          <div class="tl-label">Jun '26 – Jan '27</div>
-          <div class="tl-sublabel">Best window · open now</div>
-          <div class="tl-tooltip" id="tl-tip-1" role="tooltip">
-            <div class="tl-tip-title">Jun 2026 – Jan 2027 — Season is open</div>
-            <div class="tl-tip-body">The full season runs from Jun 1, 2026 all the way to Mar 9, 2027 — you can apply and travel any time during that window. Jun–Jan is highlighted as the <strong>best period</strong>: faster processing times, more hotel availability near the Haram, lower prices, and less competition for slots. You're not limited to these months — you can still apply in February, but expect higher demand and slower turnaround.</div>
-            <div class="tl-tip-tag tl-tag--green">✓ Best time to apply — season is open</div>
+          <div class="ucal-box ucm-open" id="ucm-2026-6" tabindex="0">
+            <span class="ucal-mname">Jun</span>
+            <span class="ucal-badge ucal-badge--green">Opens</span>
+            <div class="ucal-tip ucal-tip--right">
+              <div class="ucal-tip-title">Jun 1, 2026 — Season opens</div>
+              <div class="ucal-tip-body">The Hajj blackout lifts and Umrah visas become fully available. This marks the start of a 9-month window — you can travel any date from now through March 23, 2027. June to January is the sweet spot: processing takes 2–3 days, hotels near the Haram have strong availability, and prices are most competitive. Apply as soon as your travel dates are confirmed.</div>
+              <span class="ucal-tip-rec ucal-rec--green">✓ Excellent — apply now</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Node 2 — Ramadan -->
-        <div class="tl-node tl-node--caution">
-          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-3" title="~Feb 17, 2027 — Ramadan begins, apply earlier">
-            <span class="tl-dot-icon">i</span>
-          </button>
-          <div class="tl-label">Feb '27</div>
-          <div class="tl-sublabel">Ramadan begins</div>
-          <div class="tl-tooltip" id="tl-tip-3" role="tooltip">
-            <div class="tl-tip-title">~Feb 17, 2027 — Ramadan begins</div>
-            <div class="tl-tip-body">Ramadan is the most spiritually significant time for Umrah and one of the busiest — pilgrim numbers surge, hotel prices near the Haram spike, and processing times slow to 3–5 days. You can still apply and travel during Ramadan (the season remains open), but if you're planning to travel in February or early March, apply by January 2027 to avoid delays. Book accommodation the moment your visa is approved.</div>
-            <div class="tl-tip-tag tl-tag--amber">⚠ Still open — apply earlier to be safe</div>
+          <div class="ucal-box ucm-open" id="ucm-2026-7" tabindex="0">
+            <span class="ucal-mname">Jul</span>
+            <span class="ucal-badge ucal-badge--green">Open</span>
+            <div class="ucal-tip">
+              <div class="ucal-tip-title">July 2026 — Ideal window</div>
+              <div class="ucal-tip-body">One of the best months to apply. Season is fully open with minimal congestion. Processing is fast (2–3 days), hotel options are wide and prices are fair. Weather in Mecca is hot but manageable early mornings and evenings. Apply now for a July or later travel date.</div>
+              <span class="ucal-tip-rec ucal-rec--green">✓ Great time to apply</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Node 3 — Last visa -->
-        <div class="tl-node tl-node--deadline">
-          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-4" title="Mar 9, 2027 — Last date to apply for a visa">
-            <span class="tl-dot-icon">i</span>
-          </button>
-          <div class="tl-label">9 Mar '27</div>
-          <div class="tl-sublabel">Applications close</div>
-          <div class="tl-tooltip" id="tl-tip-4" role="tooltip">
-            <div class="tl-tip-title">Mar 9, 2027 — Last day to apply</div>
-            <div class="tl-tip-body">This is the hard cut-off for new Umrah visa applications this season. After this date, the Saudi authorities stop issuing Umrah visas in preparation for Hajj. No exceptions. If your travel dates are in late February or early March, apply at least 2–3 weeks before this deadline to ensure your visa is processed and delivered in time.</div>
-            <div class="tl-tip-tag tl-tag--coral">⛔ Application deadline — no extensions</div>
+          <div class="ucal-box ucm-open" id="ucm-2026-8" tabindex="0">
+            <span class="ucal-mname">Aug</span>
+            <span class="ucal-badge ucal-badge--green">Open</span>
+            <div class="ucal-tip">
+              <div class="ucal-tip-title">August 2026 — Ideal window</div>
+              <div class="ucal-tip-body">Season remains fully open. Demand is steady, not at peak. Fast processing, good hotel availability near the Haram. August weather in Mecca is very hot — plan Tawaf and Sa'i early mornings or after dark for comfort.</div>
+              <span class="ucal-tip-rec ucal-rec--green">✓ Good month to apply and travel</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Node 4 — Last entry -->
-        <div class="tl-node tl-node--deadline">
-          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-5" title="Mar 23, 2027 — Last day to enter Saudi Arabia">
-            <span class="tl-dot-icon">i</span>
-          </button>
-          <div class="tl-label">23 Mar '27</div>
-          <div class="tl-sublabel">Last entry date</div>
-          <div class="tl-tooltip" id="tl-tip-5" role="tooltip">
-            <div class="tl-tip-title">Mar 23, 2027 — Last entry into Saudi Arabia</div>
-            <div class="tl-tip-body">This is the final date you can enter Saudi Arabia on an Umrah visa this season. If you enter on March 23, you'll have a maximum of 15 days before the mandatory Apr 7 departure deadline — your individual 30-day visa validity does not override this. Plan your stay accordingly. After this date, no Umrah visa holders may enter the country.</div>
-            <div class="tl-tip-tag tl-tag--coral">⛔ Last entry — plan your stay carefully</div>
+          <div class="ucal-box ucm-open" id="ucm-2026-9" tabindex="0">
+            <span class="ucal-mname">Sep</span>
+            <span class="ucal-badge ucal-badge--green">Open</span>
+            <div class="ucal-tip">
+              <div class="ucal-tip-title">September 2026 — Ideal window</div>
+              <div class="ucal-tip-body">Mid-season with no urgency. Temperatures begin to ease slightly. Processing times remain 2–3 days. Hotels near the Haram are readily available. A smooth, low-pressure month to plan your Umrah travel.</div>
+              <span class="ucal-tip-rec ucal-rec--green">✓ Smooth window — no rush</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Node 5 — Must depart -->
-        <div class="tl-node tl-node--hard">
-          <button class="tl-dot" aria-expanded="false" aria-controls="tl-tip-6" title="Apr 7, 2027 — All Umrah visa holders must leave">
-            <span class="tl-dot-icon">i</span>
-          </button>
-          <div class="tl-label">7 Apr '27</div>
-          <div class="tl-sublabel">Must depart</div>
-          <div class="tl-tooltip" id="tl-tip-6" role="tooltip">
-            <div class="tl-tip-title">Apr 7, 2027 — Mandatory departure for Umrah visa holders</div>
-            <div class="tl-tip-body">Every Umrah visa holder must be out of Saudi Arabia by April 7, 2027 — regardless of how many days remain on their individual visa. This is a government-wide deadline enforced every year ahead of Hajj. Overstaying carries fines of up to SAR 50,000, deportation, and a possible future entry ban. <strong>Tourist eVisa holders are not affected by this date</strong> and can stay according to their own visa terms.</div>
-            <div class="tl-tip-tag tl-tag--coral">⛔ Hard departure — no exceptions</div>
+          <div class="ucal-box ucm-open" id="ucm-2026-10" tabindex="0">
+            <span class="ucal-mname">Oct</span>
+            <span class="ucal-badge ucal-badge--green">Open</span>
+            <div class="ucal-tip">
+              <div class="ucal-tip-title">October 2026 — Ideal window</div>
+              <div class="ucal-tip-body">Weather starts to improve — cooler mornings make rituals more comfortable. Strong mid-season availability. This is a popular month for first-time pilgrims. Apply at least 2 weeks before your planned departure.</div>
+              <span class="ucal-tip-rec ucal-rec--green">✓ Popular — book hotels early</span>
+            </div>
           </div>
-        </div>
 
-      </div><!-- /tl-nodes -->
-    </div><!-- /tl-track -->
+          <div class="ucal-box ucm-open" id="ucm-2026-11" tabindex="0">
+            <span class="ucal-mname">Nov</span>
+            <span class="ucal-badge ucal-badge--green">Open</span>
+            <div class="ucal-tip">
+              <div class="ucal-tip-title">November 2026 — Ideal window</div>
+              <div class="ucal-tip-body">One of the most comfortable months to perform Umrah — mild temperatures, manageable crowds, and full visa availability. Hotels remain available at reasonable rates. Processing is fast. Highly recommended for families and elderly pilgrims.</div>
+              <span class="ucal-tip-rec ucal-rec--green">✓ Highly recommended for families</span>
+            </div>
+          </div>
+
+          <div class="ucal-box ucm-open" id="ucm-2026-12" tabindex="0">
+            <span class="ucal-mname">Dec</span>
+            <span class="ucal-badge ucal-badge--green">Open</span>
+            <div class="ucal-tip ucal-tip--left">
+              <div class="ucal-tip-title">December 2026 — Good window</div>
+              <div class="ucal-tip-body">Season fully open. If you're planning to travel in January or February 2027, apply in December to stay ahead of Ramadan demand. Weather is pleasant. The Haram sees moderately increased foot traffic toward year-end holidays but remains manageable.</div>
+              <span class="ucal-tip-rec ucal-rec--green">✓ Apply in Dec if traveling Jan–Feb</span>
+            </div>
+          </div>
+
+        </div><!-- /ucal-grid-7 -->
+      </div><!-- /2026 row -->
+
+      <!-- 2027 — Jan through Dec -->
+      <div class="ucal-row">
+        <div class="ucal-year-tag">2027</div>
+        <div class="ucal-grid ucal-grid-12">
+
+          <div class="ucal-box ucm-open" id="ucm-2027-1" tabindex="0">
+            <span class="ucal-mname">Jan</span>
+            <span class="ucal-badge ucal-badge--green">Open</span>
+            <div class="ucal-tip">
+              <div class="ucal-tip-title">January 2027 — Last comfortable window</div>
+              <div class="ucal-tip-body">Season still fully open. This is your last chance to apply before Ramadan demand kicks in. If you're traveling in February, apply by mid-January. Processing remains fast (2–4 days). Hotels are available but starting to book up near Ramadan dates.</div>
+              <span class="ucal-tip-rec ucal-rec--green">✓ Apply now if traveling in Feb</span>
+            </div>
+          </div>
+
+          <div class="ucal-box ucm-caution" id="ucm-2027-2" tabindex="0">
+            <span class="ucal-mname">Feb</span>
+            <span class="ucal-badge ucal-badge--amber">Ramadan</span>
+            <div class="ucal-tip">
+              <div class="ucal-tip-title">~Feb 17, 2027 — Ramadan begins</div>
+              <div class="ucal-tip-body">Ramadan is the most spiritually rewarding time for Umrah — but also the busiest and most expensive. Pilgrim numbers surge, hotels near the Haram sell out months in advance, and processing times slow to 3–5 days. The season is still open, but apply by end of January to be safe. Book accommodation as soon as your visa is approved.</div>
+              <span class="ucal-tip-rec ucal-rec--amber">⚠ Still open — apply in January</span>
+            </div>
+          </div>
+
+          <div class="ucal-box ucm-close" id="ucm-2027-3" tabindex="0">
+            <span class="ucal-mname">Mar</span>
+            <span class="ucal-badge ucal-badge--coral">Closes</span>
+            <div class="ucal-tip">
+              <div class="ucal-tip-title">March 2027 — Critical month</div>
+              <div class="ucal-tip-body"><strong>Applications close Mar 9.</strong> No new Umrah visas issued after this date. Last entry date is March 23 — if you enter on Mar 23, you have exactly 15 days before the mandatory Apr 7 departure. Ramadan continues until ~Mar 18. This month requires careful planning — apply at least 3 weeks before Mar 9 to guarantee your visa arrives in time.</div>
+              <span class="ucal-tip-rec ucal-rec--coral">⛔ Last visa: Mar 9 · Last entry: Mar 23</span>
+            </div>
+          </div>
+
+          <div class="ucal-box ucm-depart" id="ucm-2027-4" tabindex="0">
+            <span class="ucal-mname">Apr</span>
+            <span class="ucal-badge ucal-badge--coral">Depart</span>
+            <div class="ucal-tip">
+              <div class="ucal-tip-title">Apr 7, 2027 — Mandatory departure</div>
+              <div class="ucal-tip-body">All Umrah visa holders must leave Saudi Arabia by April 7, 2027 — regardless of days remaining on their individual visa. No extensions, no exceptions. Overstaying carries fines up to SAR 50,000, deportation, and a future entry ban. <strong>Tourist eVisa holders are not affected</strong> and can stay per their own visa terms.</div>
+              <span class="ucal-tip-rec ucal-rec--coral">⛔ Departure deadline: Apr 7</span>
+            </div>
+          </div>
+
+          <div class="ucal-box ucm-block" id="ucm-2027-5" tabindex="0">
+            <span class="ucal-mname">May</span>
+            <span class="ucal-badge ucal-badge--gray">Hajj prep</span>
+            <div class="ucal-tip">
+              <div class="ucal-tip-title">May 2027 — Hajj blackout begins</div>
+              <div class="ucal-tip-body">No new Umrah visas are issued during the Hajj preparation and pilgrimage period. Saudi authorities prioritise Hajj pilgrims. This applies to Umrah visa applications only — tourist eVisa holders can still visit Saudi Arabia, but access to Makkah may be restricted.</div>
+              <span class="ucal-tip-rec ucal-rec--gray">— No Umrah visas issued</span>
+            </div>
+          </div>
+
+          <div class="ucal-box ucm-block" id="ucm-2027-6" tabindex="0">
+            <span class="ucal-mname">Jun</span>
+            <span class="ucal-badge ucal-badge--gray">Hajj</span>
+            <div class="ucal-tip ucal-tip--left">
+              <div class="ucal-tip-title">June 2027 — Hajj season</div>
+              <div class="ucal-tip-body">Hajj takes place in June 2027. No Umrah visas are issued during this period. Saudi Arabia is focused entirely on Hajj logistics. After Hajj concludes (typically mid-June), the next Umrah season is expected to open around July 2027, though official dates are not confirmed until closer to the time.</div>
+              <span class="ucal-tip-rec ucal-rec--gray">— Hajj season · No Umrah visas</span>
+            </div>
+          </div>
+
+          <div class="ucal-box ucm-next" id="ucm-2027-7" tabindex="0">
+            <span class="ucal-mname">Jul</span>
+            <span class="ucal-badge ucal-badge--pale">Next season</span>
+            <div class="ucal-tip ucal-tip--left">
+              <div class="ucal-tip-title">Jul 2027 onward — Next season (TBC)</div>
+              <div class="ucal-tip-body">The 2027/2028 Umrah season is expected to open around July 2027 once Hajj concludes. Official dates will be announced by the Saudi Ministry of Hajj &amp; Umrah. Check back closer to the date — iVisa will update this guide as soon as dates are confirmed.</div>
+              <span class="ucal-tip-rec ucal-rec--pale">— Next season dates TBC</span>
+            </div>
+          </div>
+
+          <div class="ucal-box ucm-next" id="ucm-2027-8" tabindex="0">
+            <span class="ucal-mname">Aug</span>
+            <span class="ucal-badge ucal-badge--pale">Next season</span>
+            <div class="ucal-tip ucal-tip--left">
+              <div class="ucal-tip-title">August 2027 — Next season (TBC)</div>
+              <div class="ucal-tip-body">Expected to be part of the 2027/2028 Umrah season. Dates and eligibility rules will mirror the current season structure once officially announced. iVisa will update this page when the season opens.</div>
+              <span class="ucal-tip-rec ucal-rec--pale">— Next season dates TBC</span>
+            </div>
+          </div>
+
+          <div class="ucal-box ucm-next" id="ucm-2027-9" tabindex="0">
+            <span class="ucal-mname">Sep</span>
+            <span class="ucal-badge ucal-badge--pale">Next season</span>
+            <div class="ucal-tip ucal-tip--left">
+              <div class="ucal-tip-title">September 2027 — Next season (TBC)</div>
+              <div class="ucal-tip-body">Expected within the 2027/2028 Umrah season window. September through December is historically a strong application window — good weather, fast processing, and wide hotel availability. Dates TBC by Saudi authorities.</div>
+              <span class="ucal-tip-rec ucal-rec--pale">— Next season dates TBC</span>
+            </div>
+          </div>
+
+          <div class="ucal-box ucm-next" id="ucm-2027-10" tabindex="0">
+            <span class="ucal-mname">Oct</span>
+            <span class="ucal-badge ucal-badge--pale">Next season</span>
+            <div class="ucal-tip ucal-tip--left">
+              <div class="ucal-tip-title">October 2027 — Next season (TBC)</div>
+              <div class="ucal-tip-body">Historically one of the best months for Umrah — mild temperatures, manageable crowds. Expected to fall within the 2027/2028 season once officially opened. Check back for confirmed dates.</div>
+              <span class="ucal-tip-rec ucal-rec--pale">— Next season dates TBC</span>
+            </div>
+          </div>
+
+          <div class="ucal-box ucm-next" id="ucm-2027-11" tabindex="0">
+            <span class="ucal-mname">Nov</span>
+            <span class="ucal-badge ucal-badge--pale">Next season</span>
+            <div class="ucal-tip ucal-tip--left">
+              <div class="ucal-tip-title">November 2027 — Next season (TBC)</div>
+              <div class="ucal-tip-body">November is among the most comfortable months for pilgrims — mild weather and lower demand. Expected in the 2027/2028 season. Particularly recommended for first-time pilgrims and elderly travelers. Dates TBC.</div>
+              <span class="ucal-tip-rec ucal-rec--pale">— Next season dates TBC</span>
+            </div>
+          </div>
+
+          <div class="ucal-box ucm-next" id="ucm-2027-12" tabindex="0">
+            <span class="ucal-mname">Dec</span>
+            <span class="ucal-badge ucal-badge--pale">Next season</span>
+            <div class="ucal-tip ucal-tip--left">
+              <div class="ucal-tip-title">December 2027 — Next season (TBC)</div>
+              <div class="ucal-tip-body">End of the calendar year — expected to be a strong window in the 2027/2028 Umrah season. Good availability and fair pricing historically. Official season dates will be announced by the Saudi Ministry of Hajj &amp; Umrah.</div>
+              <span class="ucal-tip-rec ucal-rec--pale">— Next season dates TBC</span>
+            </div>
+          </div>
+
+        </div><!-- /ucal-grid-12 -->
+      </div><!-- /2027 row -->
+
+    </div><!-- /ucal-wrap -->
+
+    <!-- Context notes -->
+    <div class="ucal-legend">
+      <div class="ucal-legend-item"><span class="ucal-swatch ucal-swatch--green"></span> Open season — apply and travel freely</div>
+      <div class="ucal-legend-item"><span class="ucal-swatch ucal-swatch--amber"></span> Ramadan — still open, apply earlier</div>
+      <div class="ucal-legend-item"><span class="ucal-swatch ucal-swatch--coral"></span> Closing period — deadlines approaching</div>
+      <div class="ucal-legend-item"><span class="ucal-swatch ucal-swatch--gray"></span> Hajj blackout — no Umrah visas</div>
+      <div class="ucal-legend-item"><span class="ucal-swatch ucal-swatch--pale"></span> Next season — dates TBC</div>
+    </div>
 
     <!-- Tourist eVisa note — tight to timeline -->
     <div style="display:flex;align-items:flex-start;gap:12px;background:#f0f8ff;border:1px solid #b8d8e8;border-radius:12px;padding:16px 20px;margin-top:12px;">
@@ -3016,7 +3142,223 @@
     </div>
 
     <style>
-      /* ── Timeline track ── */
+      /* ── UMRAH CALENDAR ── */
+      .ucal-hint {
+        font-size: 12px;
+        color: var(--muted);
+        font-style: italic;
+        margin: 0 0 14px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .ucal-wrap { margin-bottom: 20px; }
+      .ucal-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+      .ucal-year-tag {
+        font-family: 'Manrope', sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--hero);
+        min-width: 36px;
+        padding-top: 18px;
+        flex-shrink: 0;
+        letter-spacing: -0.3px;
+      }
+      .ucal-grid {
+        display: grid;
+        gap: 7px;
+        flex: 1;
+      }
+      .ucal-grid-7  { grid-template-columns: repeat(7, 1fr); }
+      .ucal-grid-12 { grid-template-columns: repeat(12, 1fr); }
+
+      /* Month box */
+      .ucal-box {
+        border-radius: 10px;
+        padding: 10px 6px 8px;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.15s, box-shadow 0.15s;
+        border: 1.5px solid transparent;
+        outline: none;
+        -webkit-user-select: none; user-select: none;
+      }
+      .ucal-box:hover,
+      .ucal-box:focus-visible { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); z-index: 10; }
+      .ucal-box:focus-visible { outline: 2px solid var(--hero); }
+
+      /* Color variants */
+      .ucm-open    { background: #cde9d8; border-color: #a5d4b8; }
+      .ucm-caution { background: #fef3cd; border-color: #fad98a; }
+      .ucm-close   { background: #fde0d8; border-color: #f4b5a8; }
+      .ucm-depart  { background: #f8d0c8; border-color: #eeaaa0; }
+      .ucm-block   { background: #dce6eb; border-color: #b8cdd8; }
+      .ucm-next    { background: #f0f4f6; border-color: #d8e3e8; }
+
+      /* Today highlight */
+      .ucm-today { box-shadow: 0 0 0 2.5px var(--hero) !important; }
+      .ucm-today::before {
+        content: 'Today';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 9px;
+        font-weight: 800;
+        font-family: 'Manrope', sans-serif;
+        color: #fff;
+        background: var(--hero);
+        border-radius: 20px;
+        padding: 1px 5px;
+        white-space: nowrap;
+        z-index: 5;
+      }
+
+      .ucal-mname {
+        display: block;
+        font-family: 'Manrope', sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--text);
+        line-height: 1;
+        margin-bottom: 5px;
+      }
+      .ucm-block .ucal-mname,
+      .ucm-next  .ucal-mname { color: #5a7580; }
+
+      .ucal-badge {
+        display: block;
+        font-size: 9px;
+        font-weight: 700;
+        border-radius: 20px;
+        padding: 2px 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .ucal-badge--green { background: #a5d4b8; color: #1b4d34; }
+      .ucal-badge--amber { background: #fad98a; color: #6b4300; }
+      .ucal-badge--coral { background: #f4b5a8; color: #7a2010; }
+      .ucal-badge--gray  { background: #b8cdd8; color: #3a5870; }
+      .ucal-badge--pale  { background: #d8e3e8; color: #6a8898; }
+
+      /* Tooltip card */
+      .ucal-tip {
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%) translateY(4px);
+        width: 260px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 14px 16px 12px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        text-align: left;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.18s, transform 0.18s;
+        z-index: 100;
+      }
+      .ucal-tip::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 7px solid transparent;
+        border-top-color: #fff;
+      }
+      /* Edge anchoring */
+      .ucal-tip--right { left: 0; transform: translateX(0) translateY(4px); }
+      .ucal-tip--right::after { left: 18px; transform: none; }
+      .ucal-tip--left  { left: auto; right: 0; transform: translateX(0) translateY(4px); }
+      .ucal-tip--left::after { left: auto; right: 18px; transform: none; }
+
+      .ucal-box:hover .ucal-tip,
+      .ucal-box:focus-visible .ucal-tip {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
+      .ucal-box:hover .ucal-tip--right,
+      .ucal-box:focus-visible .ucal-tip--right { transform: translateX(0) translateY(0); }
+      .ucal-box:hover .ucal-tip--left,
+      .ucal-box:focus-visible .ucal-tip--left  { transform: translateX(0) translateY(0); }
+
+      .ucal-tip-title {
+        font-family: 'Manrope', sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--text);
+        margin-bottom: 6px;
+        line-height: 1.3;
+      }
+      .ucal-tip-body {
+        font-size: 12px;
+        color: #4a6570;
+        line-height: 1.55;
+        margin-bottom: 8px;
+      }
+      .ucal-tip-rec {
+        display: inline-block;
+        font-size: 10.5px;
+        font-weight: 700;
+        border-radius: 6px;
+        padding: 3px 8px;
+      }
+      .ucal-rec--green { background: #e4f9ec; color: #2a7a44; }
+      .ucal-rec--amber { background: #fff5e0; color: #a06500; }
+      .ucal-rec--coral { background: #fdeae4; color: #b04020; }
+      .ucal-rec--gray  { background: #dde6ec; color: #3a5870; }
+      .ucal-rec--pale  { background: #eef2f4; color: #6a8898; }
+
+      /* Legend */
+      .ucal-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+        margin: 14px 0 16px;
+      }
+      .ucal-legend-item {
+        font-size: 11px;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .ucal-swatch {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+        flex-shrink: 0;
+      }
+      .ucal-swatch--green { background: #cde9d8; border: 1.5px solid #a5d4b8; }
+      .ucal-swatch--amber { background: #fef3cd; border: 1.5px solid #fad98a; }
+      .ucal-swatch--coral { background: #fde0d8; border: 1.5px solid #f4b5a8; }
+      .ucal-swatch--gray  { background: #dce6eb; border: 1.5px solid #b8cdd8; }
+      .ucal-swatch--pale  { background: #f0f4f6; border: 1.5px solid #d8e3e8; }
+
+      /* Mobile */
+      @media (max-width: 700px) {
+        .ucal-grid-7  { grid-template-columns: repeat(4, 1fr); }
+        .ucal-grid-12 { grid-template-columns: repeat(4, 1fr); }
+        .ucal-year-tag { padding-top: 14px; }
+        .ucal-tip { width: 220px; }
+      }
+      @media (max-width: 420px) {
+        .ucal-grid-7, .ucal-grid-12 { grid-template-columns: repeat(3, 1fr); }
+        .ucal-row { gap: 6px; }
+        .ucal-year-tag { min-width: 28px; font-size: 11px; }
+      }
+
+      /* ── Timeline track (kept for compatibility) ── */
       .tl-track {
         margin: 44px 0 8px;
         padding: 0 20px 80px;
@@ -3255,43 +3597,41 @@
 
     <script>
       (function() {
-        // ── Dynamic "today" position on the timeline ──
-        // Season: Jun 1 2026 → Apr 7 2027
-        var seasonStart = new Date('2026-06-01');
-        var seasonEnd   = new Date('2027-04-07');
-        var today = new Date();
-        today.setHours(0, 0, 0, 0);
+        // Highlight the current month box
+        var t = new Date();
+        var yr = t.getFullYear(), mo = t.getMonth() + 1; // 1-based
+        var boxId = 'ucm-' + yr + '-' + mo;
+        var box = document.getElementById(boxId);
+        if (box) box.classList.add('ucm-today');
 
-        var totalMs   = seasonEnd - seasonStart;
-        var elapsedMs = today - seasonStart;
-        var pct = Math.max(0, Math.min(100, (elapsedMs / totalMs) * 100));
-
-        // Animate fill bar to today's position
-        var fill = document.getElementById('tlFill');
-        if (fill) {
-          setTimeout(function() { fill.style.width = pct + '%'; }, 300);
-        }
-
-        // Position "today" marker pin
-        var marker = document.getElementById('tl-now-marker');
-        var nowLabel = document.getElementById('tl-now-label');
-        if (marker && today >= seasonStart && today <= seasonEnd) {
-          var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-          nowLabel.textContent = 'Today · ' + months[today.getMonth()] + ' ' + today.getDate();
-          marker.style.left = pct + '%';
-          setTimeout(function() { marker.style.display = 'block'; }, 400);
-        }
-
-        // Mobile: tap dot to expand tooltip inline
-        if (window.innerWidth <= 680) {
-          document.querySelectorAll('.tl-node').forEach(function(node) {
-            node.querySelector('.tl-dot').addEventListener('click', function() {
-              var isOpen = node.classList.contains('tl-mobile-open');
-              document.querySelectorAll('.tl-node').forEach(function(n) { n.classList.remove('tl-mobile-open'); });
-              if (!isOpen) node.classList.add('tl-mobile-open');
+        // Mobile: tap to toggle tooltip
+        document.querySelectorAll('.ucal-box').forEach(function(box) {
+          box.addEventListener('click', function(e) {
+            if (window.innerWidth > 700) return;
+            var tip = box.querySelector('.ucal-tip');
+            if (!tip) return;
+            var isOpen = tip.style.opacity === '1';
+            // Close all
+            document.querySelectorAll('.ucal-tip').forEach(function(t) {
+              t.style.opacity = '0';
+              t.style.pointerEvents = 'none';
+              t.style.transform = '';
             });
+            if (!isOpen) {
+              tip.style.opacity = '1';
+              tip.style.pointerEvents = 'auto';
+              tip.style.transform = tip.classList.contains('ucal-tip--right') ? 'translateX(0) translateY(0)' : tip.classList.contains('ucal-tip--left') ? 'translateX(0) translateY(0)' : 'translateX(-50%) translateY(0)';
+            }
           });
-        }
+        });
+        document.addEventListener('click', function(e) {
+          if (!e.target.closest('.ucal-box')) {
+            document.querySelectorAll('.ucal-tip').forEach(function(t) {
+              t.style.opacity = '0';
+              t.style.pointerEvents = 'none';
+            });
+          }
+        });
       })();
     </script>
   </div>
