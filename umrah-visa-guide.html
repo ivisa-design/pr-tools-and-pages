@@ -1892,10 +1892,10 @@
       margin-bottom: 48px;
     }
     .glass-box {
-      background: rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 20px;
       padding: 32px 28px;
     }
@@ -1908,7 +1908,7 @@
     }
     .glass-box-sub {
       font-size: 13px;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.8);
       margin-bottom: 22px;
       line-height: 1.5;
     }
@@ -1934,7 +1934,7 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
-    .req-bullet-note { color: rgba(255,255,255,0.5); }
+    .req-bullet-note { color: rgba(255,255,255,0.72); }
     .kd-boxes {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1942,21 +1942,30 @@
       margin-bottom: 18px;
     }
     .kd-box {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
       border-radius: 12px;
       padding: 14px 12px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .kd-box:hover {
+      background: rgba(255,255,255,0.22);
+      border-color: rgba(255,255,255,0.38);
     }
     .kd-box-red {
-      background: rgba(220,60,60,0.15);
-      border-color: rgba(220,60,60,0.35);
+      background: rgba(220,60,60,0.18);
+      border-color: rgba(220,60,60,0.4);
+    }
+    .kd-box-red:hover {
+      background: rgba(220,60,60,0.28);
+      border-color: rgba(220,60,60,0.55);
     }
     .kd-box-label {
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.7px;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.8);
       margin-bottom: 7px;
       line-height: 1.4;
     }
