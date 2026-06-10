@@ -2111,6 +2111,128 @@
     }
     .stat-value.stat-animated { animation: statPop 0.55s cubic-bezier(0.34,1.56,0.64,1) both; }
   </style>
+
+  <!-- ── PRINT / PDF STYLES ── -->
+  <style>
+    @media print {
+      /* Hide nav, hero, interactive sections, footer */
+      header, footer, #hero, #navigator, #download-guide-btn,
+      .hamburger, .mobile-nav, #hero-particles,
+      .btn-cta, .cta-band, .sticky-cta,
+      .particle, .img-placeholder img,
+      nav, .nav-links { display: none !important; }
+
+      /* Page setup */
+      @page {
+        margin: 18mm 15mm;
+        size: A4;
+      }
+
+      html, body {
+        background: #fff !important;
+        color: #1a2e35 !important;
+        font-size: 11pt;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* Print header on every page */
+      body::before {
+        content: "Umrah Visa Guide 2026–2027  |  ivisa.com";
+        display: block;
+        text-align: center;
+        font-size: 9pt;
+        color: #5a7580;
+        padding-bottom: 8pt;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 12pt;
+      }
+
+      /* Fix dark background sections → white bg + dark text */
+      #requirements,
+      #apply,
+      section[style*="background: linear-gradient"],
+      section[style*="background:#004752"],
+      section[style*="background: #004752"] {
+        background: #fff !important;
+        color: #1a2e35 !important;
+      }
+
+      /* Fix any white text in dark sections */
+      #requirements *,
+      #apply * {
+        color: #1a2e35 !important;
+        border-color: #ccc !important;
+      }
+
+      /* Fix cards / boxes with dark bg */
+      .req-card, .req-card *, .tip-card, .tip-card *,
+      .step-card, .step-card * {
+        background: #f5f7f8 !important;
+        color: #1a2e35 !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+      }
+
+      /* Preserve pastel calendar colors */
+      .vcal-green  { background: #cde9d8 !important; }
+      .vcal-coral  { background: #fde0d8 !important; }
+      .vcal-yellow { background: #fef3cd !important; }
+      .vcal-blue   { background: #dce6eb !important; }
+      .vcal-gray   { background: #f0f4f6 !important; }
+
+      /* Hide tooltips in print */
+      .vcal-tip { display: none !important; }
+
+      /* Sections visible from what-is-umrah through faq */
+      #what-is-umrah, #ivisa-stats, #visa-types-section,
+      #expert-quote, #requirements, #timeline, #apply,
+      #faq { display: block !important; }
+
+      /* Page breaks */
+      #visa-types-section, #requirements, #timeline, #faq {
+        page-break-before: always;
+      }
+
+      /* Links → show URL */
+      a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #888;
+      }
+      a[href^="#"]::after,
+      .btn-cta::after { content: "" !important; }
+
+      /* Force JS-animated elements visible (IntersectionObserver never fires in print) */
+      .reveal,
+      .needs-grid .need-row,
+      .section-label,
+      .apply-circle,
+      .stat-value,
+      [class*="stagger"],
+      [style*="opacity: 0"],
+      [style*="opacity:0"] {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+      }
+
+      /* Remove box shadows / transforms */
+      * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      /* Keep images */
+      img { max-width: 100% !important; }
+
+      /* iVisa green accent → keep for headings */
+      h1, h2, h3 { color: #004752 !important; }
+    }
+  </style>
+
 </head>
 <body>
 
@@ -2137,7 +2259,7 @@
       <a href="#comparison">Visa Types</a>
       <a href="#calculator">Calculator</a>
       <a href="#faq">FAQ</a>
-      <a href="https://ivisa.com/saudi-arabia-umrah-visa" class="btn-cta">Apply now</a>
+      <button class="btn-cta" id="download-guide-btn" style="cursor:pointer;border:none;" onclick="window.open('umrah-visa-guide-print.html','_blank')">⬇ Download full guide</button>
     </div>
   </div>
 </header>
@@ -2154,6 +2276,12 @@
   <div class="container">
     <h1 style="line-height:1;">Your complete Umrah Visa guide<br><span style="font-family:'GlacialIndifference',sans-serif;font-weight:700;font-size:1.3em;letter-spacing:0.01em;line-height:0.85;display:block;text-transform:uppercase;margin-top:0.2em;">2026–2027</span></h1>
     <p class="hero-subhead">Join over 2 million pilgrims heading to Makkah for the Umrah season.<br>Discover exactly which visa you can apply for, costs, rules and more.</p>
+
+    <!-- Last Updated + Source stamp -->
+    <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:5px 14px;font-size:12px;color:rgba(255,255,255,0.85);margin-bottom:28px;backdrop-filter:blur(4px);">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>Updated June 10, 2026 &nbsp;·&nbsp; Verified against <a href="https://haj.gov.sa" target="_blank" rel="noopener noreferrer" style="color:#fff;text-decoration:underline;font-weight:600;">Saudi Ministry of Hajj &amp; Umrah</a> requirements</span>
+    </div>
 
     <!-- Eligibility Checker -->
     <div class="checker-box">
@@ -2262,6 +2390,52 @@
         You can visit Saudi Arabia on a tourist visa and explore cities like Riyadh, Jeddah, and AlUla — but you cannot perform Umrah, enter Makkah, or obtain an Umrah visa under any circumstances. The tourist eVisa does not override this rule.
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ── 2026 SEASON CONTEXT ── -->
+<section style="padding:48px 24px 40px;background:#fff;border-bottom:1px solid var(--border);">
+  <div class="container" style="max-width:860px;">
+
+    <!-- Why now — journalist hook -->
+    <div style="background:linear-gradient(135deg,#f0f9f4,#e8f5ee);border:1px solid #a5d4b8;border-radius:16px;padding:24px 28px;margin-bottom:36px;">
+      <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#2ea55a;margin-bottom:8px;">2026 Season Update</p>
+      <p style="font-size:16px;font-weight:700;color:var(--hero);line-height:1.4;margin-bottom:10px;">The 2026–2027 season is the most accessible Umrah window in history</p>
+      <!-- Record-breaking stat banner -->
+      <div style="display:flex;align-items:flex-start;gap:16px;background:#fff;border:1px solid #a5d4b8;border-radius:12px;padding:16px 20px;margin-bottom:14px;">
+        <div style="font-size:28px;line-height:1;flex-shrink:0;">🏆</div>
+        <div>
+          <p style="font-size:15px;font-weight:800;color:var(--hero);margin:0 0 4px;font-family:'Manrope',sans-serif;">New all-time record: 904,000 pilgrims in a single day</p>
+          <p style="font-size:13px;color:var(--text);line-height:1.6;margin:0;">On February 21, 2026 (4 Ramadan 1447 AH), Saudi Arabia set an unprecedented record at Masjid al-Haram — nearly doubling the previous record of 500,000 (March 2025). Demand for Umrah is surging even against a backdrop of global uncertainty. <a href="https://spa.gov.sa/en/N2522179" target="_blank" rel="noopener" style="color:var(--hero);font-weight:600;text-decoration:underline;">Source: Saudi Press Agency</a></p>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--text);line-height:1.7;margin:0;">For the first time, pilgrims from 60+ countries can choose between the traditional Umrah visa and the Saudi tourist eVisa — both granting full access to Makkah and Umrah rituals. Saudi Arabia's Vision 2030 targets 30 million Umrah pilgrims annually by 2030. <strong>If you're planning Umrah, 2026 is the year to go.</strong></p>
+    </div>
+
+    <!-- Stats row — journalist-ready data points -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+      <div style="text-align:center;padding:18px 12px;background:#f9fafb;border:1px solid var(--border);border-radius:12px;">
+        <div style="font-family:'Manrope',sans-serif;font-size:28px;font-weight:800;color:var(--hero);line-height:1;">13.5M</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4;">Umrah pilgrims in 2023 — a post-COVID record</div>
+        <div style="font-size:10px;color:#90a8b0;margin-top:6px;">Source: Saudi Ministry of Hajj &amp; Umrah</div>
+      </div>
+      <div style="text-align:center;padding:18px 12px;background:#f9fafb;border:1px solid var(--border);border-radius:12px;">
+        <div style="font-family:'Manrope',sans-serif;font-size:28px;font-weight:800;color:var(--hero);line-height:1;">30M</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4;">Pilgrim target by 2030 under Vision 2030</div>
+        <div style="font-size:10px;color:#90a8b0;margin-top:6px;">Source: Saudi Vision 2030 — <a href="https://vision2030.gov.sa" target="_blank" rel="noopener" style="color:var(--hero);">vision2030.gov.sa</a></div>
+      </div>
+      <div style="text-align:center;padding:18px 12px;background:#f9fafb;border:1px solid var(--border);border-radius:12px;">
+        <div style="font-family:'Manrope',sans-serif;font-size:28px;font-weight:800;color:var(--hero);line-height:1;">60+</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4;">Countries eligible for the Saudi tourist eVisa</div>
+        <div style="font-size:10px;color:#90a8b0;margin-top:6px;">Source: <a href="https://visa.mofa.gov.sa" target="_blank" rel="noopener" style="color:var(--hero);">visa.mofa.gov.sa</a></div>
+      </div>
+      <div style="text-align:center;padding:18px 12px;background:#f9fafb;border:1px solid var(--border);border-radius:12px;">
+        <div style="font-family:'Manrope',sans-serif;font-size:28px;font-weight:800;color:var(--hero);line-height:1;">2×</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4;">Growth in Umrah pilgrims since quota lifted in 2021</div>
+        <div style="font-size:10px;color:#90a8b0;margin-top:6px;">Source: Saudi Ministry of Hajj &amp; Umrah</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -2434,10 +2608,33 @@
   </div>
 </section>
 
-<!-- ── REQUIREMENTS & KEY DATES ── -->
+<!-- ── EXPERT QUOTE ── -->
+<section style="padding:40px 24px;background:#fff;border-bottom:1px solid var(--border);">
+  <div class="container" style="max-width:760px;">
+    <figure style="margin:0;padding:28px 32px;background:#f0f9f4;border-left:4px solid var(--cta);border-radius:0 16px 16px 0;position:relative;">
+      <svg style="position:absolute;top:20px;left:28px;opacity:0.12;" width="48" height="36" viewBox="0 0 48 36" fill="var(--hero)"><path d="M0 36V22.4C0 9.6 6.4 2.667 19.2 0L21.6 4.8C15.467 6.4 12 10.133 12 16h8V36H0zm26.4 0V22.4C26.4 9.6 32.8 2.667 45.6 0L48 4.8C41.867 6.4 38.4 10.133 38.4 16h8V36H26.4z"/></svg>
+      <blockquote style="margin:0 0 16px;padding-left:8px;">
+        <p style="font-size:17px;font-style:italic;color:var(--text);line-height:1.7;margin:0;">&ldquo;More and more pilgrims are opting for the Tourist eVisa, as it gives mostly the same permissions. At iVisa we offer both options &mdash; but we especially focus on nationalities like India or Pakistan, who can only apply for the Umrah visa due to current regulations and bilateral politics. For millions of pilgrims, the traditional Umrah visa isn&rsquo;t optional: it&rsquo;s the only path.&rdquo;</p>
+      </blockquote>
+      <figcaption style="display:flex;align-items:center;gap:14px;padding-left:8px;">
+        <div style="width:42px;height:42px;border-radius:50%;background:var(--hero);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-size:16px;font-weight:800;color:#fff;flex-shrink:0;">LE</div>
+        <div>
+          <div style="font-family:'Manrope',sans-serif;font-size:14px;font-weight:800;color:var(--text);">Luis Enrique</div>
+          <div style="font-size:13px;color:var(--muted);">Head of Fulfillment, iVisa &nbsp;&middot;&nbsp; <a href="https://ivisa.com" target="_blank" rel="noopener" style="color:var(--hero);">ivisa.com</a></div>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ── REQUIREMENTS & KEY DATES ── --><!-- ── REQUIREMENTS & KEY DATES ── -->
 <section id="requirements" style="padding:72px 24px; background: linear-gradient(135deg, #003d47 0%, #005263 50%, #004752 100%); position:relative; overflow:hidden;">
   <div class="container">
     <p class="section-label" style="color:rgba(255,255,255,0.65);">What you'll need for your Umrah Visa</p>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:4px 12px;font-size:11px;color:rgba(255,255,255,0.85);margin-bottom:8px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Based on 2026–2027 requirements from <a href="https://nusuk.sa" target="_blank" rel="noopener" style="color:#fff;font-weight:700;text-decoration:underline;">nusuk.sa</a>
+    </div>
     <h2 class="section-title" style="color:#fff;">Documents &amp; key dates</h2>
 
     <div class="reqdocs-layout">
@@ -2898,6 +3095,10 @@
 <section id="timeline">
   <div class="container">
     <p class="section-label">2026–2027 season</p>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:#e8f5ee;border:1px solid #a5d4b8;border-radius:20px;padding:4px 12px;font-size:11px;color:#2a7a44;margin-bottom:8px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Verified with <a href="https://nusuk.sa" target="_blank" rel="noopener" style="color:#2a7a44;font-weight:700;text-decoration:underline;">nusuk.sa</a> &amp; <a href="https://haj.gov.sa" target="_blank" rel="noopener" style="color:#2a7a44;font-weight:700;text-decoration:underline;">Saudi Ministry of Hajj &amp; Umrah</a> — June 2026
+    </div>
     <h2>When can you travel — and when should you apply?</h2>
     <p class="section-subtitle">The Umrah season has fixed dates for travel AND for applications. Understanding both is critical — miss either window and you can't go.</p>
 
@@ -3270,8 +3471,13 @@
 
   </div>
 
+  <!-- Expert contact -->
+  <div style="text-align:center;padding:20px 24px 0;">
+    <p style="font-size:14px;color:rgba(255,255,255,0.75);margin:0;">Questions about Umrah visa requirements? Talk to our experts at <a href="mailto:help@ivisa.com" style="color:#48d878;font-weight:700;text-decoration:underline;">help@ivisa.com</a>&nbsp;&nbsp;·&nbsp;&nbsp;Media enquiries welcome at <a href="mailto:pr@ivisa.com" style="color:#48d878;font-weight:700;text-decoration:underline;">pr@ivisa.com</a></p>
+  </div>
+
   <!-- CTA band -->
-  <div style="background:rgba(0,0,0,0.25);padding:32px 24px;text-align:center;border-top:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;">
+  <div style="padding:32px 24px;text-align:center;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;">
     <p style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin:0;">Ready to apply?</p>
     <a href="https://ivisa.com/saudi-arabia-umrah-visa" class="btn-cta">Get your visa →</a>
   </div>
