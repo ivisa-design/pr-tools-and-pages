@@ -2754,15 +2754,6 @@
 
     <div class="calc-controls">
       <div class="calc-field">
-        <label for="calc-nationality">Your nationality group</label>
-        <select id="calc-nationality" onchange="updateCalc()">
-          <option value="evisa">Nusuk eVisa route (USA, UK, EU, AU, CA, MY, most Western &amp; Asian countries)</option>
-          <option value="agent">Standard agent route (India, Pakistan, Bangladesh, Indonesia, Nigeria, Turkey, China, South Africa, Peru…)</option>
-          <option value="gcc">UAE &amp; GCC nationals</option>
-        </select>
-        <p style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6;">Any Muslim from any country can apply for Umrah — the route just varies by passport. Not sure which group applies to you? <a href="https://ivisa.com/saudi-arabia-visa" target="_blank" rel="noopener" style="color:var(--hero);font-weight:600;">Check with iVisa →</a></p>
-      </div>
-      <div class="calc-field">
         <label for="calc-type">Visa type</label>
         <select id="calc-type" onchange="updateCalc()">
           <option value="umrah">Umrah Visa</option>
@@ -3561,14 +3552,7 @@
       var val = this.value;
       if (!val) return;
 
-      // 1. Sync calculator dropdown if it exists
-      var calcSelect = document.getElementById('calc-nationality');
-      if (calcSelect) {
-        calcSelect.value = val;
-        updateCalc();
-      }
-
-      // 2. Open matching accordion guide
+      // 1. Open matching accordion guide
       // Map nationality values to data-country keyword substrings
       var natMap = {
         'us': 'united states', 'gb': 'united kingdom', 'in': 'india',
