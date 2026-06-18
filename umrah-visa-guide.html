@@ -146,7 +146,7 @@
         "name": "How much does an Umrah visa cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Total includes government fee + mandatory insurance + Nusuk processing fee. Exact amounts vary — check Nusuk or apply with iVisa for a transparent itemized breakdown. No hidden fees with iVisa."
+          "text": "Umrah visa: the government fee is variable and depends on your nationality, the package tier you choose (visa only vs. visa + hotel + transport), and the season. It covers health insurance, the Nusuk processing fee, and optionally accommodation and ground transport. If you use a visa service like iVisa, an additional service fee applies. Tourist eVisa: approximately $114 USD government fee (includes health insurance). An optional service fee applies if you apply through a visa agent."
         }
       },
       {
@@ -1040,88 +1040,132 @@
 
     .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
 
-    /* ── CALCULATOR ── */
+    /* ── PRICING ── */
     #calculator {
       background: var(--light);
       padding: 72px 24px;
     }
 
-    .calc-disclaimer {
-      background: #fff7e6;
-      border: 1px solid #fcd18b;
-      border-left: 4px solid var(--warning);
-      border-radius: 10px;
-      padding: 14px 18px;
-      font-size: 14px;
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
       margin-bottom: 36px;
-      line-height: 1.6;
     }
 
-    .calc-controls {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-bottom: 32px;
+    @media (max-width: 680px) {
+      .pricing-grid { grid-template-columns: 1fr; }
     }
 
-    .calc-field label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: var(--text);
-    }
-
-    .calc-field select {
-      width: 100%;
-      padding: 11px 16px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 14px;
-      font-family: 'Roboto', sans-serif;
-      background: #fff;
-      cursor: pointer;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      padding-right: 32px;
-    }
-    .calc-field select:focus { outline: none; border-color: var(--hero); }
-
-    .calc-results {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .result-card {
+    .pricing-card {
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 16px;
+      padding: 28px 26px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .result-card.total-card { border: 2px solid var(--cta); }
-
-    .result-card .card-label {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
+    .pricing-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .result-card .card-value {
+    .pricing-card-title {
       font-family: 'Manrope', sans-serif;
-      font-size: 28px;
+      font-size: 17px;
       font-weight: 800;
       color: var(--hero);
     }
 
-    .result-card.total-card .card-value { color: #1a6b3a; }
+    .pricing-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #e8f5ee;
+      color: #1a6b3a;
+    }
+
+    .pricing-badge-blue {
+      background: #e8f0fa;
+      color: #1a4080;
+    }
+
+    .pricing-amount {
+      font-family: 'Manrope', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--hero);
+      margin-bottom: 4px;
+      line-height: 1.1;
+    }
+
+    .pricing-amount-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .pricing-includes {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .pricing-includes li {
+      display: flex;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid #f0f4f2;
+      color: var(--text);
+    }
+
+    .pricing-includes li:last-child { border-bottom: none; }
+
+    .pricing-includes .pi-icon {
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 13px;
+    }
+
+    .pricing-includes .pi-label {
+      font-weight: 600;
+      display: inline;
+    }
+
+    .pricing-agent-note {
+      margin-top: auto;
+      background: #f7faf8;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      border: 1px solid var(--border);
+    }
+
+    .pricing-agent-note strong { color: var(--text); }
+
+    .pricing-why {
+      background: #fff8ec;
+      border: 1px solid #fcd18b;
+      border-left: 4px solid var(--warning);
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 13.5px;
+      margin-bottom: 32px;
+      line-height: 1.65;
+      color: var(--text);
+    }
 
     .hidden-costs h4 {
       font-size: 15px;
@@ -2289,7 +2333,7 @@
     <div class="nav-links" id="nav-links">
       <a href="#guides">Eligibility</a>
       <a href="#comparison">Visa Types</a>
-      <a href="#calculator">Calculator</a>
+      <a href="#calculator">Costs</a>
       <a href="#faq">FAQ</a>
       <button class="btn-cta" id="download-guide-btn" style="cursor:pointer;border:none;" onclick="window.open('umrah-visa-guide-print.html','_blank')">⬇ Download full guide</button>
     </div>
@@ -2395,7 +2439,7 @@
           <p class="need-desc">What documents you need, timelines, and what to avoid.</p>
         </div>
         <div class="need-row">
-          <a href="#calculator" class="need-btn">Calculate cost</a>
+          <a href="#calculator" class="need-btn">Understand costs</a>
           <p class="need-desc">Get a full breakdown of government fees, insurance, and service costs — no surprises.</p>
         </div>
         <div class="need-row">
@@ -3049,59 +3093,86 @@
 <section id="calculator">
   <div class="container">
     <p class="section-label">Costs &amp; fees</p>
-    <h2 class="section-title">Cost calculator</h2>
+    <h2 class="section-title">How much does each visa cost?</h2>
+    <p class="section-subtitle" style="margin-bottom:32px;">Visa fees are set by the Saudi government and updated periodically. Here's what to expect — and why prices can vary significantly for the Umrah visa.</p>
 
-    <div class="calc-controls">
-      <div class="calc-field">
-        <label for="calc-type">Visa type</label>
-        <select id="calc-type" onchange="updateCalc()">
-          <option value="umrah">Umrah Visa</option>
-          <option value="tourist">Tourist eVisa</option>
-        </select>
+    <div class="pricing-grid">
+
+      <!-- Umrah Visa -->
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <div class="pricing-card-title">🕌 Umrah Visa</div>
+          <span class="pricing-badge">Muslims only</span>
+        </div>
+        <div class="pricing-amount">Varies by package</div>
+        <div class="pricing-amount-note">Government fee confirmed at time of application on Nusuk. Fees change seasonally.</div>
+        <ul class="pricing-includes">
+          <li>
+            <span class="pi-icon">✓</span>
+            <span><span class="pi-label">Government visa fee</span> — set by Saudi authorities, varies by nationality and package tier</span>
+          </li>
+          <li>
+            <span class="pi-icon">✓</span>
+            <span><span class="pi-label">Mandatory health insurance</span> — bundled into the government fee, no separate purchase needed</span>
+          </li>
+          <li>
+            <span class="pi-icon">✓</span>
+            <span><span class="pi-label">Nusuk processing fee</span> — platform fee charged by the Saudi government's Nusuk system</span>
+          </li>
+          <li>
+            <span class="pi-icon">~</span>
+            <span><span class="pi-label">Optional: hotel &amp; transport packages</span> — Nusuk offers bundled packages that include accommodation and ground transport. Choosing a package significantly increases the total but simplifies logistics.</span>
+          </li>
+        </ul>
+        <div class="pricing-agent-note">
+          <strong>+ Agent or visa service fee (if applicable)</strong><br>
+          If you apply through iVisa or another licensed service — required for Indian, Pakistani, and Bangladeshi nationals — a transparent service fee is added. Disclosed upfront at checkout.
+        </div>
       </div>
-      <div class="calc-field">
-        <label for="calc-speed">Processing speed</label>
-        <select id="calc-speed" onchange="updateCalc()">
-          <option value="standard">Standard</option>
-          <option value="rush">Rush / expedited</option>
-        </select>
+
+      <!-- Tourist eVisa -->
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <div class="pricing-card-title">🛂 Tourist eVisa</div>
+          <span class="pricing-badge pricing-badge-blue">60+ nationalities</span>
+        </div>
+        <div class="pricing-amount">~$114 USD*</div>
+        <div class="pricing-amount-note">*Placeholder — fee to be confirmed. Government fee, subject to change.</div>
+        <ul class="pricing-includes">
+          <li>
+            <span class="pi-icon">✓</span>
+            <span><span class="pi-label">Government visa fee</span> — single fee, same for all eligible nationalities</span>
+          </li>
+          <li>
+            <span class="pi-icon">✓</span>
+            <span><span class="pi-label">Health insurance included</span> — certificate issued separately after booking</span>
+          </li>
+          <li>
+            <span class="pi-icon">✓</span>
+            <span><span class="pi-label">1-year validity, multiple entries</span> — better value if you plan to visit Saudi Arabia more than once</span>
+          </li>
+          <li>
+            <span class="pi-icon">✗</span>
+            <span><span class="pi-label">No hotel or transport bundles</span> — book accommodation and transfers separately</span>
+          </li>
+        </ul>
+        <div class="pricing-agent-note">
+          <strong>+ Agent or visa service fee (if applicable)</strong><br>
+          Applying through iVisa or another service adds a fee — disclosed at checkout. Self-applying on the official Saudi portal is free of service charges.
+        </div>
       </div>
-      <div class="calc-field">
-        <label for="calc-season">Travel season</label>
-        <select id="calc-season" onchange="updateCalc()">
-          <option value="regular">Regular season (Jun–Feb)</option>
-          <option value="ramadan">Ramadan peak (Feb 17–Mar 18)</option>
-        </select>
-      </div>
+
     </div>
 
-    <div class="calc-results">
-      <div class="result-card">
-        <div class="card-label">Government fee</div>
-        <div class="card-value" id="calc-gov">$XX</div>
-      </div>
-
-      <div class="result-card">
-        <div class="card-label">Nusuk / processing fee</div>
-        <div class="card-value" id="calc-proc">$XX</div>
-      </div>
-      <div class="result-card">
-        <div class="card-label">iVisa service fee</div>
-        <div class="card-value" id="calc-ivisa">$XX</div>
-      </div>
-      <div class="result-card total-card">
-        <div class="card-label">Estimated total</div>
-        <div class="card-value" id="calc-total">$XX</div>
-      </div>
+    <div class="pricing-why">
+      <strong>Why is Umrah visa pricing so hard to pin down?</strong> Unlike most tourist visas, the Umrah visa fee isn't a single fixed number. The Saudi government sets a base fee, but the final amount depends on your nationality, whether you choose a visa-only application or a bundled package (with hotel + transport), the Nusuk processing tier, and whether a licensed agent is involved. Prices are also updated at the start of each season. The most accurate number is always what you see at checkout on Nusuk or with your chosen service.
     </div>
-
-    <p style="font-size:13px; color:var(--muted); margin-bottom:24px; font-style:italic;">All amounts approximate. Official fees are set by the Saudi government and subject to change. iVisa adds a transparent service fee disclosed at checkout.</p>
 
     <div class="hidden-costs">
-      <h4>Additional costs to plan for:</h4>
+      <h4>Additional costs to budget for (Umrah visa):</h4>
       <ul>
         <li>Meningitis ACWY vaccine — typically $50–$120 at a travel clinic</li>
-        <li>Makkah hotel premium — prices rise 3–5x during Ramadan</li>
+        <li>Makkah hotel premium — prices rise 3–5× during Ramadan</li>
         <li>Ground transport (Haramain express train, buses, taxis)</li>
         <li>Ihram garments and pilgrimage essentials</li>
         <li>Return airport transfer</li>
