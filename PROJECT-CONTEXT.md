@@ -1,5 +1,5 @@
 # iVisa PR Tools & Pages — Project Context File
-*Last updated: June 10, 2026 (session 2) | For: Cowork (new session handoff)*
+*Last updated: June 18, 2026 (session 3) | For: Cowork (new session handoff)*
 
 ---
 
@@ -113,7 +113,7 @@ These are verified and must stay consistent across ALL sections of the page:
 | Other cities on Umrah visa | **Allowed** after completing Umrah, via **Nusuk Masar** program |
 | Umrah is for Muslims only | Yes — tourist eVisa holders (Muslim) can also enter Makkah outside Hajj blackout |
 | Non-Muslims and Makkah | Non-Muslims **cannot** enter Makkah or Madinah at all — stated clearly on page |
-| Health insurance | **Included** in Umrah visa fee (mandatory). Tourist eVisa does **not** include it. |
+| Health insurance | **Included** in both Umrah visa and Tourist eVisa. Certificate is issued separately after booking in both cases. |
 
 **Nationality-specific rules:**
 - **India / Bangladesh / Pakistan:** Cannot self-apply on Nusuk — must use licensed travel agent (MOIA-registered). iVisa works with approved agents.
@@ -128,6 +128,22 @@ These are verified and must stay consistent across ALL sections of the page:
 
 All commits are on `main`. Changes in chronological order:
 
+**Session 3 — June 18, 2026:**
+
+**Content accuracy fixes (tasks 5–11):**
+- **Processing times:** Umrah eVisa (all routes) → 4–5 working days. Tourist eVisa → 24–48 hours (sometimes instant). Updated across: processing section, comparison table, all nationality cards, eligibility checker, JS eligibilityMessages, JSON-LD FAQ.
+- **Tourist eVisa health insurance:** Now correctly shows as INCLUDED (certificate issued separately after booking). Fixed in: visa card bullet, comparison table row, FAQ accordion, JSON-LD schema, "either visa works" blurb.
+- **Meningitis vaccine:** Corrected to NOT be part of visa application — required at travel/entry. Added validity: conjugate ACWY = 5 years, polysaccharide = 3 years. Fixed in: JSON-LD, eligibility checker step 4, FAQ accordion.
+- **Additional costs:** Removed "Travel insurance beyond mandatory health cover" — it's included in both visa types.
+- **UK EVW:** Added UK accordion card with EVW specs (all British passport holders, single entry, up to 6 months, Umrah outside Hajj blackout). Added GB special case in checkEligibility JS. Added `*` footnote under comparison table.
+- **No business activities:** Added to tourist eVisa card bullet list and comparison table as new row.
+- **Zamzam airline:** Updated to "sometimes not enforced, confirm with airline" in callout and comparison table.
+- **Date stamp:** Updated "Updated June 10, 2026" → "Updated June 18, 2026" in hero.
+
+**Also added earlier in session (tasks 1–4):**
+- FAQ entries: GCC/Saudi blackout exemption, mixed-nationality couple guidance, Nusuk rolling availability, Umrah visa duration packages (15/20/30/80-day)
+- GCC nationality card: green callout for year-round access
+
 **Session 2 — June 10, 2026 (full day):**
 
 **Calendar redesign:**
@@ -141,7 +157,7 @@ All commits are on `main`. Changes in chronological order:
 - Added color legend below calendar
 
 **PR credibility signals (all new additions to `umrah-visa-guide.html`):**
-- **Last Updated stamp** — inline pill in hero section: "Updated June 10, 2026 · Verified against Saudi Ministry of Hajj & Umrah requirements"
+- **Last Updated stamp** — inline pill in hero section: "Updated [date] · Verified against Saudi Ministry of Hajj & Umrah requirements". **Must be updated to today's date every time changes are committed.**
 - **Stats bar** — new section between `#what-is-umrah` and `#navigator`: four stat boxes (13.5M pilgrims 2023, 30M Vision 2030 target, 60+ tourist eVisa countries, 2× growth since 2021). Each with source citation.
 - **Why Now callout** — "2026 Season Update" green callout with headline "The 2026–2027 season is the most accessible Umrah window in history"
 - **904,000 pilgrim record banner** — trophy 🏆 banner inside the Why Now callout. Verified via Saudi Press Agency (spa.gov.sa/en/N2522179). Set on Feb 21, 2026 (4 Ramadan 1447 AH), nearly double the 500K March 2025 record.
