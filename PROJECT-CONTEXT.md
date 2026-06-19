@@ -1,5 +1,5 @@
 # iVisa PR Tools & Pages — Project Context File
-*Last updated: June 18, 2026 (session 3) | For: Cowork (new session handoff)*
+*Last updated: June 19, 2026 (session 4) | For: Cowork (new session handoff)*
 
 ---
 
@@ -127,6 +127,12 @@ These are verified and must stay consistent across ALL sections of the page:
 ## Completed changes (history)
 
 All commits are on `main`. Changes in chronological order:
+
+**Session 4 — June 19, 2026:**
+- **UTMs added:** All 20 iVisa links in `umrah-visa-guide.html` now have `utm_source=umrah_guide&utm_medium=referral&utm_campaign=umrah_guide_2026&utm_content=[placement]`. See UTM structure table above.
+- **Date stamp:** Updated June 18 → June 19, 2026 in main guide (1x) and print guide (3x).
+- **Confirmed tasks 5–11 already applied** (done in session 3 — task board marked complete).
+- **DNS:** Paula to ask Adam: CNAME `umrah → cname.vercel-dns.com` for `umrah.ivisa.com`.
 
 **Session 3 — June 18, 2026:**
 
@@ -309,6 +315,49 @@ From the project brief — all pages in this initiative must:
 - **No unverifiable superlatives.** "Most accessible in history", "largest globally", "most competitive market" etc. must link to a specific source. Otherwise reword to something specific and citable.
 - Before adding any new factual claim to the HTML, verify it via web search and note the source inline or in this file.
 - This applies to all copy: accordion cards, eligibility messages, stats blocks, pro tips, FAQs, and the print guide.
+
+---
+
+## UTM structure (all iVisa links from umrah-visa-guide.html)
+
+The guide lives outside ivisa.com and sends traffic TO ivisa.com — tracked as **Brand > Referral Links** in iVisa's analytics taxonomy.
+
+**Standard UTM base:**
+```
+utm_source=umrah_guide&utm_medium=referral&utm_campaign=umrah_guide_2026
+```
+
+**utm_content values per placement:**
+
+| Placement | utm_content |
+|---|---|
+| Nav logo | `logo` |
+| Checker result — direct (eVisa eligible) | `checker_apply_direct` |
+| Checker result — agent required | `checker_apply_agent` |
+| Checker result — GCC | `checker_apply_gcc` |
+| Checker nav-link "Apply with iVisa →" | `checker_apply` |
+| Hero CTA button "Apply for my visa" | `hero_cta` |
+| Expert quote bio link | `expert_quote_bio` |
+| Body no-result "Apply with iVisa →" | `body_apply_umrah` |
+| Body no-result "Check eligibility →" (tourist eVisa) | `body_check_eligibility` |
+| Body no-result "Chat with our team →" | `body_chat_team` |
+| Other nationalities "ivisa.com →" | `body_other_nationalities` |
+| Mid-page CTA "Start my Umrah application →" | `mid_cta` |
+| Footer CTA band "Get your visa →" | `footer_cta` |
+| FAQ "Talk to our team →" | `faq_chat_team` |
+| Footer nav — Apply for Umrah visa | `footer_nav_apply` |
+| Footer nav — About iVisa | `footer_nav_about` |
+| Footer nav — Customer reviews | `footer_nav_reviews` |
+| Footer nav — Contact & support | `footer_nav_contact` |
+| Footer nav — Privacy policy | `footer_nav_privacy` |
+| Footer nav — Terms & conditions | `footer_nav_terms` |
+
+**Full example:**
+`https://www.ivisa.com/saudi-arabia-umrah-visa?utm_source=umrah_guide&utm_medium=referral&utm_campaign=umrah_guide_2026&utm_content=hero_cta`
+
+**Date stamp rule:** Every time changes are committed, update `Updated [date]` in:
+1. `umrah-visa-guide.html` — 1 instance (hero section ~line 2453)
+2. `umrah-visa-guide-print.html` — 3 instances (header, cover block, footer)
 
 ---
 
