@@ -1,36 +1,48 @@
-# PR Tools and Pages
+# iVisa Umrah Guide
 
-A collection of SEO-optimized landing pages and content tools for [iVisa](https://ivisa.com).
+A standalone SEO and PR content page for [iVisa](https://ivisa.com) targeting the 2026–2027 Umrah season.
 
 ## Contents
 
 ### `umrah-visa-guide.html`
 
-A fully self-contained HTML guide page targeting the 2026–2027 Umrah season.
+A fully self-contained HTML guide page covering Umrah visa eligibility, types, costs, and nationality-specific rules.
 
-**Live URL (when published):** `https://ivisa.com/saudi-arabia-umrah-visa/guide`
+**Live URL:** `https://umrah.ivisa.com`
+**Preview URL:** `https://umrah-ivisa.vercel.app`
+**Deployment:** Auto-deploys from `main` via Vercel (project: `umrah-guide`)
 
 **What's inside:**
 
-- Structured data (JSON-LD) — `Organization`, `BreadcrumbList`, `WebPage`, and `FAQPage` schemas for Google rich results
-- 15-question FAQ covering eligibility, visa types, costs, processing times, and nationality-specific rules
-- Comparison of the dedicated Umrah visa vs. Saudi tourist eVisa
-- Nationality routing (US/UK/EU/GCC/Malaysia → Nusuk direct; India/Pakistan/Bangladesh → licensed agent via iVisa)
-- Vaccine, mahram, and Hajj blackout season guidance
-- iVisa CTA funnel throughout
+- Structured data (JSON-LD) — `Organization`, `BreadcrumbList`, `WebPage`, and `FAQPage` schemas for Google rich results and AI citation
+- Nationality eligibility checker (dropdown → JS result card)
+- Comparison of the Umrah eVisa vs. Saudi tourist eVisa
+- Nationality-specific accordion guides (India, Pakistan, Bangladesh, Indonesia, Turkey, UK, EU, GCC, and more)
+- Processing times, costs, key dates, and a 12-month travel calendar
+- 19-question FAQ
+- Downloadable print guide (`umrah-visa-guide-print.html`)
+- iVisa CTA funnel with UTMs (pending implementation)
 
 **Tech:**
 
-- Pure HTML/CSS — no build step, no dependencies
+- Pure HTML/CSS/JS — no build step, no dependencies
 - Google Fonts: Manrope + Roboto
-- Cookie consent banner placeholder (to be wired up by the dev team)
-- Responsive, mobile-first layout
+- All images base64-embedded (except hero, served from `Assets/`)
+- Cookie consent banner placeholder (to be wired up by dev team)
+- Responsive, mobile-first layout (380px / 768px / 1200px)
 
-## Usage
+### `umrah-visa-guide-print.html`
 
-Open any `.html` file directly in a browser for local preview, or deploy to the iVisa web server at the canonical URL defined in each file's JSON-LD.
+Clean PDF/print version of the full guide. Opened via the "Download full guide" button in the main guide.
+
+## Deployment
+
+- **Vercel project:** `umrah-guide` (`vercel.com/ivisa-design/umrah-guide`)
+- **GitHub repo:** `ivisa-design/pr-tools-and-pages`
+- **DNS:** CNAME `umrah → cname.vercel-dns.com` on Cloudflare (pending — iVisa dev team)
 
 ## Notes
 
-- Hajj blackout period 2026: approximately March 15 – May 31. Visa applications during this window are refused by Saudi authorities.
-- Pages are updated seasonally. Check `dateModified` in the `WebPage` JSON-LD block for the last update date.
+- Hajj blackout 2026: approximately March 15 – May 31. No Umrah visas issued during this window.
+- Date stamp must be updated on every commit. See `PROJECT-CONTEXT.md` for exact locations.
+- All factual claims must be sourced. See content integrity rules in `PROJECT-CONTEXT.md`.
