@@ -302,6 +302,16 @@ From the project brief — all pages in this initiative must:
 
 ---
 
+## Content integrity rule (MANDATORY)
+
+- **No unsourced claims.** Every statistic, recommendation, or superlative must have a citable source (URL or official body). If it can't be sourced, remove it or soften to "typically" / "generally" / "may" language.
+- **No assumed behaviour.** Claims like "Most X choose Y" or "X is the most popular option" require data. If there's no data, don't make the claim.
+- **No unverifiable superlatives.** "Most accessible in history", "largest globally", "most competitive market" etc. must link to a specific source. Otherwise reword to something specific and citable.
+- Before adding any new factual claim to the HTML, verify it via web search and note the source inline or in this file.
+- This applies to all copy: accordion cards, eligibility messages, stats blocks, pro tips, FAQs, and the print guide.
+
+---
+
 ## External references
 
 - Official Umrah platform: https://www.nusuk.sa
