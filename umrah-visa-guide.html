@@ -4147,6 +4147,7 @@
   if (heroSelect) {
     heroSelect.addEventListener('change', function() {
       var val = this.value;
+      document.getElementById('checker-result').style.display = 'none';
       if (!val) return;
 
       // 1. Open matching accordion guide
