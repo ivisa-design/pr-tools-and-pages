@@ -2585,8 +2585,9 @@
             <br><br><a href="https://ivisa.com/saudi-arabia-umrah-visa" style="color:#1a6b3a;font-weight:700;">Apply with iVisa →</a>
           </div>
           <div class="elig-result elig-result-yes" id="elig-3-gcc" style="display:none;">
-            <strong>You're eligible for the Umrah visa with GCC privileges.</strong> Unlike international pilgrims, GCC nationals can perform Umrah <strong>year-round</strong> — the Hajj blackout that affects other nationalities does not apply to you. Apply directly on Nusuk (no travel agent needed). Processing is typically within 24 hours.
-            <br><br><a href="https://ivisa.com/saudi-arabia-umrah-visa" style="color:#1a6b3a;font-weight:700;">Apply with iVisa →</a>
+            <strong>No visa needed.</strong> As a GCC national, you can enter Saudi Arabia with your national ID card — no visa application required. For Umrah, register on Nusuk to get your ritual permit. You can perform Umrah <strong>year-round</strong> — the Hajj blackout that applies to international pilgrims does not apply to you.
+            <br><br>The meningitis ACWY vaccine is still required for all pilgrims, including GCC nationals — continue to the next step.
+            <br><br><a href="https://www.nusuk.sa" target="_blank" rel="noopener" style="color:#1a6b3a;font-weight:700;">Register on Nusuk →</a>
           </div>
           <div class="elig-result elig-result-yes" id="elig-3-saudi" style="display:none;">
             <strong>No visa required.</strong> As a Saudi national, you have free access to the holy sites year-round. Register on the Nusuk platform to book your Umrah permit.
@@ -4228,14 +4229,17 @@
     var result = document.getElementById('elig-3-' + type);
     if (result) result.style.display = 'block';
 
-    // Unlock question 4
-    var next = document.getElementById('elig-4');
-    if (next) {
-      next.classList.remove('locked');
-      setTimeout(function() {
-        next.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        next.classList.add('open');
-      }, 300);
+    // Only advance to meningitis step for nationalities that need it
+    // Saudi nationals and 'other' have terminal results — step 4 doesn't apply
+    if (type === 'direct' || type === 'agent' || type === 'gcc') {
+      var next = document.getElementById('elig-4');
+      if (next) {
+        next.classList.remove('locked');
+        setTimeout(function() {
+          next.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          next.classList.add('open');
+        }, 300);
+      }
     }
   }
 
