@@ -2042,23 +2042,36 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 11px;
+      gap: 12px;
     }
     .req-bullet-list li {
-      font-size: 14px;
-      color: rgba(255,255,255,0.9);
       display: flex;
       align-items: flex-start;
-      gap: 9px;
-      line-height: 1.5;
+      gap: 10px;
     }
     .req-bullet-check {
       color: var(--cta);
       font-weight: 800;
       flex-shrink: 0;
-      margin-top: 1px;
+      margin-top: 2px;
+      font-size: 14px;
     }
-    .req-bullet-note { color: rgba(255,255,255,0.72); }
+    .req-bullet-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .req-bullet-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.95);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .req-bullet-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
     .kd-boxes {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -2640,7 +2653,7 @@
             <span class="badge badge-green">All Muslims worldwide · Some nationalities via agent only</span>
             <h4>Umrah Visa</h4>
             <ul>
-              <li>Single entry · must enter within 30 days of issue</li>
+              <li>Single entry - must enter within 30 days of issue</li>
               <li>Season deadline: Apr 7, 2027 (Umrah visa holders only)</li>
               <li>Travel window Jun 2026 – Mar 23, 2027 (excl. Hajj blackout)</li>
               <li>Makkah &amp; Madinah + other Saudi cities after Umrah (Nusuk Masar)</li>
@@ -2654,7 +2667,7 @@
             <span class="badge badge-blue">All Muslims can apply</span>
             <h4>Tourist eVisa</h4>
             <ul>
-              <li>Multiple entries · 1 year validity</li>
+              <li>Multiple entries - 1 year validity</li>
               <li>Up to 90 days continuous stay per visit</li>
               <li>Available year-round (all Saudi cities including Makkah outside Hajj)</li>
               <li>Muslims can perform Umrah — Makkah entry blocked during Hajj season only</li>
@@ -2720,16 +2733,74 @@
         <h3 class="glass-box-title">Required documents</h3>
         <p class="glass-box-sub">For the 2026–2027 Umrah visa season.</p>
         <ul class="req-bullet-list">
-          <li><span class="req-bullet-check">✓</span> Passport scan <span class="req-bullet-note">— valid at least 6 months</span></li>
-          <li><span class="req-bullet-check">✓</span> Digital photo <span class="req-bullet-note">— passport-style</span></li>
-          <li><span class="req-bullet-check">✓</span> Residency proof <span class="req-bullet-note">— only if your passport nationality isn't on the standard eligible list but you hold legal residency in the UK, EU, Canada, or USA. In the UK this is a Share Code (a digital code from gov.uk proving your immigration status). In other countries, it's your physical residence card (EU residence permit, US Green Card, Canadian PR card, etc.)</span></li>
-          <li><span class="req-bullet-check">✓</span> Shahadah Certificate <span class="req-bullet-note">— proof of Islam, may be required by nationality</span></li>
-          <li><span class="req-bullet-check">✓</span> Confirmed airline ticket</li>
-          <li><span class="req-bullet-check">✓</span> Accurate BRN (Masar) <span class="req-bullet-note">— your Nusuk booking reference number for accommodation in Makkah &amp; Madinah</span></li>
-          <li><span class="req-bullet-check">✓</span> Ground transport booking <span class="req-bullet-note">— a confirmed voucher from a Saudi-registered transport company covering your airport pickup and transfers between Makkah and Madinah. Arranged through your licensed travel agent. Required for nationalities applying via an agent (India, Pakistan, Bangladesh)</span></li>
-          <li><span class="req-bullet-check">✓</span> Arrival &amp; departure details <span class="req-bullet-note">— accurate dates required</span></li>
-          <li><span class="req-bullet-check">✓</span> Full payment for Masar Umrah eVisa approval</li>
-          <li><span class="req-bullet-check">✓</span> Inbound transfer booking <span class="req-bullet-note">— confirmed pickup from Jeddah or Madinah airport to your hotel in Makkah or Madinah, booked through a Nusuk-approved transport operator. This is the arrival leg only (not a return flight). Compulsory — visa cannot be issued without it</span></li>
+          <li>
+            <span class="req-bullet-check">✓</span>
+            <div class="req-bullet-content">
+              <span class="req-bullet-label">Passport scan</span>
+              <span class="req-bullet-note">Valid at least 6 months from travel date</span>
+            </div>
+          </li>
+          <li>
+            <span class="req-bullet-check">✓</span>
+            <div class="req-bullet-content">
+              <span class="req-bullet-label">Digital photo</span>
+              <span class="req-bullet-note">Passport-style, white background</span>
+            </div>
+          </li>
+          <li>
+            <span class="req-bullet-check">✓</span>
+            <div class="req-bullet-content">
+              <span class="req-bullet-label">Arrival &amp; departure details</span>
+              <span class="req-bullet-note">Accurate travel dates required at time of application</span>
+            </div>
+          </li>
+          <li>
+            <span class="req-bullet-check">✓</span>
+            <div class="req-bullet-content">
+              <span class="req-bullet-label">Full payment for Masar Umrah eVisa approval</span>
+            </div>
+          </li>
+          <li>
+            <span class="req-bullet-check">✓</span>
+            <div class="req-bullet-content">
+              <span class="req-bullet-label">Residency proof</span>
+              <span class="req-bullet-note">Only if your passport nationality isn't on the standard eligible list but you hold legal residency in the UK, EU, Canada, or USA. In the UK: Share Code from gov.uk. Elsewhere: physical residence card (EU residence permit, US Green Card, Canadian PR card, etc.)</span>
+            </div>
+          </li>
+          <li>
+            <span class="req-bullet-check">✓</span>
+            <div class="req-bullet-content">
+              <span class="req-bullet-label">Shahadah Certificate</span>
+              <span class="req-bullet-note">Proof of Islam — may be required depending on nationality</span>
+            </div>
+          </li>
+          <li>
+            <span class="req-bullet-check">✓</span>
+            <div class="req-bullet-content">
+              <span class="req-bullet-label">Confirmed airline ticket</span>
+            </div>
+          </li>
+          <li>
+            <span class="req-bullet-check">✓</span>
+            <div class="req-bullet-content">
+              <span class="req-bullet-label">Accurate BRN (Masar)</span>
+              <span class="req-bullet-note">Your Nusuk booking reference number for accommodation in Makkah &amp; Madinah</span>
+            </div>
+          </li>
+          <li>
+            <span class="req-bullet-check">✓</span>
+            <div class="req-bullet-content">
+              <span class="req-bullet-label">Ground transport booking</span>
+              <span class="req-bullet-note">Confirmed voucher from a Saudi-registered transport company covering airport pickup and transfers between Makkah and Madinah. Required for nationalities applying via an agent (India, Pakistan, Bangladesh)</span>
+            </div>
+          </li>
+          <li>
+            <span class="req-bullet-check">✓</span>
+            <div class="req-bullet-content">
+              <span class="req-bullet-label">Inbound transfer booking</span>
+              <span class="req-bullet-note">Confirmed pickup from Jeddah or Madinah airport to your hotel in Makkah or Madinah, through a Nusuk-approved operator. Arrival leg only (not a return flight). Compulsory — visa cannot be issued without it</span>
+            </div>
+          </li>
         </ul>
       </div>
 
@@ -2813,7 +2884,7 @@
             <div class="guide-field"><label>Nusuk direct</label><span>Yes</span></div>
             <div class="guide-field"><label>Approx. cost</label><span><a href="#calculator" style="color:var(--hero);font-weight:600;text-decoration:underline;">Check costs →</a></span></div>
             <div class="guide-field"><label>Processing time</label><span>4–5 working days</span></div>
-            <div class="guide-field"><label>Special notes</label><span>Australian passport holders can apply directly on Nusuk without an agent. Both the Umrah eVisa and Saudi tourist eVisa are available. Proof of Muslim faith required.</span></div>
+            <div class="guide-field"><label>Special notes</label><span>Australian passport holders can apply directly on Nusuk without an agent. Both the Umrah eVisa and Saudi tourist eVisa are available. Proof of Muslim faith required for the Umrah visa. Visa on Arrival is also available at Saudi airports — iVisa does not offer this service; apply at the immigration counter on arrival.</span></div>
           </div>
           <div class="pro-tip"><strong>Pro tip:</strong> Book direct flights from Sydney or Melbourne to Jeddah or Madinah — fewer layovers means fewer complications with carry-on restrictions.</div>
         </div>
@@ -2857,7 +2928,7 @@
             <div class="guide-field"><label>Nusuk direct</label><span>Yes</span></div>
             <div class="guide-field"><label>Approx. cost</label><span><a href="#calculator" style="color:var(--hero);font-weight:600;text-decoration:underline;">Check costs →</a></span></div>
             <div class="guide-field"><label>Processing time</label><span>4–5 working days</span></div>
-            <div class="guide-field"><label>Special notes</label><span>Canadian passport holders can apply directly on Nusuk without an agent. Both the Umrah eVisa and Saudi tourist eVisa are available.</span></div>
+            <div class="guide-field"><label>Special notes</label><span>Canadian passport holders can apply directly on Nusuk without an agent. Both the Umrah eVisa and Saudi tourist eVisa are available. Visa on Arrival is also available at Saudi airports — iVisa does not offer this service; apply at the immigration counter on arrival.</span></div>
           </div>
           <div class="pro-tip"><strong>Pro tip:</strong> iVisa can handle your full application and send the eVisa by email — useful when traveling from remote parts of Canada.</div>
         </div>
@@ -2875,7 +2946,7 @@
             <div class="guide-field"><label>Nusuk direct</label><span>Yes</span></div>
             <div class="guide-field"><label>Approx. cost</label><span><a href="#calculator" style="color:var(--hero);font-weight:600;text-decoration:underline;">Check costs →</a></span></div>
             <div class="guide-field"><label>Processing time</label><span>4–5 working days (Umrah eVisa) / 24–48 hours (Tourist eVisa)</span></div>
-            <div class="guide-field"><label>Special notes</label><span>All 27 EU member state nationals can apply directly on Nusuk. Both the Umrah eVisa and Saudi tourist eVisa are available — each has different validity and travel flexibility.</span></div>
+            <div class="guide-field"><label>Special notes</label><span>All EU member state nationals can apply directly on Nusuk. Both the Umrah eVisa and Saudi tourist eVisa are available, each with different validity and travel flexibility. Visa on Arrival is also available at Saudi airports — iVisa does not offer this service; apply at the immigration counter on arrival.</span></div>
           </div>
           <div class="pro-tip"><strong>Pro tip:</strong> Nusuk defaults to English and Arabic — browser translation works well for other EU languages.</div>
         </div>
@@ -2900,7 +2971,7 @@
             <strong style="display:block;margin-bottom:6px;">Visiting Saudi Arabia without Umrah?</strong>
             Indian nationals are <strong>not eligible</strong> for the Saudi tourist eVisa self-apply portal. Options for a non-pilgrimage visit:
             <ul style="padding-left:18px;margin-top:8px;color:var(--muted);">
-              <li><strong>Visa on Arrival (VOA)</strong> — available at Saudi airports if you hold a valid US, UK, or Schengen visa (physical stamp/sticker, min. 3 months remaining validity). You must also have a confirmed return ticket. Note: some airlines require a pre-issued visa to board — confirm with your carrier before travel.</li>
+              <li><strong>Visa on Arrival (VOA)</strong> — available at Saudi airports if you hold a valid US, UK, or Schengen visa (physical stamp/sticker, min. 3 months remaining validity, must have been used at least once). You must also have a confirmed return ticket. Important: this route is only available when flying on a Saudi-based carrier (Saudia, Flynas, or Flyadeal) — other airlines may not allow boarding without a pre-issued visa. Confirm with your carrier before travel.</li>
               <li><strong>Saudi embassy/consulate visa</strong> — apply for a tourist or visit visa through the Saudi embassy in India. Processing times and requirements vary; a travel agent or sponsor in Saudi Arabia may be required.</li>
             </ul>
           </div>
@@ -2941,11 +3012,11 @@
         <div class="accordion-body">
           <div class="guide-grid">
             <div class="guide-field"><label>Eligibility</label><span>Eligible</span></div>
-            <div class="guide-field"><label>Visa type</label><span>Umrah eVisa (Nusuk direct)</span></div>
+            <div class="guide-field"><label>Visa type</label><span>Umrah eVisa or Tourist eVisa</span></div>
             <div class="guide-field"><label>Nusuk direct</label><span>Yes</span></div>
             <div class="guide-field"><label>Approx. cost</label><span><a href="#calculator" style="color:var(--hero);font-weight:600;text-decoration:underline;">Check costs →</a></span></div>
             <div class="guide-field"><label>Processing time</label><span>4–5 working days</span></div>
-            <div class="guide-field"><label>Special notes</label><span>Malaysia has a dedicated Tabung Haji system for Hajj. For Umrah, Nusuk direct is the fastest and most common route.</span></div>
+            <div class="guide-field"><label>Special notes</label><span>Malaysian passport holders can apply directly on Nusuk without an agent. Both the Umrah eVisa and Saudi tourist eVisa are available. Malaysia has a dedicated Tabung Haji system for Hajj. Visa on Arrival is also available at Saudi airports — iVisa does not offer this service; apply at the immigration counter on arrival.</span></div>
           </div>
           <div class="pro-tip"><strong>Pro tip:</strong> Malaysian pilgrims traveling during Ramadan should book Makkah hotels at least 3 months in advance — availability fills up very quickly during peak season.</div>
         </div>
@@ -3059,14 +3130,14 @@
         <div class="accordion-body">
           <div class="guide-grid">
             <div class="guide-field"><label>Eligibility</label><span>Eligible</span></div>
-            <div class="guide-field"><label>Visa type</label><span>Umrah eVisa or Tourist eVisa (via EVW*)</span></div>
+            <div class="guide-field"><label>Visa options</label><span>3 routes: Umrah eVisa (Nusuk direct), Tourist eVisa, or Electronic Visa Waiver (EVW)</span></div>
             <div class="guide-field"><label>Nusuk direct</label><span>Yes — for Umrah eVisa</span></div>
-            <div class="guide-field"><label>EVW validity</label><span>Single entry, up to 6 months</span></div>
-            <div class="guide-field"><label>Processing time</label><span>4–5 working days (Umrah) / 24–48h (Tourist eVisa)</span></div>
-            <div class="guide-field"><label>Special notes</label><span>All British passport holders are eligible. Umrah is permitted outside the Hajj blackout window on both the Umrah eVisa and the Tourist eVisa via EVW.</span></div>
+            <div class="guide-field"><label>EVW details</label><span>Single entry, up to 6 months, ~£45 (includes travel insurance). Apply 90 days to 48 hours before travel at the Saudi MOFA portal. Processing typically within 24 hours.</span></div>
+            <div class="guide-field"><label>Processing time</label><span>4–5 working days (Umrah eVisa) / 24–48h (Tourist eVisa)</span></div>
+            <div class="guide-field"><label>Special notes</label><span>All British passport holders are eligible for all three routes. Umrah is permitted on all three outside the Hajj blackout window. Visa on Arrival is also available at Saudi airports — iVisa does not offer this service; apply at the immigration counter on arrival.</span></div>
           </div>
           <div class="callout callout-blue" style="margin-top:14px;font-size:13px;">
-            <strong>* Electronic Visa Waiver (EVW):</strong> UK passport holders may enter Saudi Arabia using the EVW system for tourism and Umrah purposes. The EVW is a single-entry authorisation valid for stays up to 6 months. It is available to all British nationals and is separate from the standard tourist eVisa flow — apply at the Saudi visa portal or through iVisa.
+            <strong>Electronic Visa Waiver (EVW):</strong> A separate entry system for UK nationals — different from the standard tourist eVisa. Single entry, valid for stays up to 6 months, approximately £45 including travel insurance. Apply via the Saudi MOFA portal between 90 days and 48 hours before your departure. Umrah permitted outside Hajj season. iVisa does not process EVW applications.
           </div>
           <div class="pro-tip"><strong>Pro tip:</strong> UK-based South Asian pilgrims who hold a British passport can apply for either the Umrah eVisa directly on Nusuk or request the tourist eVisa via iVisa — both allow Umrah outside the Hajj season.</div>
         </div>
