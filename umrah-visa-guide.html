@@ -535,7 +535,7 @@
       margin-bottom: 8px;
     }
 
-    .result-flag { font-size: 28px; }
+    .result-flag { display: none; }
 
     .result-country-name {
       font-family: 'Manrope', sans-serif;
@@ -2571,9 +2571,9 @@
           <p>Your nationality determines whether you can apply directly on Nusuk or need a licensed travel agent.</p>
           <div class="elig-nationality-options">
             <button class="elig-nat-btn" onclick="setEligNat('direct')">🌍 US / UK / EU / AUS / NZ / Malaysia / Singapore / Turkey and 30+ others</button>
-            <button class="elig-nat-btn" onclick="setEligNat('agent')">🇮🇳 India / Pakistan / Bangladesh</button>
-            <button class="elig-nat-btn" onclick="setEligNat('gcc')">🇸🇦 GCC national (UAE, Kuwait, Bahrain, Oman, Qatar)</button>
-            <button class="elig-nat-btn" onclick="setEligNat('saudi')">🇸🇦 Saudi national</button>
+            <button class="elig-nat-btn" onclick="setEligNat('agent')">India / Pakistan / Bangladesh</button>
+            <button class="elig-nat-btn" onclick="setEligNat('gcc')">GCC national (UAE, Kuwait, Bahrain, Oman, Qatar)</button>
+            <button class="elig-nat-btn" onclick="setEligNat('saudi')">Saudi national</button>
             <button class="elig-nat-btn" onclick="setEligNat('other')">❓ My nationality isn't listed above</button>
           </div>
           <div class="elig-result elig-result-yes" id="elig-3-direct" style="display:none;">
@@ -2803,7 +2803,7 @@
 
       <div class="accordion-item" data-country="australia australian" data-hidden="true" style="display:none;">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-          🇦🇺 Australia
+          Australia
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
@@ -2821,7 +2821,7 @@
 
       <div class="accordion-item" data-country="bangladesh bangladeshi">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-          🇧🇩 Bangladesh
+          Bangladesh
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
@@ -2847,7 +2847,7 @@
 
       <div class="accordion-item" data-country="canada canadian" data-hidden="true" style="display:none;">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-          🇨🇦 Canada
+          Canada
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
@@ -2865,7 +2865,7 @@
 
       <div class="accordion-item" data-country="eu europe european germany france spain italy netherlands belgium poland greece" data-hidden="true" style="display:none;">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-          🇪🇺 European Union (Schengen)
+          European Union (Schengen)
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
@@ -2883,7 +2883,7 @@
 
       <div class="accordion-item" data-country="india indian">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-          🇮🇳 India
+          India
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
@@ -2909,7 +2909,7 @@
 
       <div class="accordion-item" data-country="indonesia indonesian">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-          🇮🇩 Indonesia
+          Indonesia
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
@@ -2935,7 +2935,7 @@
 
       <div class="accordion-item" data-country="malaysia malaysian" data-hidden="true" style="display:none;">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-          🇲🇾 Malaysia
+          Malaysia
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
@@ -2953,7 +2953,7 @@
 
       <div class="accordion-item" data-country="nigeria nigerian">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-          🇳🇬 Nigeria
+          Nigeria
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
@@ -2979,7 +2979,7 @@
 
       <div class="accordion-item" data-country="pakistan pakistani">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-          🇵🇰 Pakistan
+          Pakistan
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
@@ -3005,7 +3005,7 @@
 
       <div class="accordion-item" data-country="saudi expat expatriate resident iqama">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-          🇸🇦 Saudi Arabia Expats (Iqama holders)
+          Saudi Arabia Expats (Iqama holders)
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
@@ -3023,7 +3023,7 @@
 
       <div class="accordion-item" data-country="uae gcc dubai abu dhabi kuwait bahrain oman qatar gulf">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-          🇦🇪 UAE &amp; GCC Nationals (UAE, Kuwait, Bahrain, Oman, Qatar)
+          UAE &amp; GCC Nationals (UAE, Kuwait, Bahrain, Oman, Qatar)
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
@@ -3053,7 +3053,7 @@
 
       <div class="accordion-item" data-country="united kingdom british uk england wales scotland northern ireland" data-hidden="true" style="display:none;">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-          🇬🇧 United Kingdom
+          United Kingdom
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
